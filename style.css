@@ -1,0 +1,98 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior-y: none;
+}
+
+body {
+  background-color: white;
+  color: black;
+  font-family: Verdana;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+path {
+  padding: 5px;
+}
+.background-path {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 10px;
+}
+.same-planet-path {
+  stroke-dasharray: 4;
+}
+.foreground-path:hover, .background-path:hover + path, .path-highlight {
+  stroke-width: 2px;
+}
+
+.group-planet {
+  font-style: italic;
+}
+.font-highlight {
+  font-weight: bold;
+}
+.font-neighbor-highlight {
+  font-weight: 450;
+}
+
+#main-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: auto;
+  overscroll-behavior-y: none;
+}
+
+#zoom-slider {
+  position: absolute;
+  width: 25vw;
+  height: 5vh;
+  top: 10vh;
+  left: calc(100vw * 3/8);
+}
+
+#leyline-checkboxes {
+  position: absolute;
+  width: 100;
+  height: 100;
+  top: 15vh;
+  left: 5vh;
+}
+
+#additional-controls {
+  position: absolute;
+  width: 100;
+  height: 100;
+  bottom: calc(200px + 5vh);
+  left: 5vh;
+}
+
+#map {
+  position: absolute;
+  width: 100vw;
+  height: 90vh;
+  display: block;
+  overflow: hidden;
+  overscroll-behavior-y: none;
+}
+
+.interactive {
+  position: absolute;
+  overflow: hidden;
+  overscroll-behavior-y: none; 
+}
+
+.interactive text, .interactive span {
+  paint-order: stroke;
+}
+
+#neocities {
+  position: absolute;
+  width: 100px;
+  bottom: 0;
+  right: 0;
+}
