@@ -20,12 +20,22 @@ var leylines;
 $.ajax("planets.json", {
   dataType: "json",
   success: function (data) {
-    planets = data.planets;
+    planets = data;
     Object.keys(planets).forEach((name) => planets[name].name = name);
-    leylines = data.leylines;
     
-    setupUI();
-    main();
+    $.ajax("leylines.json", {
+      dataType: "json",
+      success: function (data) {
+        leylines = data;
+        
+        setupUI();
+        main();
+      },
+      error: function (xhr, status, err) {
+        alert("Failed to download leyline information!");
+        console.log(err);
+      }
+    });
   },
   error: function (xhr, status, err) {
     alert("Failed to download planet information!");
