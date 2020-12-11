@@ -1,422 +1,247 @@
 {
-  "planets": {
-    "aeldrum": {
-      "full_name": "Aeldrum",
-      "controller": "Aeldrum"
-    },
-    "ahlam": {
-      "full_name": "Ahlam",
-      "controller": "Alusian Frontier"
-    },
-    "antenil": {
-      "full_name": "Antenil",
-      "controller": "Aeldrum"
-    },
-    "bastions": {
-      "full_name": "Adarnum Bastions",
-      "controller": "Nippon States"
-    },
-    "bishant": {
-      "full_name": "Bishant",
-      "controller": "Shantine Empire"
-    },
-    "brumaire": {
-      "full_name": "Brumaire",
-      "controller": "Shantine Empire"
-    },
-    "calath": {
-      "full_name": "Calath",
-      "controller": "Aeldrum"
-    },
-    "carral": {
-      "full_name": "Carral",
-      "controller": "Alusian Frontier"
-    },
-    "chelonia": {
-      "full_name": "Chelonia",
-      "controller": "Aeldrum"
-    },
-    "crosslanes": {
-      "full_name": "The Crosslanes"
-    },
-    "del_mar": {
-      "full_name": "Del'Mar",
-      "controller": "Empire of Alusia"
-    },
-    "dwarf_clans": {
-      "full_name": "Dwarf Clans"
-    },
-    "enclave_outlet1": {
-      "full_name": "Enclave Outlet",
-      "controller": "Enclave Protectorates"
-    },
-    "enclave_outlet2": {
-      "full_name": "Enclave Outlet",
-      "controller": "Enclave Protectorates"
-    },
-    "enclave_outlet3": {
-      "full_name": "Enclave Outlet",
-      "controller": "Enclave Protectorates"
-    },
-    "enclave_outlet4": {
-      "full_name": "Enclave Outlet",
-      "controller": "Enclave Protectorates"
-    },
-    "firhbank": {
-      "full_name": "Firhbank",
-      "controller": "Empire of Alusia"
-    },
-    "genova": {
-      "full_name": "Genova",
-      "controller": "Shantine Protectorates"
-    },
-    "gnoll": {
-      "full_name": "Gnoll",
-      "controller": "Empire of Alusia"
-    },
-    "grantworlds": {
-      "full_name": "Kirvan Grantworlds",
-      "group": true
-    },
-    "gul_dan": {
-      "full_name": "Gul'Dan",
-      "controller": "Fialta Free States"
-    },
-    "harwel": {
-      "full_name": "Harwel",
-      "controller": "Aeldrum"
-    },
-    "highvedlt": {
-      "full_name": "Highvedlt",
-      "controller": "Shantine Empire"
-    },
-    "hilland": {
-      "full_name": "Hilland",
-      "controller": "Empire of Alusia"
-    },
-    "hybern": {
-      "full_name": "Hybern",
-      "controller": "Fialt"
-    },
-    "iberia": {
-      "full_name": "Iberia",
-      "controller": "Shantine Protectorates"
-    },
-    "ireland": {
-      "full_name": "Republic of Ireland",
-      "controller": "League of Free Republics"
-    },
-    "konira": {
-      "full_name": "Konira",
-      "controller": "Fialta Free States"
-    },
-    "korinth": {
-      "full_name": "Korinth",
-      "controller": "Shantine Empire"
-    },
-    "lechtus": {
-      "full_name": "Lectus",
-      "controller": "Empire of Alusia"
-    },
-    "lidenia": {
-      "full_name": "Lidenia",
-      "controller": "Aeldrum"
-    },
-    "mexico": {
-      "full_name": "Gran Mexico",
-      "controller": "Empire of Alusia"
-    },
-    "marivan": {
-      "full_name": "Marivan",
-      "controller": "Fialt"
-    },
-    "messidor": {
-      "full_name": "Messidor",
-      "controller": "Saldanese Exclusion Zone"
-    },
-    "milgar": {
-      "full_name": "Milgar",
-      "controller": "Fialta Free States"
-    },
-    "mir_thalran": {
-      "full_name": "Mir'Thalran",
-      "controller": "Thalranese Marches"
-    },
-    "nippon_gates": {
-      "full_name": "Nippon Gates",
-      "controller": "Nippon States"
-    },
-    "nss_exclusion_zone": {
-      "full_name": "NSS Exclusion Zone (Impassible)",
-      "controller": "Deutschreich"
-    },
-    "paravel": {
-      "full_name": "Paravel",
-      "controller": "Aeldrum"
-    },
-    "percel": {
-      "full_name": "Percel",
-      "controller": "Aeldrum"
-    },
-    "pin_jump": {
-      "full_name": "Pin Jump",
-      "controller": "Aeldrum"
-    },
-    "reilla": {
-      "full_name": "Percel",
-      "controller": "Empire of Alusia"
-    },
-    "saldan": {
-      "full_name": "Saldan",
-      "controller": "Saldanese Exclusion Zone"
-    },
-    "savage": {
-      "full_name": "Savage Worlds",
-      "group": true
-    },
-    "semal": {
-      "full_name": "Semal",
-      "controller": "Aeldrum"
-    },
-    "sevalne": {
-      "full_name": "Sevalne",
-      "controller": "Republic of Sermaye"
-    },
-    "shantaran_free_state": {
-      "full_name": "Shantaran Free State",
-      "controller": "Fialta Free States"
-    },
-    "sidenia": {
-      "full_name": "Sidenia",
-      "controller": "Fialt"
-    },
-    "sierna": {
-      "full_name": "Sierna",
-      "controller": "Empire of Alusia"
-    },
-    "sivella": {
-      "full_name": "Sivella",
-      "controller": "Aeldrum"
-    },
-    "sveiss": {
-      "full_name": "Sveiss",
-      "controller": "Shantine Protectorates"
-    },
-    "switzreich": {
-      "full_name": "Switzreich",
-      "controller": "Deutschreich"
-    },
-    "tar_thalran": {
-      "full_name": "Tar'Thalran",
-      "controller": "Thalranese Marches"
-    },
-    "telrion": {
-      "full_name": "Telrion",
-      "controller": "Aeldrum"
-    },
-    "trade_league": {
-      "full_name": "Sermayan Trade League",
-      "controller": "Republic of Sermaye"
-    },
-    "videna": {
-      "full_name": "Videna",
-      "controller": "Empire of Alusia"
-    },
-    "villenta": {
-      "full_name": "Villenta",
-      "controller": "Aeldrum"
-    },
-    "witch_haven": {
-      "full_name": "Witch Haven"
-    },
-    "zanevuela": {
-      "full_name": "Zanevuela",
-      "controller": "Fialt"
-    },
-    "zemlya": {
-      "full_name": "Zemlya",
-      "controller": "Empire of Alusia"
-    },
-    "zu_un": {
-      "full_name": "Zu'un",
-      "controller": "Fialt"
-    }
+  "aeldrum": {
+    "full_name": "Aeldrum",
+    "controller": "Aeldrum"
   },
-  "leylines": {
-    "1": {
-      "aeldman_name": "Aeldrum",
-      "mage_imperium_name": "Aeldrum",
-      "color": "red",
-      "darker_color": "darkred",
-      "planets": [
-        { "name": "aeldrum", "distance": 2 },
-        { "name": "calath", "distance": 5 },
-        { "name": "percel", "distance": 15 },
-        { "name": "ireland", "distance": 4 },
-        { "name": "chelonia", "distance": 5 },
-        { "name": "sivella", "distance": 1 },
-        { "name": "lidenia", "distance": 3 },
-        { "name": "antenil", "distance": 0 },
-        { "name": "paravel", "distance": 1 }
-      ]
-    },
-    "2": {
-      "aeldman_name": "Struthil",
-      "mage_imperium_name": "",
-      "color": "cornflowerblue",
-      "darker_color": "darkslateblue",
-      "planets": [
-        { "name": "aeldrum", "distance": 10 },
-        { "name": "brumaire", "distance": 2 },
-        { "name": "highvedlt", "distance": 2 },
-        { "name": "savage", "distance": 2 },
-        { "name": "grantworlds", "distance": 14 },
-        { "name": "bishant", "distance": 23 }
-      ]
-    },
-    "3": {
-      "aeldman_name": "Orim",
-      "mage_imperium_name": "",
-      "color": "goldenrod",
-      "darker_color": "peru",
-      "planets": [
-        { "name": "telrion", "distance": 15 },
-        { "name": "aeldrum", "distance": 3 },
-        { "name": "calath", "distance": 3 },
-        { "name": "enclave_outlet1", "distance": 4 },
-        { "name": "hilland", "distance": 2 },
-        { "name": "sierna", "distance": 8 },
-        { "name": "bishant", "distance": 3 },
-        { "name": "genova", "distance": 0 },
-        { "name": "sveiss", "distance": 1 },
-        { "name": "iberia", "distance": 0 },
-        { "name": "mexico", "distance": 7 },
-        { "name": "nippon_gates", "distance": 0 },
-        { "name": "bastions", "distance": 5 },
-        { "name": "brumaire", "distance": 2 },
-        { "name": "dwarf_clans", "distance": 7 }
-      ]
-    },
-    "4": {
-      "aeldman_name": "Galthad",
-      "mage_imperium_name": "",
-      "color": "green",
-      "darker_color": "darkgreen",
-      "planets": [
-        { "name": "witch_haven", "distance": 5 },
-        { "name": "enclave_outlet2", "distance": 9 },
-        { "name": "lidenia", "distance": 2 },
-        { "name": "aeldrum", "distance": 6 },
-        { "name": "chelonia", "distance": "?" },
-        { "name": "crosslanes", "distance": 4 },
-        { "name": "trade_league", "distance": 5 },
-        { "name": "sevalne", "distance": 4 },
-        { "name": "lechtus", "distance": 2 },
-        { "name": "reilla", "distance": 4 },
-        { "name": "zemlya", "distance": 1 },
-        { "name": "mexico", "distance": 2 },
-        { "name": "videna", "distance": 0 },
-        { "name": "carral", "distance": 7 },
-        { "name": "dwarf_clans", "distance": 2 },
-        { "name": "enclave_outlet3", "distance": 6 }
-      ]
-    },
-    "5": {
-      "aeldman_name": "Shantine",
-      "mage_imperium_name": "Petrine",
-      "color": "royalblue",
-      "darker_color": "darkblue",
-      "planets": [
-        { "name": "savage", "distance": 8 },
-        { "name": "crosslanes", "distance": 6 },
-        { "name": "aeldrum", "distance": 2 },
-        { "name": "brumaire", "distance": 4 },
-        { "name": "bishant", "distance": 11 },
-        { "name": "telrion", "distance": 5 },
-        { "name": "korinth", "distance": 9 },
-        { "name": "bishant", "distance": 7 },
-        { "name": "ahlam", "distance": 3 },
-        { "name": "lechtus", "distance": 7 },
-        { "name": "reilla", "distance": 6 }
-      ]
-    },
-    "6": {
-      "aeldman_name": "Estonne",
-      "mage_imperium_name": "",
-      "color": "plum",
-      "darker_color": "rebeccapurple",
-      "planets": [
-        { "name": "shantaran_free_state", "distance": 2 },
-        { "name": "firhbank", "distance": 4 },
-        { "name": "ahlam", "distance": 4 },
-        { "name": "calath", "distance": 6 },
-        { "name": "harwel", "distance": 2 },
-        { "name": "aeldrum", "distance": 2 },
-        { "name": "villenta", "distance": 5 },
-        { "name": "switzreich", "distance": 5 },
-        { "name": "sierna", "distance": 3 },
-        { "name": "reilla", "distance": 2 },
-        { "name": "gnoll", "distance": 1 },
-        { "name": "del_mar", "distance": 3 },
-        { "name": "korinth", "distance": 1 },
-        { "name": "konira", "distance": 2 },
-        { "name": "zanevuela", "distance": 3 },
-        { "name": "gul_dan", "distance": 1 },
-        { "name": "milgar", "distance": 4 },
-        { "name": "hybern", "distance": 1 },
-        { "name": "zu_un", "distance": 1 },
-        { "name": "hybern", "distance": 0 },
-        { "name": "sidenia", "distance": 2 }
-      ]
-    },
-    "7": {
-      "aeldman_name": "Fialta",
-      "mage_imperium_name": "Hybern",
-      "color": "blueviolet",
-      "darker_color": "darkmagenta",
-      "planets": [
-        { "name": "tar_thalran", "distance": 22 },
-        { "name": "hybern", "distance": 3 },
-        { "name": "del_mar", "distance": 8 },
-        { "name": "zanevuela", "distance": 2 },
-        { "name": "marivan", "distance": 1 },
-        { "name": "korinth", "distance": 12 },
-        { "name": "marivan", "distance": 3 },
-        { "name": "semal", "distance": 8 },
-        { "name": "firhbank", "distance": 4 }
-      ]
-    },
-    "8": {
-      "aeldman_name": "Allegheny",
-      "mage_imperium_name": "",
-      "color": "lightskyblue",
-      "darker_color": "deepskyblue",
-      "planets": [
-        { "name": "nippon_gates", "distance": 4 },
-        { "name": "mir_thalran", "distance": 0 },
-        { "name": "tar_thalran", "distance": 18 },
-        { "name": "harwel", "distance": 10 },
-        { "name": "pin_jump", "distance": 9 },
-        { "name": "semal", "distance": 2 },
-        { "name": "mir_thalran", "distance": 5 },
-        { "name": "saldan", "distance": 0 },
-        { "name": "messidor", "distance": 6 }
-      ]
-    },
-    "9": {
-      "aeldman_name": "Neveth",
-      "mage_imperium_name": "",
-      "color": "mediumaquamarine",
-      "darker_color": "darkseagreen",
-      "planets": [
-        { "name": "saldan", "distance": 3 },
-        { "name": "dwarf_clans", "distance": 5 },
-        { "name": "nss_exclusion_zone", "distance": 10 },
-        { "name": "aeldrum", "distance": 11 },
-        { "name": "sevalne", "distance": 5 },
-        { "name": "saldan", "distance": 8 },
-        { "name": "bishant", "distance": 16 }
-      ]
-    }
+  "ahlam": {
+    "full_name": "Ahlam",
+    "controller": "Alusian Frontier"
+  },
+  "antenil": {
+    "full_name": "Antenil",
+    "controller": "Aeldrum"
+  },
+  "bastions": {
+    "full_name": "Adarnum Bastions",
+    "controller": "Nippon States"
+  },
+  "bishant": {
+    "full_name": "Bishant",
+    "controller": "Shantine Empire"
+  },
+  "brumaire": {
+    "full_name": "Brumaire",
+    "controller": "Shantine Empire"
+  },
+  "calath": {
+    "full_name": "Calath",
+    "controller": "Aeldrum"
+  },
+  "carral": {
+    "full_name": "Carral",
+    "controller": "Alusian Frontier"
+  },
+  "chelonia": {
+    "full_name": "Chelonia",
+    "controller": "Aeldrum"
+  },
+  "crosslanes": {
+    "full_name": "The Crosslanes"
+  },
+  "del_mar": {
+    "full_name": "Del'Mar",
+    "controller": "Empire of Alusia"
+  },
+  "dwarf_clans": {
+    "full_name": "Dwarf Clans"
+  },
+  "enclave_outlet1": {
+    "full_name": "Enclave Outlet",
+    "controller": "Enclave Protectorates"
+  },
+  "enclave_outlet2": {
+    "full_name": "Enclave Outlet",
+    "controller": "Enclave Protectorates"
+  },
+  "enclave_outlet3": {
+    "full_name": "Enclave Outlet",
+    "controller": "Enclave Protectorates"
+  },
+  "enclave_outlet4": {
+    "full_name": "Enclave Outlet",
+    "controller": "Enclave Protectorates"
+  },
+  "fialt": {
+    "full_name": "Fialt",
+    "controller": "Fialta Imperium"
+  },
+  "firhbank": {
+    "full_name": "Firhbank",
+    "controller": "Empire of Alusia"
+  },
+  "genova": {
+    "full_name": "Genova",
+    "controller": "Shantine Protectorates"
+  },
+  "gnoll": {
+    "full_name": "Gnoll",
+    "controller": "Empire of Alusia"
+  },
+  "grantworlds": {
+    "full_name": "Kirvan Grantworlds",
+    "group": true
+  },
+  "gul_dan": {
+    "full_name": "Gul'Dan",
+    "controller": "Fialta Free States"
+  },
+  "harwel": {
+    "full_name": "Harwel",
+    "controller": "Aeldrum"
+  },
+  "highvedlt": {
+    "full_name": "Highvedlt",
+    "controller": "Shantine Empire"
+  },
+  "hilland": {
+    "full_name": "Hilland",
+    "controller": "Empire of Alusia"
+  },
+  "hybern": {
+    "full_name": "Hybern",
+    "controller": "Fialta Imperium"
+  },
+  "iberia": {
+    "full_name": "Iberia",
+    "controller": "Shantine Protectorates"
+  },
+  "ireland": {
+    "full_name": "Republic of Ireland",
+    "controller": "League of Free Republics"
+  },
+  "konira": {
+    "full_name": "Konira",
+    "controller": "Fialta Free States"
+  },
+  "korinth": {
+    "full_name": "Korinth",
+    "controller": "Shantine Empire"
+  },
+  "lechtus": {
+    "full_name": "Lectus",
+    "controller": "Empire of Alusia"
+  },
+  "lidenia": {
+    "full_name": "Lidenia",
+    "controller": "Aeldrum"
+  },
+  "mexico": {
+    "full_name": "Gran Mexico",
+    "controller": "Empire of Alusia"
+  },
+  "marivan": {
+    "full_name": "Marivan",
+    "controller": "Fialta Imperium"
+  },
+  "messidor": {
+    "full_name": "Messidor",
+    "controller": "Saldanese Exclusion Zone"
+  },
+  "milgar": {
+    "full_name": "Milgar",
+    "controller": "Fialta Free States"
+  },
+  "mir_thalran": {
+    "full_name": "Mir'Thalran",
+    "controller": "Thalranese Marches"
+  },
+  "nippon_gates": {
+    "full_name": "Nippon Gates",
+    "controller": "Nippon States"
+  },
+  "nss_exclusion_zone": {
+    "full_name": "NSS Exclusion Zone (Impassible)",
+    "controller": "Deutschreich"
+  },
+  "paravel": {
+    "full_name": "Paravel",
+    "controller": "Aeldrum"
+  },
+  "percel": {
+    "full_name": "Percel",
+    "controller": "Aeldrum"
+  },
+  "pin_jump": {
+    "full_name": "Pin Jump",
+    "controller": "Aeldrum"
+  },
+  "reilla": {
+    "full_name": "Percel",
+    "controller": "Empire of Alusia"
+  },
+  "saldan": {
+    "full_name": "Saldan",
+    "controller": "Saldanese Exclusion Zone"
+  },
+  "savage": {
+    "full_name": "Savage Worlds",
+    "group": true
+  },
+  "semal": {
+    "full_name": "Semal",
+    "controller": "Aeldrum"
+  },
+  "sevalne": {
+    "full_name": "Sevalne",
+    "controller": "Republic of Sermaye"
+  },
+  "shantaran_free_state": {
+    "full_name": "Shantaran Free State",
+    "controller": "Fialta Free States"
+  },
+  "sidenia": {
+    "full_name": "Sidenia",
+    "controller": "Fialta Imperium"
+  },
+  "sierna": {
+    "full_name": "Sierna",
+    "controller": "Empire of Alusia"
+  },
+  "sivella": {
+    "full_name": "Sivella",
+    "controller": "Aeldrum"
+  },
+  "sveiss": {
+    "full_name": "Sveiss",
+    "controller": "Shantine Protectorates"
+  },
+  "switzreich": {
+    "full_name": "Switzreich",
+    "controller": "Deutschreich"
+  },
+  "tar_thalran": {
+    "full_name": "Tar'Thalran",
+    "controller": "Thalranese Marches"
+  },
+  "telrion": {
+    "full_name": "Telrion",
+    "controller": "Aeldrum"
+  },
+  "trade_league": {
+    "full_name": "Sermayan Trade League",
+    "controller": "Republic of Sermaye"
+  },
+  "videna": {
+    "full_name": "Videna",
+    "controller": "Empire of Alusia"
+  },
+  "villenta": {
+    "full_name": "Villenta",
+    "controller": "Aeldrum"
+  },
+  "witch_haven": {
+    "full_name": "Witch Haven"
+  },
+  "zanevuela": {
+    "full_name": "Zanevuela",
+    "controller": "Fialta Imperium"
+  },
+  "zemlya": {
+    "full_name": "Zemlya",
+    "controller": "Empire of Alusia"
+  },
+  "zu_un": {
+    "full_name": "Zu'un",
+    "controller": "Fialta Imperium"
   }
 }
