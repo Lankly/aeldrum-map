@@ -480,11 +480,15 @@ function main (focusPlanet) {
         let neighbor_labels = $(`text.neighbor-${ planetData.name }`);
         neighbor_labels.addClass("font-neighbor-highlight");
         
+        let hover_planet_label = $(planet_text.root);
+        
         let text_dom_group = planet_labels.parent();
         planet_labels.detach();
         neighbor_labels.detach();
+        hover_planet_label.detach();
         text_dom_group.append(planet_labels);
         text_dom_group.append(neighbor_labels);
+        text_dom_group.append(hover_planet_label);
       });
       $(planet_point.root).mouseleave(() => {
         $(`g.${ planetData.name }`).removeClass("path-highlight");
@@ -1101,7 +1105,4 @@ function getAngle(reference, control) {
   }
   
   return (360 - (angle * 180 / Math.PI)).toFixed(1);
-}
-
-function resetToPoint () {
 }
