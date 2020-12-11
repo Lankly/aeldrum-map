@@ -1,0 +1,177 @@
+{
+  "1": {
+    "aeldman_name": "Aeldrum",
+    "mage_imperium_name": "Aeldrum",
+    "color": "red",
+    "darker_color": "darkred",
+    "planets": [
+      { "name": "aeldrum", "distance": 2 },
+      { "name": "calath", "distance": 5 },
+      { "name": "percel", "distance": 15 },
+      { "name": "ireland", "distance": 4 },
+      { "name": "chelonia", "distance": 5 },
+      { "name": "sivella", "distance": 1 },
+      { "name": "lidenia", "distance": 3 },
+      { "name": "antenil", "distance": 0 },
+      { "name": "paravel", "distance": 1 }
+    ]
+  },
+  "2": {
+    "aeldman_name": "Struthil",
+    "mage_imperium_name": "",
+    "color": "cornflowerblue",
+    "darker_color": "darkslateblue",
+    "planets": [
+      { "name": "aeldrum", "distance": 10 },
+      { "name": "brumaire", "distance": 2 },
+      { "name": "highvedlt", "distance": 2 },
+      { "name": "savage", "distance": 2 },
+      { "name": "grantworlds", "distance": 14 },
+      { "name": "bishant", "distance": 23 }
+    ]
+  },
+  "3": {
+    "aeldman_name": "Orim",
+    "mage_imperium_name": "",
+    "color": "goldenrod",
+    "darker_color": "peru",
+    "planets": [
+      { "name": "telrion", "distance": 15 },
+      { "name": "aeldrum", "distance": 3 },
+      { "name": "calath", "distance": 3 },
+      { "name": "enclave_outlet1", "distance": 4 },
+      { "name": "hilland", "distance": 2 },
+      { "name": "sierna", "distance": 8 },
+      { "name": "bishant", "distance": 3 },
+      { "name": "genova", "distance": 0 },
+      { "name": "sveiss", "distance": 1 },
+      { "name": "iberia", "distance": 0 },
+      { "name": "mexico", "distance": 7 },
+      { "name": "nippon_gates", "distance": 0 },
+      { "name": "bastions", "distance": 5 },
+      { "name": "brumaire", "distance": 2 },
+      { "name": "dwarf_clans", "distance": 7 }
+    ]
+  },
+  "4": {
+    "aeldman_name": "Galthad",
+    "mage_imperium_name": "",
+    "color": "green",
+    "darker_color": "darkgreen",
+    "planets": [
+      { "name": "witch_haven", "distance": 5 },
+      { "name": "enclave_outlet2", "distance": 9 },
+      { "name": "lidenia", "distance": 2 },
+      { "name": "aeldrum", "distance": 6 },
+      { "name": "chelonia", "distance": "?" },
+      { "name": "crosslanes", "distance": 4 },
+      { "name": "trade_league", "distance": 5 },
+      { "name": "sevalne", "distance": 4 },
+      { "name": "lechtus", "distance": 2 },
+      { "name": "reilla", "distance": 4 },
+      { "name": "zemlya", "distance": 3 },
+      { "name": "videna", "distance": 0 },
+      { "name": "carral", "distance": 7 },
+      { "name": "dwarf_clans", "distance": 2 },
+      { "name": "enclave_outlet3", "distance": 6 }
+    ]
+  },
+  "5": {
+    "aeldman_name": "Shantine",
+    "mage_imperium_name": "Petrine",
+    "color": "royalblue",
+    "darker_color": "darkblue",
+    "planets": [
+      { "name": "savage", "distance": 8 },
+      { "name": "crosslanes", "distance": 6 },
+      { "name": "aeldrum", "distance": 2 },
+      { "name": "brumaire", "distance": 4 },
+      { "name": "bishant", "distance": 11 },
+      { "name": "telrion", "distance": 5 },
+      { "name": "korinth", "distance": 9 },
+      { "name": "bishant", "distance": 7 },
+      { "name": "ahlam", "distance": 3 },
+      { "name": "lechtus", "distance": 7 },
+      { "name": "reilla", "distance": 6 }
+    ]
+  },
+  "6": {
+    "aeldman_name": "Estonne",
+    "mage_imperium_name": "",
+    "color": "plum",
+    "darker_color": "rebeccapurple",
+    "planets": [
+      { "name": "shantaran_free_state", "distance": 2 },
+      { "name": "firhbank", "distance": 4 },
+      { "name": "ahlam", "distance": 4 },
+      { "name": "calath", "distance": 6 },
+      { "name": "harwel", "distance": 2 },
+      { "name": "aeldrum", "distance": 2 },
+      { "name": "villenta", "distance": 5 },
+      { "name": "switzreich", "distance": 5 },
+      { "name": "sierna", "distance": 3 },
+      { "name": "reilla", "distance": 2 },
+      { "name": "gnoll", "distance": 1 },
+      { "name": "del_mar", "distance": 3 },
+      { "name": "korinth", "distance": 1 },
+      { "name": "konira", "distance": 2 },
+      { "name": "zanevuela", "distance": 3 },
+      { "name": "gul_dan", "distance": 1 },
+      { "name": "milgar", "distance": 4 },
+      { "name": "hybern", "distance": 1 },
+      { "name": "zu_un", "distance": 1 },
+      { "name": "hybern", "distance": 0 },
+      { "name": "sidenia", "distance": 2 }
+    ]
+  },
+  "7": {
+    "aeldman_name": "Fialta",
+    "mage_imperium_name": "Hybern",
+    "color": "blueviolet",
+    "darker_color": "darkmagenta",
+    "planets": [
+      { "name": "tar_thalran", "distance": 22 },
+      { "name": "hybern", "distance": 3 },
+      { "name": "del_mar", "distance": 8 },
+      { "name": "zanevuela", "distance": 2 },
+      { "name": "marivan", "distance": 1 },
+      { "name": "korinth", "distance": 9 },
+      { "name": "fialt", "distance": 3 },
+      { "name": "marivan", "distance": 3 },
+      { "name": "semal", "distance": 8 },
+      { "name": "firhbank", "distance": 4 }
+    ]
+  },
+  "8": {
+    "aeldman_name": "Allegheny",
+    "mage_imperium_name": "",
+    "color": "lightskyblue",
+    "darker_color": "deepskyblue",
+    "planets": [
+      { "name": "nippon_gates", "distance": 4 },
+      { "name": "mir_thalran", "distance": 0 },
+      { "name": "tar_thalran", "distance": 18 },
+      { "name": "harwel", "distance": 10 },
+      { "name": "pin_jump", "distance": 9 },
+      { "name": "semal", "distance": 2 },
+      { "name": "mir_thalran", "distance": 5 },
+      { "name": "saldan", "distance": 0 },
+      { "name": "messidor", "distance": 6 }
+    ]
+  },
+  "9": {
+    "aeldman_name": "Neveth",
+    "mage_imperium_name": "",
+    "color": "mediumaquamarine",
+    "darker_color": "darkseagreen",
+    "planets": [
+      { "name": "saldan", "distance": 3 },
+      { "name": "dwarf_clans", "distance": 5 },
+      { "name": "nss_exclusion_zone", "distance": 10 },
+      { "name": "aeldrum", "distance": 11 },
+      { "name": "sevalne", "distance": 5 },
+      { "name": "saldan", "distance": 8 },
+      { "name": "bishant", "distance": 16 }
+    ]
+  }
+}
