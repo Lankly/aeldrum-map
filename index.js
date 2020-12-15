@@ -10,9 +10,10 @@ const height = window.innerHeight * .9;
 
 var flags = { 
   generateInscribed: true, 
-  multigateOnly: false, 
+  multigateOnly: false,
   samePlanetPaths: false,
-  hideDuplicatesOnLeyline: true
+  samePlanetPathsOnHover: true,
+  hideDuplicatesOnLeyline: false
 }
 
 var planets;
@@ -483,7 +484,10 @@ function main (focusPlanet) {
         
       // Hover behavior
       $(planet_point.root).mouseenter(() => {
-        $(`g.${planetData.name}`).addClass("path-highlight");
+        if (flags.samePlanetPaths || flags.samePlanetPathsOnHover) {
+          $(`g.${planetData.name}`).addClass("path-highlight");
+        }
+        
         let planet_labels = $(`text.${ planetData.name }`);
         planet_labels.addClass("font-highlight");
         
@@ -857,7 +861,8 @@ function setupUI () {
   function generateAdditionalControls () {
     const width = 210,
       height = 200, // This should match one of the values in the CSS for this interactive
-      padding = 30;
+      padding = 30,
+      distance_between = 38;
     
     const additionalInteractive = new Interactive("additional-controls", {
       width: width,
@@ -870,14 +875,17 @@ function setupUI () {
     let background = additionalInteractive.rectangle(0, 0, width, height);
     background.fill = "white";
     
-    let inscribable = additionalInteractive.checkBox(padding, padding, "Generate inscribed", flags.generateInscribed);
+    let flag_index = 0;
+    
+    let inscribable = additionalInteractive.checkBox(padding, padding + distance_between * flag_index, "Generate inscribed", flags.generateInscribed);
     inscribable.onchange = () => {
       flags.generateInscribed = inscribable.value;
       clearAll();
       reset();
     }
+    ++flag_index;
     
-    let multigateOnly = additionalInteractive.checkBox(padding, padding + 38, "Multigate only", flags.multigateOnly);
+    let multigateOnly = additionalInteractive.checkBox(padding, padding + distance_between * flag_index, "Multigate only", flags.multigateOnly);
     let multigateOnlySavedData = {};
     multigateOnly.onchange = () => {
       flags.multigateOnly = multigateOnly.value;
@@ -913,8 +921,9 @@ function setupUI () {
       
       reset();
     }
+    ++flag_index;
     
-    let same_planet_paths = additionalInteractive.checkBox(padding, padding + 76, "Same planet paths", flags.samePlanetPaths);
+    let same_planet_paths = additionalInteractive.checkBox(padding, padding + distance_between  * flag_index, "Show all paths", flags.samePlanetPaths);
     let rule_index = 0;
     same_planet_paths.onchange = () => {
       const rule = ".same-planet-path { display: none; }";
@@ -928,14 +937,22 @@ function setupUI () {
       }
     }
     same_planet_paths.onchange();
+    flag_index += 0.75;
     
-    let no_duplicates = additionalInteractive.checkBox(padding, padding + 38 * 3, "Allow inner loops", flags.hideDuplicatesOnLeyline);
+    let same_planet_paths_on_hover = additionalInteractive.checkBox(padding * 2, padding + distance_between * flag_index, "On hover", flags.samePlanetPathsOnHover);
+    same_planet_paths_on_hover.onchange = () => {
+      flags.samePlanetPathsOnHover = same_planet_paths_on_hover.value;
+    };
+    flag_index += 0.9;
+    
+    let no_duplicates = additionalInteractive.checkBox(padding, padding + distance_between * flag_index, "Allow inner loops", flags.hideDuplicatesOnLeyline);
     no_duplicates.onchange = () => {
       flags.hideDuplicatesOnLeyline = no_duplicates.value;
       
       clearAll();
       reset();
     };
+    ++flag_index;
     
     [inscribable, multigateOnly, same_planet_paths, no_duplicates].forEach((checkbox) => {
       $(checkbox.label.root).click(() => { checkbox.toggle(); });
