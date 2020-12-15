@@ -505,9 +505,10 @@ function main (focusPlanet) {
     leyline.planets.forEach((planet, i) => {      
       const previous_planet_name = leyline.planets[((i > 0 ? i : total) - 1) % total].name;
       const next_planet_name = leyline.planets[(i + 1) % total].name;
+      
       const planet_text = $(`.${leyline.aeldman_name}.${planet.name}`);
       planet_text.addClass(`neighbor-${ previous_planet_name }`);
-      $(planet_text.root).addClass(`neighbor-${ next_planet_name }`);
+      planet_text.addClass(`neighbor-${ next_planet_name }`);
     });
     
     // Add the arcs between each planet individually
