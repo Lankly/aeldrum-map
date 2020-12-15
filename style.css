@@ -55,6 +55,10 @@ path {
   top: 10vh;
   left: calc(100vw * 3/8);
 }
+#zoom-slider > svg {
+  background: rgb(256, 256, 256, .5);
+  border-radius: 2em;
+}
 
 #leyline-checkboxes {
   position: absolute;
