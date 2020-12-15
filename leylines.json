@@ -14,6 +14,11 @@
       { "name": "lidenia", "distance": 3 },
       { "name": "antenil", "distance": 0 },
       { "name": "paravel", "distance": 1 }
+    ],
+    "controllers": [
+      { "controller": "Serene Duchy of Aeldrum", "length": 21 },
+      { "controller": "League of Free Republics", "length": 4 },
+      { "controller": "Serene Duchy of Aeldrum", "length": 11 }
     ]
   },
   "2": {
@@ -28,6 +33,14 @@
       { "name": "savage", "distance": 2 },
       { "name": "grantworlds", "distance": 14 },
       { "name": "bishant", "distance": 23 }
+    ],
+    "controllers": [
+      {"controller": "Serene Duchy of Aeldrum", "length": 8 },
+      {"controller": "Shantine Empire", "length": 5 },
+      {"controller": "Independent Worlds", "length": 8 },
+      {"controller": "Shantine Protectorates", "length": 8 },
+      {"controller": "Shantine Empire", "length": 18 },
+      {"controller": "Serene Duchy of Aeldrum", "length": 10 }
     ]
   },
   "3": {
@@ -51,6 +64,19 @@
       { "name": "bastions", "distance": 5 },
       { "name": "brumaire", "distance": 2 },
       { "name": "dwarf_clans", "distance": 7 }
+    ],
+    "controllers": [
+      { "controller": "Serene Duchy of Aeldrum", "length": 20 },
+      { "controller": "Enclave Protectorates", "length": 4 },
+      { "controller": "Despotate of Alusia", "length": 9 },
+      { "controller": "Shantine Empire", "length": 5 },
+      { "controller": "Shantine Protectorates", "length": 7 },
+      { "controller": "Knights of Adarnum", "length": 1 },
+      { "controller": "Nippon States", "length": 1 },
+      { "controller": "Knights of Adarnum", "length": 1 },
+      { "controller": "Shantine Empire", "length": 5 },
+      { "controller": "Independent Worlds", "length": 4 },
+      { "controller": "Serene Duchy of Aeldrum", "length": 3 }
     ]
   },
   "4": {
@@ -74,6 +100,21 @@
       { "name": "carral", "distance": 7 },
       { "name": "dwarf_clans", "distance": 2 },
       { "name": "enclave_outlet3", "distance": 6 }
+    ],
+    "controllers": [
+      { "name": "Independent Worlds", "length": 2 },
+      { "name": "Enclave Protectorates", "length": 5 },
+      { "name": "Independent Worlds", "length": 5 },
+      { "name": "Serene Duchy of Aeldrum", "length": 30 },
+      { "name": "Unexplored", "length": "?" },
+      { "name": "Independent Worlds", "length": 1 },
+      { "name": "Sermayan Trade League", "length": 7 },
+      { "name": "Republic of Sermaye", "length": 5 },
+      { "name": "Despotate of Alusia", "length": 12 },
+      { "name": "Presidential Republic of Delarma", "length": 5 },
+      { "name": "Enclave Protectorates", "length": 2 },
+      { "name": "Deutschreich", "length": 3 },
+      { "name": "Independent Worlds", "length": 2 }
     ]
   },
   "5": {
@@ -93,6 +134,17 @@
       { "name": "ahlam", "distance": 3 },
       { "name": "lechtus", "distance": 7 },
       { "name": "reilla", "distance": 6 }
+    ],
+    "controllers": [
+      { "name": "Alusian Subjugates", "length": 8 },
+      { "name": "Independent Worlds", "length": 1 },
+      { "name": "Serene Duchy of Aeldrum", "length": 6 },
+      { "name": "Shantine Empire", "length": 9 },
+      { "name": "Kingdom of Bec", "length": 3 },
+      { "name": "Serene Duchy of Aeldrum", "length": 5 },
+      { "name": "Shantine Empire", "length": 20 },
+      { "name": "Despotate of Alusia", "length": 15 },
+      { "name": "Alusian Subjugates", "length": 1 }
     ]
   },
   "6": {
@@ -122,6 +174,19 @@
       { "name": "zu_un", "distance": 1 },
       { "name": "hybern", "distance": 0 },
       { "name": "sidenia", "distance": 2 }
+    ],
+    "controllers": [
+      { "name": "Fialta Free States", "length": 2 },
+      { "name": "Despotate of Alusia", "length": 7 },
+      { "name": "Serene Duchy of Aeldrum", "length": 16 },
+      { "name": "Deutschreich", "length": 5 },
+      { "name": "Despotate of Alusia", "length": 7 },
+      { "name": "Shantine Empire", "length": 3 },
+      { "name": "Fialta Free States", "length": 2 },
+      { "name": "Fialta Empire", "length": 1 },
+      { "name": "Fialta Free States", "length": 6 },
+      { "name": "Fialta Empire", "length": 3 },
+      { "name": "Fialta Free States", "length": 1 }
     ]
   },
   "7": {
@@ -140,6 +205,19 @@
       { "name": "marivan", "distance": 3 },
       { "name": "semal", "distance": 8 },
       { "name": "firhbank", "distance": 4 }
+    ],
+    "controllers": [
+      { "name": "Thalranese Marches", "length": 1 },
+      { "name": "Fialta Free States", "length": 12 },
+      { "name": "Fialta Imperium", "length": 10 },
+      { "name": "Despotate of Alusia", "length": 3 },
+      { "name": "Fialta Free States", "length": 5 },
+      { "name": "Fialta Empire", "length": 5 },
+      { "name": "Shantine Empire", "length": 1 },
+      { "name": "Fialta Empire", "length": 17 },
+      { "name": "Serene Duchy of Aeldrum", "length": 1 },
+      { "name": "Fialta Free States", "length": 4 },
+      { "name": "Thalranese Marches", "length": 8 }
     ]
   },
   "8": {
@@ -157,6 +235,15 @@
       { "name": "mir_thalran", "distance": 5 },
       { "name": "saldan", "distance": 0 },
       { "name": "messidor", "distance": 6 }
+    ],
+    "controllers": [
+      { "name": "Nippon States", "length": 1 },
+      { "name": "Thalranese Marches", "length": 8 },
+      { "name": "Orcish Directorate", "length": 7 },
+      { "name": "Serene Duchy of Aeldrum", "length": 28 },
+      { "name": "Thalranese Marches", "length": 5 },
+      { "name": "Saldanese Exclusion Zone", "length": 3 },
+      { "name": "Nippon States", "length": 4 }
     ]
   },
   "9": {
@@ -172,6 +259,20 @@
       { "name": "sevalne", "distance": 5 },
       { "name": "saldan", "distance": 8 },
       { "name": "bishant", "distance": 16 }
+    ],
+    "controllers": [
+      { "name": "Saldanese Exclusion Zone", "length": 2 },
+      { "name": "Independent Worlds", "length": 5 },
+      { "name": "Republic of Sermaye", "length": 3 },
+      { "name": "Serene Duchy of Aeldrum", "length": 13 },
+      { "name": "Orcish Frontier Protectorates", "length": 3 },
+      { "name": "Republic of Sermaye", "length": 7 },
+      { "name": "Saldanese Exclusion Zone", "length": 3 },
+      { "name": "Shantine Empire", "length": 11 },
+      { "name": "Knights of Adarnum", "length": 2 },
+      { "name": "Dwarf Kingdom of Druz", "length": 5 },
+      { "name": "Independent Worlds", "length": 3 },
+      { "name": "Saldanese Exclusion Zone", "length": 1 }
     ]
   }
 }
