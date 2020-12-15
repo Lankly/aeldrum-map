@@ -25,6 +25,7 @@ path {
 }
 .foreground-path:hover, .background-path:hover + path, .path-highlight {
   stroke-width: 2px;
+  display: inherit;
 }
 
 .group-planet {
