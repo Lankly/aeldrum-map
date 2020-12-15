@@ -547,7 +547,7 @@ function main (focusPlanet) {
       
       if (extra_points) {
         extra_points.forEach((extra_point) => {
-          arc = createArc(circle, planet_point, extra_point);
+          arc = createArc(circle, planet_point, extra_point, { radius: circle.r * 2 });
           $(arc.root).addClass("same-planet-path");
           $(arc.root).addClass(planetData.name);
         });
@@ -766,8 +766,10 @@ function main (focusPlanet) {
     return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
   }
   
-  function createArc (circle, pointA, pointB) {  
-    const path_value = `M ${pointA.x} ${pointA.y} A ${circle.r} ${circle.r} 0 0 0 ${pointB.x} ${pointB.y}`;
+  function createArc (circle, pointA, pointB, settings) {
+    const radius = settings ? settings.radius : circle.r;
+    
+    const path_value = `M ${pointA.x} ${pointA.y} A ${radius} ${radius} 0 0 0 ${pointB.x} ${pointB.y}`;
     
     let arc_pair = arc_group.group();
     let background_path = arc_pair.path(path_value);
