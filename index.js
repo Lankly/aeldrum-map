@@ -310,7 +310,7 @@ function main (focusPlanet) {
     addNeighborMetadata();    
     addArcsWithDistances();
     addSamePlanetArcs();
-    addNotes();
+    points_to_add.forEach(addNotes);
       
     circle.style.stroke = "transparent";
     
@@ -491,87 +491,85 @@ function main (focusPlanet) {
       });
     }
     
-    function addNotes () {
-      points_to_add.forEach((planet, i) => {
-        if (!planet || !planet.notes) { return; }
+    function addNotes (planet, i) {
+      if (!planet || !planet.notes) { return; }
+      
+      const notes = planet.notes;
+      const point = planets[planet.name].allPoints[leyline.aeldman_name][0];
+      const radius = calculateRadius(1 + notes.length);
+      const leyline_is_inscribed = leyline.inscribing_leyline !== undefined;
+      
+      const center_point = leyline.circle;
+      
+      let temp_circle = interactive.circle(point.x, point.y, radius);
+      repositionCircle(temp_circle, center_point, radius);
+      
+      if (leyline_is_inscribed) {
+        temp_circle.translate(
+          -2 * (temp_circle.cx - point.x),
+          -2 * (temp_circle.cy - point.y));
+      }
+      
+      if (notes.length === 1) {
+        let line = notes_group.line(point.x, point.y, temp_circle.cx, temp_circle.cy);
+        $(line.root).addClass("note-path");
         
-        const notes = planet.notes;
-        const point = planets[planet.name].allPoints[leyline.aeldman_name][0];
-        const radius = calculateRadius(1 + notes.length);
-        const leyline_is_inscribed = leyline.inscribing_leyline !== undefined;
-        
-        const center_point = leyline.circle;
-        
-        let temp_circle = interactive.circle(point.x, point.y, radius);
-        repositionCircle(temp_circle, center_point, radius);
-        
-        if (leyline_is_inscribed) {
-          temp_circle.translate(
-            -2 * (temp_circle.cx - point.x),
-            -2 * (temp_circle.cy - point.y));
-        }
-        
-        if (notes.length === 1) {
-          let line = notes_group.line(point.x, point.y, temp_circle.cx, temp_circle.cy);
-          $(line.root).addClass("note-path");
-          
-          noteHelper(temp_circle, notes[0]);
-        } else if (notes.length === 2) {
-          let temp_point = createControlPointOnCircle(
-            temp_circle,
-            /* index= */ 1,
-            /* totalPoints= */ 4,
-            {
-              startingPoint: point
-            });
-          let arc1 = createArc(temp_circle, temp_point, point, {
-              forNote: true
-            });
-          $(arc1.root).addClass("note-path");
-          noteHelper(temp_point, notes[0]);
-          temp_point.remove();
-          
-          temp_point = createControlPointOnCircle(
-            temp_circle,
-            /* index= */ 3,
-            /* totalPoints= */ 4,
-            {
-              startingPoint: point
-            });
-          let arc2 = createArc(temp_circle, point, temp_point, {
-              forNote: true
-            });
-          $(arc2.root).addClass("note-path");
-          noteHelper(temp_point, notes[1]);
-          temp_point.remove();
-        }
-        
-        temp_circle.remove();
-        
-        function noteHelper (point, message) {
-          const xy = {
-            x: point.cx ?? point.x,
-            y: point.cy ?? point.y
-          };
-          
-          let text = text_group.text(xy.x, xy.y, message);
-          let node = $(text.root);
-          node.addClass("note");
-          node.addClass(planet.name);
-          
-          // Keep at back by default
-          let group = node.parent();
-          node.detach();
-          group.prepend(node);
-          
-          text.x = text.x - (text.getBoundingBox().width / 2);
-          
-          node.mouseenter(() => {
-            node.detach();
-            group.append(node);
+        noteHelper(temp_circle, notes[0]);
+      } else if (notes.length === 2) {
+        let temp_point = createControlPointOnCircle(
+          temp_circle,
+          /* index= */ 1,
+          /* totalPoints= */ 4,
+          {
+            startingPoint: point
           });
-        }
-      });
+        let arc1 = createArc(temp_circle, temp_point, point, {
+            forNote: true
+          });
+        $(arc1.root).addClass("note-path");
+        noteHelper(temp_point, notes[0]);
+        temp_point.remove();
+        
+        temp_point = createControlPointOnCircle(
+          temp_circle,
+          /* index= */ 3,
+          /* totalPoints= */ 4,
+          {
+            startingPoint: point
+          });
+        let arc2 = createArc(temp_circle, point, temp_point, {
+            forNote: true
+          });
+        $(arc2.root).addClass("note-path");
+        noteHelper(temp_point, notes[1]);
+        temp_point.remove();
+      }
+      
+      temp_circle.remove();
+      
+      function noteHelper (point, message) {
+        const xy = {
+          x: point.cx ?? point.x,
+          y: point.cy ?? point.y
+        };
+        
+        let text = text_group.text(xy.x, xy.y, message);
+        let node = $(text.root);
+        node.addClass("note");
+        node.addClass(planet.name);
+        
+        // Keep at back by default
+        let group = node.parent();
+        node.detach();
+        group.prepend(node);
+        
+        text.x = text.x - (text.getBoundingBox().width / 2);
+        
+        node.mouseenter(() => {
+          node.detach();
+          group.append(node);
+        });
+      }
     }
     
     function getPointsToAdd () {
