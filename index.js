@@ -48,6 +48,9 @@ function main (focusPlanet) {
   focusPlanet = focusPlanet ?? planets["aeldrum"];
   
   let next_leyline = getNextLeyline({ startingPlanet: focusPlanet, size: 1 });
+  if (!next_leyline) {
+    return alert(`${ planets[focusPlanet.name].full_name } does not exist on any available leylines.`);
+  }
   
   generateCircularLeyline(next_leyline, { startingPlanet: focusPlanet });
   generateInscribableLeylines();
@@ -1103,10 +1106,20 @@ function setupUI () {
     $("body").bind("mouseup", stopPan);
     $("body").bind("mouseleave", stopPan);
     $("body").bind("mousemove", pan);
+    $("body").bind("touchstart", startPan);
+    $("body").bind("touchend", stopPan);
+    $("body").bind("touchmove", pan);
     
     
     function startPan (event) {
-      panning = { x: event.clientX, y: event.clientY };
+      panning = { 
+        x: event.clientX
+          ?? event.originalEvent.touches[0].pageX
+          ?? event.originalEvent.changedTouches[0].pageX,
+        y: event.clientY
+          ?? event.originalEvent.touches[0].pageY
+          ?? event.originalEvent.changedTouches[0].pageY
+      };
       
       document.body.style.cursor = "all-scroll";
     }
@@ -1120,8 +1133,15 @@ function setupUI () {
     function pan (event) {
       if (!panning) { return; }
       
-      let delta_x = (panning.x - event.clientX) / zoom_slider.value;
-      let delta_y = (panning.y - event.clientY) / zoom_slider.value;
+      let x = event.clientX
+        ?? event.originalEvent.touches[0].pageX
+        ?? event.originalEvent.changedTouches[0].pageX;
+      let y = event.clientX
+        ?? event.originalEvent.touches[0].pageY
+        ?? event.originalEvent.changedTouches[0].pageY;
+      
+      let delta_x = (panning.x - x) / zoom_slider.value;
+      let delta_y = (panning.y - y) / zoom_slider.value;
       
       let viewbox_parts = interactive.viewBox.split(' ');
       
