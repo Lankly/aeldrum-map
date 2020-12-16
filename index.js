@@ -966,7 +966,14 @@ function setupUI () {
     };
     ++flag_index;
     
-    [inscribable, multigateOnly, same_planet_paths, no_duplicates].forEach((checkbox) => {
+    [
+      inscribable,
+      multigateOnly,
+      same_planet_paths,
+      same_planet_paths_on_hover,
+      no_duplicates
+    ]
+    .forEach((checkbox) => {
       $(checkbox.label.root).click(() => { checkbox.toggle(); });
     });
   }
