@@ -1136,7 +1136,7 @@ function setupUI () {
       let x = event.clientX
         ?? event.originalEvent.touches[0].pageX
         ?? event.originalEvent.changedTouches[0].pageX;
-      let y = event.clientX
+      let y = event.clientY
         ?? event.originalEvent.touches[0].pageY
         ?? event.originalEvent.changedTouches[0].pageY;
       
