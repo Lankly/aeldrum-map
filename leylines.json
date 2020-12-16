@@ -49,7 +49,7 @@
     "color": "goldenrod",
     "darker_color": "peru",
     "planets": [
-      { "name": "telrion", "distance": 15 },
+      { "name": "telrion", "distance": 15, "notes": [ "Unexplored leyline?" ] },
       { "name": "aeldrum", "distance": 3 },
       { "name": "calath", "distance": 3 },
       { "name": "enclave_outlet", "distance": 4 },
@@ -230,7 +230,7 @@
       { "name": "mir_thalran", "distance": 0 },
       { "name": "tar_thalran", "distance": 18 },
       { "name": "harwel", "distance": 10 },
-      { "name": "pin_jump", "distance": 9 },
+      { "name": "pin_jump", "distance": 9, "notes": [ "To Celestial Space", "To Naga Space" ] },
       { "name": "semal", "distance": 2 },
       { "name": "mir_thalran", "distance": 5 },
       { "name": "saldan", "distance": 0 },
