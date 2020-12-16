@@ -78,6 +78,7 @@ function main (focusPlanet) {
   generateRemainingLeylines();
   
   centerView();
+  $( document ).tooltip();
   
   function generateOnePointIntersectionLeylines() {
     const generatedLeylines = Object.keys(leylines)
@@ -438,15 +439,16 @@ function main (focusPlanet) {
         }
         
         let arc = createArc(circle, planet_point, previous_planet_point);
-        let title = document.createElementNS($("#map > svg").attr("xmlns"), "title");
-        title.textContent = `Distance: ~${(previous_planet.distance * 10000).toLocaleString('en-US')} etheric miles`;
-        $(arc.root).append(title);
-        $(arc.root).addClass(planetData.name);
-        $(arc.root).addClass(previous_planet.name);
+        let arc_node = $(arc.root);
+        arc_node.addClass(planetData.name);
+        arc_node.addClass(previous_planet.name);
+        
+        let distance_tooltip = `Distance: ~${(previous_planet.distance * 10000).toLocaleString('en-US')} etheric miles`;
         if (previous_planet.distance === '?') {
-          title.textContent = "Distance unknown";
-          $(arc.root).find(".foreground-path").css("stroke", `url(#gradient-${leyline.aeldman_name})`);
+          distance_tooltip = "Distance unknown";
+          arc_node.find(".foreground-path").css("stroke", `url(#gradient-${leyline.aeldman_name})`);
         }
+        arc_node.attr("title", distance_tooltip);
         circle.addDependency(arc);
         
         previous_planet_point = planet_point;
