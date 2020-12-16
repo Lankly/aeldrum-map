@@ -45,6 +45,8 @@ $.ajax("planets.json", {
 });
 
 function main (focusPlanet) {
+  let hold_highlight = new Set();
+  
   focusPlanet = focusPlanet ?? planets["aeldrum"];
   
   let starting_leyline = getNextLeyline({ startingPlanet: focusPlanet, size: 1 });
@@ -73,7 +75,7 @@ function main (focusPlanet) {
   
   generateInscribableLeylines();
   
-  generateOnePointIntersectionLeylines();
+  // generateOnePointIntersectionLeylines();
   
   generateRemainingLeylines();
   
@@ -361,7 +363,6 @@ function main (focusPlanet) {
       
       // Click behavior
       let clickdown = false;
-      let hold_highlight = false;
       $(planet_point.root).mousedown(() => {
         clickdown = true;
       });
@@ -369,7 +370,12 @@ function main (focusPlanet) {
         if (!clickdown) { return; }
         
         clickdown = false;
-        hold_highlight = !hold_highlight;
+        if (hold_highlight.has(planetData.name)){
+          hold_highlight.remove(planetData.name);
+        }
+        else {
+          hold_highlight.add(planetData.name);
+        }
       });
         
       // Hover behavior
@@ -395,7 +401,7 @@ function main (focusPlanet) {
         text_dom_group.append(hover_planet_label);
       });
       $(planet_point.root).mouseleave(() => {
-        if (hold_highlight) { return; }
+        if (hold_highlight.has(planetData.name)) { return; }
         $(`g.${ planetData.name }`).removeClass("path-highlight");
         $(`text.${ planetData.name }`).removeClass("font-highlight");
         $(`text.neighbor-${ planetData.name }`).removeClass("font-neighbor-highlight");
