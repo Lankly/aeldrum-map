@@ -123,7 +123,7 @@
     "color": "royalblue",
     "darker_color": "darkblue",
     "planets": [
-      { "name": "savage", "distance": 8 },
+      { "name": "alusian_subjugates", "distance": 8 },
       { "name": "crosslanes", "distance": 6 },
       { "name": "aeldrum", "distance": 2 },
       { "name": "brumaire", "distance": 4 },
