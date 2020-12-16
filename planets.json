@@ -9,6 +9,10 @@
   "antenil": {
     "full_name": "Antenil"
   },
+  "alusian_subjugates": {
+    "full_name": "Alusian Subjugates",
+    "group": true
+  },
   "bastions": {
     "full_name": "Adarnum Bastions"
   },
