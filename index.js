@@ -56,7 +56,11 @@ function main (focusPlanet) {
   generateInscribableLeylines();
   
   // Perpendicular to starting point
-  next_leyline = getNextLeyline({ startingPlanet: focusPlanet, minimizeConnections: next_leyline });
+  next_leyline = getNextLeyline({
+    startingPlanet: focusPlanet,
+    minimizeConnections: next_leyline,
+    noInscribed: true,
+  });
   if (next_leyline) {
     generateCircularLeyline(next_leyline, {
       startingPlanet: focusPlanet,
@@ -555,7 +559,7 @@ function main (focusPlanet) {
       previous_planet_point = previous_planet_point ?? getPointFromPlanet(previous_planet);
       if (useStartingPlanetsFirstPoint
         && previous_planet.name === startingPlanet.name) {
-        previous_planet_point = getPointFromPlanet(previous_planet, /* firstPoint= */ true);
+          previous_planet_point = getPointFromPlanet(previous_planet, /* firstPoint= */ true);
       }
       
       let arc = createArc(circle, planet_point, previous_planet_point);
@@ -659,14 +663,9 @@ function main (focusPlanet) {
         if (!intersects) { return; }
       }
       
-      // And none of them can be from an inscribed leyline
-      if (noInscribed) {
-        let planetNames = leyline.planets.map((p) => p.name);
-        let inscribed = Object.keys(leylines)
-          .map((i) => leylines[i])
-          .filter((l) => l.inscribing_leyline)
-          .some((inscribed) => inscribed.planets.some((p) => planetNames.includes(p.name)));
-        if (inscribed) { return; }
+      // And can't be from an inscribed leyline
+      if (noInscribed && leyline.inscribing_leyline) {
+        return;
       }
       
       possible.push(leyline);
