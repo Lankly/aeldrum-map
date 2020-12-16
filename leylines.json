@@ -52,7 +52,7 @@
       { "name": "telrion", "distance": 15 },
       { "name": "aeldrum", "distance": 3 },
       { "name": "calath", "distance": 3 },
-      { "name": "enclave_outlet1", "distance": 4 },
+      { "name": "enclave_outlet", "distance": 4 },
       { "name": "hilland", "distance": 2 },
       { "name": "sierna", "distance": 8 },
       { "name": "bishant", "distance": 3 },
@@ -86,7 +86,7 @@
     "darker_color": "darkgreen",
     "planets": [
       { "name": "witch_haven", "distance": 5 },
-      { "name": "enclave_outlet2", "distance": 9 },
+      { "name": "enclave_outlet", "distance": 9 },
       { "name": "lidenia", "distance": 2 },
       { "name": "aeldrum", "distance": 6 },
       { "name": "chelonia", "distance": "?" },
@@ -99,7 +99,7 @@
       { "name": "videna", "distance": 0 },
       { "name": "carral", "distance": 7 },
       { "name": "dwarf_clans", "distance": 2 },
-      { "name": "enclave_outlet3", "distance": 6 }
+      { "name": "enclave_outlet", "distance": 6 }
     ],
     "controllers": [
       { "name": "Independent Worlds", "length": 2 },
