@@ -145,6 +145,13 @@ path {
   stroke-width: 3px;
 }
 
+.ui-tooltip {
+  pointer-events: none;
+}
+.ui-tooltip-content { 
+  font-size: 8pt;
+}
+
 #github {
   position: absolute;
   right: 5px;
