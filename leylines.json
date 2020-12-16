@@ -60,7 +60,7 @@
       { "name": "sveiss", "distance": 1 },
       { "name": "iberia", "distance": 0 },
       { "name": "mexico", "distance": 7 },
-      { "name": "nippon_gates", "distance": 0 },
+      { "name": "nippon_gates", "distance": 0, "notes": [ "To Celestial Space" ] },
       { "name": "bastions", "distance": 5 },
       { "name": "brumaire", "distance": 2 },
       { "name": "dwarf_clans", "distance": 7 }
