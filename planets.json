@@ -1,247 +1,193 @@
 {
   "aeldrum": {
     "full_name": "Aeldrum",
-    "controller": "Aeldrum"
+    "capital": true
   },
   "ahlam": {
-    "full_name": "Ahlam",
-    "controller": "Alusian Frontier"
+    "full_name": "Ahlam"
   },
   "antenil": {
-    "full_name": "Antenil",
-    "controller": "Aeldrum"
+    "full_name": "Antenil"
   },
   "bastions": {
-    "full_name": "Adarnum Bastions",
-    "controller": "Nippon States"
+    "full_name": "Adarnum Bastions"
   },
   "bishant": {
     "full_name": "Bishant",
-    "controller": "Shantine Empire"
+    "capital": true
   },
   "brumaire": {
-    "full_name": "Brumaire",
-    "controller": "Shantine Empire"
+    "full_name": "Brumaire"
   },
   "calath": {
-    "full_name": "Calath",
-    "controller": "Aeldrum"
+    "full_name": "Calath"
   },
   "carral": {
-    "full_name": "Carral",
-    "controller": "Alusian Frontier"
+    "full_name": "Carral"
   },
   "chelonia": {
-    "full_name": "Chelonia",
-    "controller": "Aeldrum"
+    "full_name": "Chelonia"
   },
   "crosslanes": {
     "full_name": "The Crosslanes"
   },
   "del_mar": {
-    "full_name": "Del'Mar",
-    "controller": "Empire of Alusia"
+    "full_name": "Del'Mar"
   },
   "dwarf_clans": {
     "full_name": "Dwarf Clans"
   },
   "enclave_outlet1": {
-    "full_name": "Enclave Outlet",
-    "controller": "Enclave Protectorates"
+    "full_name": "Enclave Outlet"
   },
   "enclave_outlet2": {
-    "full_name": "Enclave Outlet",
-    "controller": "Enclave Protectorates"
+    "full_name": "Enclave Outlet"
   },
   "enclave_outlet3": {
-    "full_name": "Enclave Outlet",
-    "controller": "Enclave Protectorates"
+    "full_name": "Enclave Outlet"
   },
   "enclave_outlet4": {
-    "full_name": "Enclave Outlet",
-    "controller": "Enclave Protectorates"
+    "full_name": "Enclave Outlet"
   },
   "fialt": {
-    "full_name": "Fialt",
-    "controller": "Fialta Imperium"
+    "full_name": "Fialt"
   },
   "firhbank": {
-    "full_name": "Firhbank",
-    "controller": "Empire of Alusia"
+    "full_name": "Firhbank"
   },
   "genova": {
-    "full_name": "Genova",
-    "controller": "Shantine Protectorates"
+    "full_name": "Genova"
   },
   "gnoll": {
-    "full_name": "Gnoll",
-    "controller": "Empire of Alusia"
+    "full_name": "Gnoll"
   },
   "grantworlds": {
     "full_name": "Kirvan Grantworlds",
     "group": true
   },
   "gul_dan": {
-    "full_name": "Gul'Dan",
-    "controller": "Fialta Free States"
+    "full_name": "Gul'Dan"
   },
   "harwel": {
-    "full_name": "Harwel",
-    "controller": "Aeldrum"
+    "full_name": "Harwel"
   },
   "highvedlt": {
-    "full_name": "Highvedlt",
-    "controller": "Shantine Empire"
+    "full_name": "Highvedlt"
   },
   "hilland": {
-    "full_name": "Hilland",
-    "controller": "Empire of Alusia"
+    "full_name": "Hilland"
   },
   "hybern": {
-    "full_name": "Hybern",
-    "controller": "Fialta Imperium"
+    "full_name": "Hybern"
   },
   "iberia": {
-    "full_name": "Iberia",
-    "controller": "Shantine Protectorates"
+    "full_name": "Iberia"
   },
   "ireland": {
-    "full_name": "Republic of Ireland",
-    "controller": "League of Free Republics"
+    "full_name": "Republic of Ireland"
   },
   "konira": {
-    "full_name": "Konira",
-    "controller": "Fialta Free States"
+    "full_name": "Konira"
   },
   "korinth": {
-    "full_name": "Korinth",
-    "controller": "Shantine Empire"
+    "full_name": "Korinth"
   },
   "lechtus": {
-    "full_name": "Lectus",
-    "controller": "Empire of Alusia"
+    "full_name": "Lectus"
   },
   "lidenia": {
-    "full_name": "Lidenia",
-    "controller": "Aeldrum"
+    "full_name": "Lidenia"
   },
   "mexico": {
-    "full_name": "Gran Mexico",
-    "controller": "Empire of Alusia"
+    "full_name": "Gran Mexico"
   },
   "marivan": {
-    "full_name": "Marivan",
-    "controller": "Fialta Imperium"
+    "full_name": "Marivan"
   },
   "messidor": {
-    "full_name": "Messidor",
-    "controller": "Saldanese Exclusion Zone"
+    "full_name": "Messidor"
   },
   "milgar": {
-    "full_name": "Milgar",
-    "controller": "Fialta Free States"
+    "full_name": "Milgar"
   },
   "mir_thalran": {
-    "full_name": "Mir'Thalran",
-    "controller": "Thalranese Marches"
+    "full_name": "Mir'Thalran"
   },
   "nippon_gates": {
-    "full_name": "Nippon Gates",
-    "controller": "Nippon States"
+    "full_name": "Nippon Gates"
   },
   "nss_exclusion_zone": {
-    "full_name": "NSS Exclusion Zone (Impassible)",
-    "controller": "Deutschreich"
+    "full_name": "NSS Exclusion Zone (Impassible)"
   },
   "paravel": {
-    "full_name": "Paravel",
-    "controller": "Aeldrum"
+    "full_name": "Paravel"
   },
   "percel": {
-    "full_name": "Percel",
-    "controller": "Aeldrum"
+    "full_name": "Percel"
   },
   "pin_jump": {
-    "full_name": "Pin Jump",
-    "controller": "Aeldrum"
+    "full_name": "Pin Jump"
   },
   "reilla": {
-    "full_name": "Percel",
-    "controller": "Empire of Alusia"
+    "full_name": "Reilla"
   },
   "saldan": {
     "full_name": "Saldan",
-    "controller": "Saldanese Exclusion Zone"
+    "capital": true
   },
   "savage": {
     "full_name": "Savage Worlds",
     "group": true
   },
   "semal": {
-    "full_name": "Semal",
-    "controller": "Aeldrum"
+    "full_name": "Semal"
   },
   "sevalne": {
-    "full_name": "Sevalne",
-    "controller": "Republic of Sermaye"
+    "full_name": "Sevalne"
   },
   "shantaran_free_state": {
-    "full_name": "Shantaran Free State",
-    "controller": "Fialta Free States"
+    "full_name": "Shantaran Free State"
   },
   "sidenia": {
-    "full_name": "Sidenia",
-    "controller": "Fialta Imperium"
+    "full_name": "Sidenia"
   },
   "sierna": {
-    "full_name": "Sierna",
-    "controller": "Empire of Alusia"
+    "full_name": "Sierna"
   },
   "sivella": {
-    "full_name": "Sivella",
-    "controller": "Aeldrum"
+    "full_name": "Sivella"
   },
   "sveiss": {
-    "full_name": "Sveiss",
-    "controller": "Shantine Protectorates"
+    "full_name": "Sveiss"
   },
   "switzreich": {
-    "full_name": "Switzreich",
-    "controller": "Deutschreich"
+    "full_name": "Switzreich"
   },
   "tar_thalran": {
-    "full_name": "Tar'Thalran",
-    "controller": "Thalranese Marches"
+    "full_name": "Tar'Thalran"
   },
   "telrion": {
-    "full_name": "Telrion",
-    "controller": "Aeldrum"
+    "full_name": "Telrion"
   },
   "trade_league": {
-    "full_name": "Sermayan Trade League",
-    "controller": "Republic of Sermaye"
+    "full_name": "Sermayan Trade League"
   },
   "videna": {
-    "full_name": "Videna",
-    "controller": "Empire of Alusia"
+    "full_name": "Videna"
   },
   "villenta": {
-    "full_name": "Villenta",
-    "controller": "Aeldrum"
+    "full_name": "Villenta"
   },
   "witch_haven": {
     "full_name": "Witch Haven"
   },
   "zanevuela": {
-    "full_name": "Zanevuela",
-    "controller": "Fialta Imperium"
+    "full_name": "Zanevuela"
   },
   "zemlya": {
-    "full_name": "Zemlya",
-    "controller": "Empire of Alusia"
+    "full_name": "Zemlya"
   },
   "zu_un": {
-    "full_name": "Zu'un",
-    "controller": "Fialta Imperium"
+    "full_name": "Zu'un"
   }
 }
