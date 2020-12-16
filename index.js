@@ -533,7 +533,6 @@ function main (focusPlanet) {
         
         let allPoints_on_line = planets[planetData.name].allPoints[leyline.aeldman_name];
         let planet_point = allPoints_on_line[occurrence];
-        console.log(leyline.aeldman_name, planetData.name, occurrence, allPoints_on_line);
         
         let previous_planet = points_to_add[i === 0 ? points_to_add.length - 1 : i - 1];
         if (previous_planet_point === undefined) {
@@ -568,18 +567,30 @@ function main (focusPlanet) {
         let points_on_other_lines = Object.keys(leylines).map((i) => leylines[i])
           .filter((l) => l.aeldman_name !== leyline.aeldman_name)
           .reduce((points, l) => {
-            return points.concat(allPoints[l.aeldman_name] || []);
+            if (allPoints[l.aeldman_name] && allPoints[l.aeldman_name].length > 0) {
+              points.push(allPoints[l.aeldman_name][0]);
+            }
+            return points;
           }, []);
         
+        
+        points_on_other_lines.forEach((next_point, i) => {
+          helper(allPoints_on_line[0], next_point);
+        });
+        
         allPoints_on_line.forEach((point, i) => {
-          for (let j = 0; j < points_on_other_lines.length; ++j) {
-            let next_point = points_on_other_lines[j];
+          for (let j = i; j < allPoints_on_line.length; ++j) {
+            let next_point = allPoints_on_line[j];
             
-            let arc = createArc(circle, point, next_point, { radius: Math.pow(circle.r, 1.3) });
-            $(arc.root).addClass("same-planet-path");
-            $(arc.root).addClass(planet.name);
+            helper(point, next_point);
           }
         });
+        
+        function helper(pointA, pointB) {
+          let arc = createArc(circle, pointA, pointB, { radius: Math.pow(circle.r, 1.3) });
+          $(arc.root).addClass("same-planet-path");
+          $(arc.root).addClass(planet.name);
+        }
       });
     }
     
