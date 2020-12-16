@@ -449,10 +449,17 @@ function main (focusPlanet) {
         arc_node.addClass(planetData.name);
         arc_node.addClass(previous_planet.name);
         
-        let distance_tooltip = `Distance: ~${(previous_planet.distance * 10000).toLocaleString('en-US')} etheric miles`;
-        if (previous_planet.distance === '?') {
-          distance_tooltip = "Distance unknown";
-          arc_node.find(".foreground-path").css("stroke", `url(#gradient-${leyline.aeldman_name})`);
+        let distance_tooltip;
+        switch (previous_planet.distance) {
+          case 0:
+            distance_tooltip = "Distance: < 4000 etheric miles";
+            break;
+          case '?':
+            distance_tooltip = "Distance unknown";
+            arc_node.find(".foreground-path").css("stroke", `url(#gradient-${leyline.aeldman_name})`);
+            break;
+          default:
+          distance_tooltip = `Distance: ~${(previous_planet.distance * 10000).toLocaleString('en-US')} etheric miles`;
         }
         arc_node.attr("title", distance_tooltip);
         circle.addDependency(arc);
