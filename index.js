@@ -529,7 +529,28 @@ function main (focusPlanet) {
         let line = notes_group.line(point.x, point.y, temp_circle.cx, temp_circle.cy);
         $(line.root).addClass("note-path");
         
-        noteHelper(temp_circle, notes[0]);
+        let text = noteHelper(temp_circle, notes[0]);
+        const text_bb = text.getBoundingBox();
+        const line_bb = line.getBoundingBox();
+        
+        const intersectLeftX   = Math.max( text_bb.x, line_bb.x );
+        const intersectRightX  = Math.min( text_bb.x + text_bb.width, line_bb.x + line_bb.width );
+        const intersectTopY    = Math.max( text_bb.y, line_bb.y );
+        const intersectBottomY = Math.min( text_bb.y + text_bb.height, line_bb.y + line_bb.height );
+        
+        const boxes_intersect = intersectLeftX < intersectRightX && intersectTopY < intersectBottomY;
+        
+        if (boxes_intersect) {
+          const intersect_area = (intersectRightX - intersectLeftX) * (intersectBottomY - intersectTopY);
+          const line_area = line_bb.width * line_bb.height;
+          const max_ratio = 0.8;
+          
+          if (intersect_area > line_area * max_ratio) {
+            text.x += text_bb.width / 2;
+            text.y += text_bb.width / 2;
+            $(text.root).attr("transform", `rotate(${ text.x < point.x ? '-' : '' }90,${ text.x },${ text.y })`);
+          }
+        }
       } else if (notes.length === 2) {
         let temp_point = createControlPointOnCircle(
           temp_circle,
@@ -584,6 +605,8 @@ function main (focusPlanet) {
           node.detach();
           group.append(node);
         });
+        
+        return text;
       }
     }
     
