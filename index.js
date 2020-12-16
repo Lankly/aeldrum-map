@@ -2,7 +2,7 @@
 import Interactive from "https://vectorjs.org/interactive.js";
 
 // Set in setupUI
-var interactive, arc_group, circle_group, text_group;
+var interactive, arc_group, circle_group, text_group, notes_group;
 var xOrigin, yOrigin;
 
 const width = window.innerWidth;
@@ -310,6 +310,7 @@ function main (focusPlanet) {
     addNeighborMetadata();    
     addArcsWithDistances();
     addSamePlanetArcs();
+    addNotes();
       
     circle.style.stroke = "transparent";
     
@@ -406,7 +407,7 @@ function main (focusPlanet) {
       ++point_index;
     }
     
-    function addNeighborMetadata() {
+    function addNeighborMetadata () {
       leyline.planets.forEach((planet, i) => {      
         const previous_planet_name = leyline.planets[((i > 0 ? i : total) - 1) % total].name;
         const next_planet_name = leyline.planets[(i + 1) % total].name;
@@ -417,7 +418,7 @@ function main (focusPlanet) {
       });
     }
     
-    function addArcsWithDistances() {
+    function addArcsWithDistances () {
       let planet_occurrences = {};
       let previous_planet_point;
       
@@ -453,7 +454,7 @@ function main (focusPlanet) {
       });
     }
     
-    function addSamePlanetArcs() {
+    function addSamePlanetArcs () {
       leyline.planets.forEach((planet) => {
         let allPoints = planets[planet.name].allPoints;
         if (!allPoints) { return; }
@@ -490,7 +491,41 @@ function main (focusPlanet) {
       });
     }
     
-    function getPointsToAdd() {
+    function addNotes () {
+      points_to_add.forEach((planet, i) => {
+        if (!planet || !planet.notes) { return; }
+        
+        const notes = planet.notes;
+        const point = planets[planet.name].allPoints[leyline.aeldman_name][0];
+        const radius = calculateRadius(1 + notes.length);
+        const leyline_is_inscribed = leyline.inscribing_leyline !== undefined;
+        
+        const center_point = leyline.circle;
+        
+        let temp_circle = interactive.circle(point.x, point.y, radius);
+        repositionCircle(temp_circle, center_point, radius);
+        
+        if (leyline_is_inscribed) {
+          temp_circle.translate(
+            -2 * (temp_circle.cx - center_point.x),
+            -2 * (temp_circle.cy - center_point.y));
+        }
+        
+        if (notes.length === 1) {
+          let line = notes_group.line(point.x, point.y, temp_circle.cx, temp_circle.cy);
+          $(line.root).addClass("note-path");
+          let text = notes_group.text(temp_circle.cx, temp_circle.cy, notes[0]);
+          $(text.root).addClass("note");
+          text.x = text.x - (text.getBoundingBox().width / 2);
+          
+        } else if (notes.length === 2) {
+        }
+        
+        temp_circle.remove();
+      });
+    }
+    
+    function getPointsToAdd () {
       let points =  leyline.planets;
       
       if (noDuplicatesOnLine) {
@@ -657,7 +692,10 @@ function main (focusPlanet) {
   
   function repositionCircle (circle, guidingPoint, distance) {
     distance = distance ?? circle.r;
-    let point = { x: guidingPoint.cx ?? guidingPoint.x, y: guidingPoint.cy ?? guidingPoint.y };
+    let point = {
+      x: guidingPoint.cx ?? guidingPoint.x,
+      y: guidingPoint.cy ?? guidingPoint.y
+    };
     
     let scale_factor = distance / Math.sqrt(Math.pow(circle.cx - point.x, 2) + Math.pow(circle.cy - point.y, 2));
     let offset_x = scale_factor * (circle.cx - point.x);
@@ -722,8 +760,12 @@ function main (focusPlanet) {
     return seen.size;
   }
   
-  function calculateRadius (leyline) {
-    return Math.pow(leyline.planets.length, .825) * 20;
+  function calculateRadius (leylineOrNumber) {
+    const num_points = Number.isInteger(leylineOrNumber)
+      ? leylineOrNumber
+      : leylineOrNumber.planets.length;
+      
+    return Math.pow(num_points, .825) * 20;
   }
   
   function getDistance(pointA, pointB) {
@@ -766,6 +808,8 @@ function setupUI () {
   interactive.border = true;
   interactive.setViewBox(xOrigin / 2, yOrigin / 2, width, height);
   
+  let grid_group = interactive.group();
+  notes_group = interactive.group();
   circle_group = interactive.group();
   arc_group = interactive.group();
   text_group = interactive.group();
@@ -992,8 +1036,8 @@ function setupUI () {
   }
   
   function generateAxisLines () {
-    let x = interactive.line(-width, yOrigin, width * 3, yOrigin);
-    let y = interactive.line(xOrigin, -height, xOrigin, height * 3);
+    let x = grid_group.line(-width, yOrigin, width * 3, yOrigin);
+    let y = grid_group.line(xOrigin, -height, xOrigin, height * 3);
     x.style.stroke = "lightgrey";
     y.style.stroke = "lightgrey";
   }
@@ -1055,6 +1099,7 @@ function setupUI () {
       delete l.inscribing_leyline;
     });
     
+    notes_group.clear();
     arc_group.clear();
     text_group.clear();
   }
