@@ -47,7 +47,8 @@ $.ajax("planets.json", {
 function main (focusPlanet) {
   focusPlanet = focusPlanet ?? planets["aeldrum"];
   
-  let next_leyline = getNextLeyline({ startingPlanet: focusPlanet, size: 1 });
+  let starting_leyline = getNextLeyline({ startingPlanet: focusPlanet, size: 1 });
+  let next_leyline = starting_leyline;
   if (!next_leyline) {
     return alert(`${ planets[focusPlanet.name].full_name } does not exist on any available leylines.`);
   }
@@ -56,6 +57,7 @@ function main (focusPlanet) {
   generateInscribableLeylines();
   
   // Perpendicular to starting point
+  let previous_leyline = next_leyline;
   next_leyline = getNextLeyline({
     startingPlanet: focusPlanet,
     minimizeConnections: next_leyline,
@@ -64,8 +66,8 @@ function main (focusPlanet) {
   if (next_leyline) {
     generateCircularLeyline(next_leyline, {
       startingPlanet: focusPlanet,
+      startingPlanetLeyline: starting_leyline,
       makeNewControlPoints: true,
-      useStartingPlanetsFirstPoint: true,
     });
   }
   
@@ -374,7 +376,7 @@ function main (focusPlanet) {
   
   function generateCircularLeyline (leyline, settings) {
     let startingPlanet = settings && settings.startingPlanet;
-    let useStartingPlanetsFirstPoint = settings && settings.useStartingPlanetsFirstPoint;
+    let startingPlanetLeyline = settings && settings.startingPlanetLeyline;
     let startingLeyline = settings && settings.startingLeyline;
     let centerCoord = settings && settings.centerCoord;
     let rotatePercent = settings && settings.rotatePercent;
@@ -386,12 +388,14 @@ function main (focusPlanet) {
     let circle = circle_group.circle(xOrigin, yOrigin + radius, radius);
     leyline.circle = circle;
     
-    if (startingPlanet && getPointFromPlanet(startingPlanet)) {
-      let starting_point = getPointFromPlanet(startingPlanet, /* firstPoint= */true);
-      circle.cx = starting_point.x;
-      circle.cy = starting_point.y;
-
-      repositionCircle(circle, startingLeyline ? startingLeyline.circle : getCenterOfMass());
+    if (startingPlanet) {
+      let starting_point = getPointFromPlanet(startingPlanet, startingPlanetLeyline);
+      if (starting_point) {
+        circle.cx = starting_point.x;
+        circle.cy = starting_point.y;
+  
+        repositionCircle(circle, startingLeyline ? startingLeyline.circle : getCenterOfMass());
+      }
     }
     
     if (centerCoord) {
@@ -404,129 +408,30 @@ function main (focusPlanet) {
     
     let total = leyline.planets.length;
     
-    // Figure out which points will be added to the circle
-    let points_to_add = leyline.planets.map((p) => planets[p.name]);
-    if (noDuplicatesOnLine) {
-      let uniques = new Set();
-      
-      points_to_add = points_to_add.filter((point) => {
-        let unique = !uniques.has(point.name);
-        
-        uniques.add(point.name);
-        
-        return unique;
-      });
-    }
-    if (!makeNewControlPoints) {
-      points_to_add = points_to_add.filter((point) => {
-        return point.point === undefined;
-      });
-    }
-    // And in which order
-    if (startingPlanet) {
-      const starting_planet_index = points_to_add
-        .findIndex((p) => p.name === startingPlanet.name);
-      if (starting_planet_index > 0) {
-        points_to_add = points_to_add.slice(starting_planet_index)
-          .concat(points_to_add.slice(0, starting_planet_index));
-      }
-    }
-    
-    // Add each planet to the leyline
+    let points_to_add = getPointsToAdd();
     points_to_add.forEach(addPlanet);
     
-    // Set up neighbor metadata
-    leyline.planets.forEach((planet, i) => {      
-      const previous_planet_name = leyline.planets[((i > 0 ? i : total) - 1) % total].name;
-      const next_planet_name = leyline.planets[(i + 1) % total].name;
-      
-      const planet_text = $(`.${leyline.aeldman_name}.${planet.name}`);
-      planet_text.addClass(`neighbor-${ previous_planet_name }`);
-      planet_text.addClass(`neighbor-${ next_planet_name }`);
-    });
-    
+    addNeighborMetadata();    
     addArcsWithDistances();
     addSamePlanetArcs();
       
     circle.style.stroke = "transparent";
     
-    // Add the arcs between each planet individually
-    function addArcsWithDistances() {
-      const planet_occurrences = leyline.planets
-        .reduce((obj, p) => { obj[p.name] = (obj[p.name] ?? 0) + 1; return obj }, {});
-      let previous_planet_point;
-      leyline.planets.forEach((planetData, i) => {
-        if (planet_occurrences[planetData.name] === undefined) { 
-          planet_occurrences[planetData.name] = 0;
-        }
-        --planet_occurrences[planetData.name];
-        
-        const extra_points = planets[planetData.name].extra_points;
-        
-        let planet_point = getPointFromPlanet(planetData, /* firstPoint= */ !makeNewControlPoints);
-        if (useStartingPlanetsFirstPoint && startingPlanet.name === planetData.name) {
-          planet_point = getPointFromPlanet(planetData, /* firstPoint= */ true);
-        }
-        if (!noDuplicatesOnLine
-          && planet_occurrences[planetData.name] > 0
-          && extra_points
-          && extra_points.length > 0) {
-            planet_point = extra_points[extra_points.length - planet_occurrences[planetData.name]];
-        }
-        
-        let previous_planet = leyline.planets[i === 0 ? total - 1 : i - 1]
-        previous_planet_point = previous_planet_point ?? getPointFromPlanet(previous_planet);
-        if (useStartingPlanetsFirstPoint
-          && previous_planet.name === startingPlanet.name) {
-            previous_planet_point = getPointFromPlanet(previous_planet, /* firstPoint= */ true);
-        }
-        
-        let arc = createArc(circle, planet_point, previous_planet_point);
-        let title = document.createElementNS($("#map > svg").attr("xmlns"), "title");
-        title.textContent = `Distance: ~${(previous_planet.distance * 10000).toLocaleString('en-US')} etheric miles`;
-        $(arc.root).append(title);
-        $(arc.root).addClass(planetData.name);
-        $(arc.root).addClass(previous_planet.name);
-        if (previous_planet.distance === '?') {
-          title.textContent = "Distance unknown";
-          $(arc.root).find(".foreground-path").css("stroke", `url(#gradient-${leyline.aeldman_name})`);
-        }
-        circle.addDependency(arc);
-        
-        previous_planet_point = planet_point;
-      });
-    }
-    
-    function addSamePlanetArcs() {
-      leyline.planets.forEach((planet) => {
-        let allPoints = planets[planet.name].allPoints;
-        if (!allPoints) { return; }
-        let allPoints_on_line = allPoints[leyline.aeldman_name];
-        if (!allPoints_on_line || allPoints_on_line.length < 1) { return; }
-        
-        let points_on_other_lines = Object.keys(leylines).map((i) => leylines[i])
-          .filter((l) => l.aeldman_name !== leyline.aeldman_name)
-          .reduce((points, l) => {
-            return points.concat(allPoints[l.aeldman_name] || []);
-          }, []);
-        
-        allPoints_on_line.forEach((point, i) => {
-          for (let j = 0; j < points_on_other_lines.length; ++j) {
-            let next_point = points_on_other_lines[j];
-            
-            let arc = createArc(circle, point, next_point, { radius: Math.pow(circle.r, 1.3) });
-            $(arc.root).addClass("same-planet-path");
-            $(arc.root).addClass(planet.name);
-          }
-        });
-      });
-    }
-    
     function addPlanet (planetData, point_index) {
+      // Set up allPoints, if it wasn't already
+      if (!planets[planetData.name].allPoints) {
+        planets[planetData.name].allPoints = {};
+      }
+      if (!planets[planetData.name].allPoints[leyline.aeldman_name]) {
+        planets[planetData.name].allPoints[leyline.aeldman_name] = [];
+      }
+      
       // Skip the starting planet, if it was provided and the point already exists
       if (startingPlanet
         && planets[startingPlanet.name].point
         && startingPlanet.name === planetData.name) {
+          const existing_point = planets[startingPlanet.name].allPoints[startingPlanetLeyline.aeldman_name][0];
+          planets[startingPlanet.name].allPoints[leyline.aeldman_name].push(existing_point);
           return;
       }
       
@@ -599,24 +504,115 @@ function main (focusPlanet) {
         clickdown = false;
       });
       
-      // If there already was a recently-placed point, move it to "extra_points"
-      if (planets[planetData.name].point) {
-        if (!planets[planetData.name].extra_points) {
-          planets[planetData.name].extra_points = [];
-        }
-        planets[planetData.name].extra_points.push(planets[planetData.name].point);
-      }
-      if (!planets[planetData.name].allPoints) {
-        planets[planetData.name].allPoints = {};
-      }
-      if (!planets[planetData.name].allPoints[leyline.aeldman_name]) {
-        planets[planetData.name].allPoints[leyline.aeldman_name] = [];
-      }
-      planets[planetData.name].allPoints[leyline.aeldman_name].push(planet_point);
-      
       // Now add the new point to "point"
       planets[planetData.name].point = planet_point;
+      planets[planetData.name].allPoints[leyline.aeldman_name].push(planet_point);
       ++point_index;
+    }
+    
+    function addNeighborMetadata() {
+      leyline.planets.forEach((planet, i) => {      
+        const previous_planet_name = leyline.planets[((i > 0 ? i : total) - 1) % total].name;
+        const next_planet_name = leyline.planets[(i + 1) % total].name;
+        
+        const planet_text = $(`.${leyline.aeldman_name}.${planet.name}`);
+        planet_text.addClass(`neighbor-${ previous_planet_name }`);
+        planet_text.addClass(`neighbor-${ next_planet_name }`);
+      });
+    }
+    
+    function addArcsWithDistances() {
+      let planet_occurrences = {};
+      let previous_planet_point;
+      
+      points_to_add.forEach((planetData, i) => {
+        if (planet_occurrences[planetData.name] === undefined) { 
+          planet_occurrences[planetData.name] = 0;
+        }
+        const occurrence = planet_occurrences[planetData.name];
+        
+        let allPoints_on_line = planets[planetData.name].allPoints[leyline.aeldman_name];
+        let planet_point = allPoints_on_line[occurrence];
+        console.log(leyline.aeldman_name, planetData.name, occurrence, allPoints_on_line);
+        
+        let previous_planet = points_to_add[i === 0 ? points_to_add.length - 1 : i - 1];
+        if (previous_planet_point === undefined) {
+          let previous_planet_allPoints = (planets[previous_planet.name].allPoints ?? {})[leyline.aeldman_name] ?? [];
+          previous_planet_point = previous_planet_allPoints[previous_planet_allPoints.length - 1];
+        }
+        
+        let arc = createArc(circle, planet_point, previous_planet_point);
+        let title = document.createElementNS($("#map > svg").attr("xmlns"), "title");
+        title.textContent = `Distance: ~${(previous_planet.distance * 10000).toLocaleString('en-US')} etheric miles`;
+        $(arc.root).append(title);
+        $(arc.root).addClass(planetData.name);
+        $(arc.root).addClass(previous_planet.name);
+        if (previous_planet.distance === '?') {
+          title.textContent = "Distance unknown";
+          $(arc.root).find(".foreground-path").css("stroke", `url(#gradient-${leyline.aeldman_name})`);
+        }
+        circle.addDependency(arc);
+        
+        previous_planet_point = planet_point;
+        ++planet_occurrences[planetData.name];
+      });
+    }
+    
+    function addSamePlanetArcs() {
+      leyline.planets.forEach((planet) => {
+        let allPoints = planets[planet.name].allPoints;
+        if (!allPoints) { return; }
+        let allPoints_on_line = allPoints[leyline.aeldman_name];
+        if (!allPoints_on_line || allPoints_on_line.length < 1) { return; }
+        
+        let points_on_other_lines = Object.keys(leylines).map((i) => leylines[i])
+          .filter((l) => l.aeldman_name !== leyline.aeldman_name)
+          .reduce((points, l) => {
+            return points.concat(allPoints[l.aeldman_name] || []);
+          }, []);
+        
+        allPoints_on_line.forEach((point, i) => {
+          for (let j = 0; j < points_on_other_lines.length; ++j) {
+            let next_point = points_on_other_lines[j];
+            
+            let arc = createArc(circle, point, next_point, { radius: Math.pow(circle.r, 1.3) });
+            $(arc.root).addClass("same-planet-path");
+            $(arc.root).addClass(planet.name);
+          }
+        });
+      });
+    }
+    
+    function getPointsToAdd() {
+      let points =  leyline.planets;
+      
+      if (noDuplicatesOnLine) {
+        let uniques = new Set();
+        
+        points = points.filter((point) => {
+          let unique = !uniques.has(point.name);
+          
+          uniques.add(point.name);
+          
+          return unique;
+        });
+      }
+      if (!makeNewControlPoints) {
+        points = points.filter((point) => {
+          return point.point === undefined;
+        });
+      }
+      // And in which order
+      if (startingPlanet) {
+        const starting_planet_index = points
+          .findIndex((p) => p.name === startingPlanet.name);
+        if (starting_planet_index > 0) {
+          points = points.slice(starting_planet_index)
+            .concat(points.slice(0, starting_planet_index));
+        }
+      }
+      
+      return points;
     }
   }
   
@@ -774,21 +770,18 @@ function main (focusPlanet) {
     );
   }
   
-  function getPointFromPlanet (planet, firstPoint) {
-    if (firstPoint && planet && planet.extra_points && planet.extra_points.length > 0) {
-      return planet.extra_points[0];
+  function getPointFromPlanet (planet, leyline) {
+    if (!planet) { return; }
+    if (leyline) {
+      return ((planets[planet.name].allPoints || {})[leyline.aeldman_name] || [])[0];
     }
     
-    if (planet && planet.point) {
+    if (planet.point) {
       return planet.point;
     }
     
-    if (planet && planet.name) {
+    if (planet.name) {
       if (!planets[planet.name]) { alert(`Missing data for planet: ${planet.name}`); }
-      
-      if (firstPoint && planets[planet.name].extra_points && planets[planet.name].extra_points.length > 0) {
-        return planets[planet.name].extra_points[0];
-      }
       
       return planets[planet.name].point;
     }
@@ -1141,10 +1134,12 @@ function setupUI () {
     Object.keys(planets).map((i) => planets[i]).forEach((p) => {
       p.point && p.point.remove();
       delete p.point
-      if (p.extra_points) {
-        while (p.extra_points.length > 0) {
-          p.extra_points.pop().remove();
-        }
+      if (p.allPoints) {
+        Object.keys(p.allPoints).forEach((leylineName) => {
+          while (p.allPoints[leylineName].length > 0) {
+            p.allPoints[leylineName].pop().remove();
+          }
+        });
       }
     });
     Object.keys(leylines).map((i) => leylines[i]).forEach((l) => {
