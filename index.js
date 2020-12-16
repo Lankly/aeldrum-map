@@ -843,6 +843,7 @@ function setupUI () {
   handlePanning();
   let zoom_slider = generateZoomSlider();
   generateLeylineCheckboxes();
+  generatePlanetSelector();
   generateAdditionalControls();
   
   function generateLeylineCheckboxes () {
@@ -1044,6 +1045,18 @@ function setupUI () {
     slider_text.addDependency(slider);
     
     return slider;
+  }
+  
+  function generatePlanetSelector () {
+    let selector = $("#planet-selector");
+    
+    Object.keys(planets).map((i) => planets[i]).forEach(planet => {
+      selector.append(`<option value="${ planet.name }">${ planet.full_name }</option>`);
+    });
+    
+    selector.change((event) => {
+      recenterOnPlanet(planets[selector.val()]);
+    });
   }
   
   function generateAxisLines () {
