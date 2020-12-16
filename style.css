@@ -127,4 +127,8 @@ path {
   width: 100px;
   bottom: 0;
   right: 0;
+  opacity: 50%;
+}
+#neocities:hover {
+  opacity: 100%;
 }
