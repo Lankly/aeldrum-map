@@ -84,6 +84,18 @@ path {
   left: 25px;
 }
 
+#planet-selector-container {
+  position: absolute;
+  right: 5px;
+  top: calc(5vh + 15px);
+}
+#planet-selector-container::before {
+  content: "Center Planet:";
+  font-size: 12px;
+  white-space: nowrap;
+  background-color: rgb(256, 256, 256, 0.5);
+}
+
 
 #additional-controls {
   position: absolute;
