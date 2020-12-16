@@ -371,7 +371,7 @@ function main (focusPlanet) {
         
         clickdown = false;
         if (hold_highlight.has(planetData.name)){
-          hold_highlight.remove(planetData.name);
+          hold_highlight.delete(planetData.name);
         }
         else {
           hold_highlight.add(planetData.name);
