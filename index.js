@@ -433,7 +433,74 @@ function main (focusPlanet) {
     }
     
     // Add each planet to the leyline
-    points_to_add.forEach((planetData, point_index) => {
+    points_to_add.forEach(addPlanet);
+    
+    // Set up neighbor metadata
+    leyline.planets.forEach((planet, i) => {      
+      const previous_planet_name = leyline.planets[((i > 0 ? i : total) - 1) % total].name;
+      const next_planet_name = leyline.planets[(i + 1) % total].name;
+      
+      const planet_text = $(`.${leyline.aeldman_name}.${planet.name}`);
+      planet_text.addClass(`neighbor-${ previous_planet_name }`);
+      planet_text.addClass(`neighbor-${ next_planet_name }`);
+    });
+    
+    // Add the arcs between each planet individually
+    const planet_occurrences = leyline.planets
+      .reduce((obj, p) => { obj[p.name] = (obj[p.name] ?? 0) + 1; return obj }, {});
+    let previous_planet_point;
+    leyline.planets.forEach((planetData, i) => {
+      if (planet_occurrences[planetData.name] === undefined) { 
+        planet_occurrences[planetData.name] = 0;
+      }
+      --planet_occurrences[planetData.name];
+      
+      const extra_points = planets[planetData.name].extra_points;
+      
+      let planet_point = getPointFromPlanet(planetData, /* firstPoint= */ !makeNewControlPoints);
+      if (useStartingPlanetsFirstPoint && startingPlanet.name === planetData.name) {
+        planet_point = getPointFromPlanet(planetData, /* firstPoint= */ true);
+      }
+      if (!noDuplicatesOnLine
+        && planet_occurrences[planetData.name] > 0
+        && extra_points
+        && extra_points.length > 0) {
+          planet_point = extra_points[extra_points.length - planet_occurrences[planetData.name]];
+      }
+      
+      let previous_planet = leyline.planets[i === 0 ? total - 1 : i - 1]
+      previous_planet_point = previous_planet_point ?? getPointFromPlanet(previous_planet);
+      if (useStartingPlanetsFirstPoint
+        && previous_planet.name === startingPlanet.name) {
+          previous_planet_point = getPointFromPlanet(previous_planet, /* firstPoint= */ true);
+      }
+      
+      let arc = createArc(circle, planet_point, previous_planet_point);
+      let title = document.createElementNS($("#map > svg").attr("xmlns"), "title");
+      title.textContent = `Distance: ~${(previous_planet.distance * 10000).toLocaleString('en-US')} etheric miles`;
+      $(arc.root).append(title);
+      $(arc.root).addClass(planetData.name);
+      $(arc.root).addClass(previous_planet.name);
+      if (previous_planet.distance === '?') {
+        title.textContent = "Distance unknown";
+        $(arc.root).find(".foreground-path").css("stroke", `url(#gradient-${leyline.aeldman_name})`);
+      }
+      circle.addDependency(arc);
+      
+      if (extra_points) {
+        extra_points.forEach((extra_point) => {
+          arc = createArc(circle, planet_point, extra_point, { radius: Math.pow(circle.r, 1.3) });
+          $(arc.root).addClass("same-planet-path");
+          $(arc.root).addClass(planetData.name);
+        });
+      }
+      
+      previous_planet_point = planet_point;
+    });
+      
+    circle.style.stroke = "transparent";
+    
+    function addPlanet (planetData, point_index) {
       // Skip the starting planet, if it was provided and the point already exists
       if (startingPlanet
         && planets[startingPlanet.name].point
@@ -521,72 +588,7 @@ function main (focusPlanet) {
       // Now add the new point to "point"
       planets[planetData.name].point = planet_point;
       ++point_index;
-    });
-    
-    // Set up neighbor metadata
-    leyline.planets.forEach((planet, i) => {      
-      const previous_planet_name = leyline.planets[((i > 0 ? i : total) - 1) % total].name;
-      const next_planet_name = leyline.planets[(i + 1) % total].name;
-      
-      const planet_text = $(`.${leyline.aeldman_name}.${planet.name}`);
-      planet_text.addClass(`neighbor-${ previous_planet_name }`);
-      planet_text.addClass(`neighbor-${ next_planet_name }`);
-    });
-    
-    // Add the arcs between each planet individually
-    const planet_occurrences = leyline.planets
-      .reduce((obj, p) => { obj[p.name] = (obj[p.name] ?? 0) + 1; return obj }, {});
-    let previous_planet_point;
-    leyline.planets.forEach((planetData, i) => {
-      if (planet_occurrences[planetData.name] === undefined) { 
-        planet_occurrences[planetData.name] = 0;
-      }
-      --planet_occurrences[planetData.name];
-      
-      const extra_points = planets[planetData.name].extra_points;
-      
-      let planet_point = getPointFromPlanet(planetData, /* firstPoint= */ !makeNewControlPoints);
-      if (useStartingPlanetsFirstPoint && startingPlanet.name === planetData.name) {
-        planet_point = getPointFromPlanet(planetData, /* firstPoint= */ true);
-      }
-      if (!noDuplicatesOnLine
-        && planet_occurrences[planetData.name] > 0
-        && extra_points
-        && extra_points.length > 0) {
-          planet_point = extra_points[extra_points.length - planet_occurrences[planetData.name]];
-      }
-      
-      let previous_planet = leyline.planets[i === 0 ? total - 1 : i - 1]
-      previous_planet_point = previous_planet_point ?? getPointFromPlanet(previous_planet);
-      if (useStartingPlanetsFirstPoint
-        && previous_planet.name === startingPlanet.name) {
-          previous_planet_point = getPointFromPlanet(previous_planet, /* firstPoint= */ true);
-      }
-      
-      let arc = createArc(circle, planet_point, previous_planet_point);
-      let title = document.createElementNS($("#map > svg").attr("xmlns"), "title");
-      title.textContent = `Distance: ~${(previous_planet.distance * 10000).toLocaleString('en-US')} etheric miles`;
-      $(arc.root).append(title);
-      $(arc.root).addClass(planetData.name);
-      $(arc.root).addClass(previous_planet.name);
-      if (previous_planet.distance === '?') {
-        title.textContent = "Distance unknown";
-        $(arc.root).find(".foreground-path").css("stroke", `url(#gradient-${leyline.aeldman_name})`);
-      }
-      circle.addDependency(arc);
-      
-      if (extra_points) {
-        extra_points.forEach((extra_point) => {
-          arc = createArc(circle, planet_point, extra_point, { radius: Math.pow(circle.r, 1.3) });
-          $(arc.root).addClass("same-planet-path");
-          $(arc.root).addClass(planetData.name);
-        });
-      }
-      
-      previous_planet_point = planet_point;
-    });
-      
-    circle.style.stroke = "transparent";
+    }
   }
   
   function createControlPointOnCircle (circle, index, total_points, settings) {
