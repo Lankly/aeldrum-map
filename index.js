@@ -8,7 +8,7 @@ var xOrigin, yOrigin;
 const width = window.innerWidth;
 const height = window.innerHeight * 0.9;
 
-var flags = { 
+var flags = {
   generateInscribed: true, 
   multigateOnly: false,
   samePlanetPaths: false,
@@ -410,9 +410,9 @@ function main (focusPlanet) {
       let uniques = new Set();
       
       points_to_add = points_to_add.filter((point) => {
-        let unique = !uniques.includes(point.name);
+        let unique = !uniques.has(point.name);
         
-        uniqueNames.push(point.name);
+        uniques.add(point.name);
         
         return unique;
       });
