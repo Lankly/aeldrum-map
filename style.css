@@ -134,13 +134,15 @@ path {
   paint-order: stroke;
 }
 
-.line.note-path {
+.line.note-path, .path.note-path {
   stroke: grey;
 }
 .text.note {
   font-size: 8pt;
   font-style: italic;
   fill: grey;
+  stroke: white;
+  stroke-width: 3px;
 }
 
 #github {
