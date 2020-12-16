@@ -37,6 +37,14 @@ path {
 .font-neighbor-highlight {
   font-weight: 450;
 }
+.capital-planet > polygon {
+  pointer-events: none;
+  fill: #0366ee;
+}
+.capital-planet > circle:first-child {
+  fill: transparent;
+  stroke: transparent;
+}
 
 #main-container {
   position: absolute;
