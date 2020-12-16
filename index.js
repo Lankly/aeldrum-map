@@ -129,9 +129,6 @@ function main (focusPlanet) {
       
       const radius = calculateRadius(leyline);
       
-      // Center of mass  turned 90d around origin
-      // let x = xOrigin + (avg.y - yOrigin);
-      // let y = yOrigin + (avg.x - xOrigin);
       // Opposite of center of mass
       let x = xOrigin - (avg.x - xOrigin);
       let y = yOrigin - (avg.y - yOrigin);
@@ -139,11 +136,8 @@ function main (focusPlanet) {
       let circle = circle_group.circle(x, y, radius);
       leyline.circle = circle;
       
-      let invalid;
-      let tick = 0;
       const padding = 30;
-      do {
-        ++tick;
+      for (let invalid = true, tick = 0; invalid; ++tick) {
         invalid = generated_leylines
           .filter((l) => {
             const distance = getDistance(l.circle, circle);
@@ -167,7 +161,7 @@ function main (focusPlanet) {
         if (invalid) {
           repositionCircle(circle, invalid.circle, tick);
         }
-      } while (invalid);
+      }
       
       let coords = { x: circle.cx, y: circle.cy };
       circle.remove();
