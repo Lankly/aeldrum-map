@@ -113,7 +113,7 @@ function main (focusPlanet) {
     
     let next_leyline;
     do {
-      next_leyline = getNextLeyline({ minConnections: 3 });
+      next_leyline = getNextLeyline();
       
       if (next_leyline) {
         generateNPointCircularLeyline(next_leyline);
