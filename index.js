@@ -224,6 +224,7 @@ function main (focusPlanet) {
         rotatePercent = outer_rotation - inner_starting_rotation;
       }
       
+      next_leyline.inscribing_leyline = leyline;
       generateCircularLeyline(
         next_leyline,
         {
@@ -231,7 +232,6 @@ function main (focusPlanet) {
           rotatePercent: rotatePercent,
           makeNewControlPoints: true
         });
-      next_leyline.inscribing_leyline = leyline;
     });
     
     function getNextNestedLeyline (startingLeyline, radius, maxConnections) {
@@ -507,21 +507,70 @@ function main (focusPlanet) {
         
         if (leyline_is_inscribed) {
           temp_circle.translate(
-            -2 * (temp_circle.cx - center_point.x),
-            -2 * (temp_circle.cy - center_point.y));
+            -2 * (temp_circle.cx - point.x),
+            -2 * (temp_circle.cy - point.y));
         }
         
         if (notes.length === 1) {
           let line = notes_group.line(point.x, point.y, temp_circle.cx, temp_circle.cy);
           $(line.root).addClass("note-path");
-          let text = notes_group.text(temp_circle.cx, temp_circle.cy, notes[0]);
-          $(text.root).addClass("note");
-          text.x = text.x - (text.getBoundingBox().width / 2);
           
+          noteHelper(temp_circle, notes[0]);
         } else if (notes.length === 2) {
+          let temp_point = createControlPointOnCircle(
+            temp_circle,
+            /* index= */ 1,
+            /* totalPoints= */ 4,
+            {
+              startingPoint: point
+            });
+          let arc1 = createArc(temp_circle, temp_point, point, {
+              forNote: true
+            });
+          $(arc1.root).addClass("note-path");
+          noteHelper(temp_point, notes[0]);
+          temp_point.remove();
+          
+          temp_point = createControlPointOnCircle(
+            temp_circle,
+            /* index= */ 3,
+            /* totalPoints= */ 4,
+            {
+              startingPoint: point
+            });
+          let arc2 = createArc(temp_circle, point, temp_point, {
+              forNote: true
+            });
+          $(arc2.root).addClass("note-path");
+          noteHelper(temp_point, notes[1]);
+          temp_point.remove();
         }
         
         temp_circle.remove();
+        
+        function noteHelper (point, message) {
+          const xy = {
+            x: point.cx ?? point.x,
+            y: point.cy ?? point.y
+          };
+          
+          let text = text_group.text(xy.x, xy.y, message);
+          let node = $(text.root);
+          node.addClass("note");
+          node.addClass(planet.name);
+          
+          // Keep at back by default
+          let group = node.parent();
+          node.detach();
+          group.prepend(node);
+          
+          text.x = text.x - (text.getBoundingBox().width / 2);
+          
+          node.mouseenter(() => {
+            node.detach();
+            group.append(node);
+          });
+        }
       });
     }
     
@@ -776,20 +825,28 @@ function main (focusPlanet) {
   }
   
   function createArc (circle, pointA, pointB, settings) {
-    const radius = settings ? settings.radius : circle.r;
+    const radius = (settings && settings.radius) || circle.r;
+    const forNote = settings && settings.forNote; // Uses the notes group and doesn't pair
     
     const path_value = `M ${pointA.x} ${pointA.y} A ${radius} ${radius} 0 0 0 ${pointB.x} ${pointB.y}`;
     
-    let arc_pair = arc_group.group();
-    let background_path = arc_pair.path(path_value);
-    $(background_path.root).addClass("background-path");
-    
-    let path = arc_pair.path(path_value);
+    let arc_pair;
+    let path;
+    if (forNote) {
+      path = notes_group.path(path_value);
+    }
+    else {
+      arc_pair = arc_group.group();
+      let background_path = arc_pair.path(path_value);
+      $(background_path.root).addClass("background-path");
+      
+      path = arc_pair.path(path_value);
+      $(path.root).addClass("foreground-path");
+    }
     path.style.fill = "none";
     path.style.stroke = circle.style.stroke;
-    $(path.root).addClass("foreground-path");
     
-    return arc_pair;
+    return forNote ? path : arc_pair;
   }
 }
 
