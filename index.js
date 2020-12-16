@@ -552,7 +552,7 @@ function main (focusPlanet) {
       
       if (extra_points) {
         extra_points.forEach((extra_point) => {
-          arc = createArc(circle, planet_point, extra_point, { radius: circle.r * 2 });
+          arc = createArc(circle, planet_point, extra_point, { radius: Math.pow(circle.r, 1.3) });
           $(arc.root).addClass("same-planet-path");
           $(arc.root).addClass(planetData.name);
         });
