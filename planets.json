@@ -37,16 +37,7 @@
   "dwarf_clans": {
     "full_name": "Dwarf Clans"
   },
-  "enclave_outlet1": {
-    "full_name": "Enclave Outlet"
-  },
-  "enclave_outlet2": {
-    "full_name": "Enclave Outlet"
-  },
-  "enclave_outlet3": {
-    "full_name": "Enclave Outlet"
-  },
-  "enclave_outlet4": {
+  "enclave_outlet": {
     "full_name": "Enclave Outlet"
   },
   "fialt": {
