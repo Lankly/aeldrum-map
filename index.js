@@ -6,7 +6,7 @@ var interactive, arc_group, circle_group, text_group;
 var xOrigin, yOrigin;
 
 const width = window.innerWidth;
-const height = window.innerHeight * .9;
+const height = window.innerHeight * 0.9;
 
 var flags = { 
   generateInscribed: true, 
@@ -14,7 +14,7 @@ var flags = {
   samePlanetPaths: false,
   samePlanetPathsOnHover: true,
   hideDuplicatesOnLeyline: false
-}
+};
 
 var planets;
 var leylines;
@@ -432,8 +432,12 @@ function main (focusPlanet) {
         points_to_add.length,
         {
           startingPoint: getPointFromPlanet(startingPlanet),
-          rotatePercent: rotatePercent
+          rotatePercent: rotatePercent,
+          capital: planets[planetData.name].capital
         });
+      if (planets[planetData.name].capital) {
+        $(planet_point.root).addClass("capital-planet");
+      }
       circle.addDependency(planet_point);
       
       // Add the planet_point's name above it
@@ -563,6 +567,7 @@ function main (focusPlanet) {
   function createControlPointOnCircle (circle, index, total_points, settings) {
     let startingPoint = settings && settings.startingPoint;
     let rotatePercent = (settings && settings.rotatePercent) || 0;
+    let capital = settings && settings.capital;
     
     rotatePercent = rotatePercent ?? 0;
     const circle_len = circle.getTotalLength();
@@ -583,6 +588,16 @@ function main (focusPlanet) {
     let planet_control_point = interactive.control(dist_xy.x, dist_xy.y);
     planet_control_point.constrainWithinBox(planet_control_point.x, planet_control_point.y, planet_control_point.x, planet_control_point.y);
     planet_control_point.onchange = function () { resetToPoint(planet_name); };
+    
+    // Handle capital planet
+    if (capital) {
+      const ns = $("#map > svg").attr("xmlns");
+      let group = $(planet_control_point.root);
+      let star = $(document.createElementNS(ns, "polygon"));
+      star.attr("points", "0,-6 -4,6 6,-2 -6,-2 4,6");
+      
+      group.append(star);
+    }
     
     return planet_control_point;
   }
