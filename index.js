@@ -45,10 +45,6 @@ $.ajax("planets.json", {
 });
 
 function main (focusPlanet) {
-  circle_group = interactive.group();
-  arc_group = interactive.group();
-  text_group = interactive.group();
-  
   focusPlanet = focusPlanet ?? planets["aeldrum"];
   
   let next_leyline = getNextLeyline({ startingPlanet: focusPlanet, size: 1 });
@@ -461,6 +457,7 @@ function main (focusPlanet) {
         if (!clickdown) { return; }
         
         clickdown = false;
+        $(planet_point.root).mouseleave();
         recenterOnPlanet(planets[planetData.name]);
       });
         
@@ -500,6 +497,7 @@ function main (focusPlanet) {
         }
         planets[planetData.name].extra_points.push(planets[planetData.name].point);
       }
+      
       // Now add the new point to "point"
       planets[planetData.name].point = planet_point;
       ++point_index;
@@ -587,7 +585,6 @@ function main (focusPlanet) {
     // Create the planet as a control point
     let planet_control_point = interactive.control(dist_xy.x, dist_xy.y);
     planet_control_point.constrainWithinBox(planet_control_point.x, planet_control_point.y, planet_control_point.x, planet_control_point.y);
-    planet_control_point.onchange = function () { resetToPoint(planet_name); };
     
     // Handle capital planet
     if (capital) {
@@ -595,6 +592,7 @@ function main (focusPlanet) {
       let group = $(planet_control_point.root);
       let star = $(document.createElementNS(ns, "polygon"));
       star.attr("points", "0,-6 -4,6 6,-2 -6,-2 4,6");
+      star.attr("id", `${ group.attr("id") }-star`);
       
       group.append(star);
     }
@@ -814,6 +812,10 @@ function setupUI () {
   });
   interactive.border = true;
   interactive.setViewBox(xOrigin / 2, yOrigin / 2, width, height);
+  
+  circle_group = interactive.group();
+  arc_group = interactive.group();
+  text_group = interactive.group();
   
   setupGradient();
   generateAxisLines();
@@ -1060,11 +1062,16 @@ function setupUI () {
   
   recenterOnPlanet = function (planet) {
     clearAll();
-    startingPlanet = planet;
-    reset();
+    
+    // For some reason, this setTimeout stops the app from breaking on the second planet recenter
+    setTimeout(() => {
+      startingPlanet = planet;
+      reset();
+    }, 1);
   }
   
   function clearAll () {
+    $("body").css("cursor", "wait !important");
     Object.keys(planets).map((i) => planets[i]).forEach((p) => {
       p.point && p.point.remove();
       delete p.point
@@ -1080,8 +1087,8 @@ function setupUI () {
       delete l.inscribing_leyline;
     });
     
-    arc_group.clear(); arc_group.remove();
-    text_group.clear(); text_group.remove();
+    arc_group.clear();
+    text_group.clear();
   }
   
   function reset () {
