@@ -58,7 +58,11 @@ function main (focusPlanet) {
   // Perpendicular to starting point
   next_leyline = getNextLeyline({ startingPlanet: focusPlanet, minimizeConnections: next_leyline });
   if (next_leyline) {
-    generateCircularLeyline(next_leyline, { startingPlanet: focusPlanet, makeNewControlPoints: true });
+    generateCircularLeyline(next_leyline, {
+      startingPlanet: focusPlanet,
+      makeNewControlPoints: true,
+      useStartingPlanetsFirstPoint: true,
+    });
   }
   
   generateInscribableLeylines();
@@ -366,6 +370,7 @@ function main (focusPlanet) {
   
   function generateCircularLeyline (leyline, settings) {
     let startingPlanet = settings && settings.startingPlanet;
+    let useStartingPlanetsFirstPoint = settings && settings.useStartingPlanetsFirstPoint;
     let startingLeyline = settings && settings.startingLeyline;
     let centerCoord = settings && settings.centerCoord;
     let rotatePercent = settings && settings.rotatePercent;
@@ -425,6 +430,13 @@ function main (focusPlanet) {
     
     // Add each planet to the leyline
     points_to_add.forEach((planetData, point_index) => {
+      // Skip the starting planet, if it was provided and the point already exists
+      if (startingPlanet
+        && planets[startingPlanet.name].point
+        && startingPlanet.name === planetData.name) {
+          return;
+      }
+      
       let planet_point = createControlPointOnCircle(
         circle,
         point_index,
@@ -529,6 +541,9 @@ function main (focusPlanet) {
       const extra_points = planets[planetData.name].extra_points;
       
       let planet_point = getPointFromPlanet(planetData, /* firstPoint= */ !makeNewControlPoints);
+      if (useStartingPlanetsFirstPoint && startingPlanet.name === planetData.name) {
+        planet_point = getPointFromPlanet(planetData, /* firstPoint= */ true);
+      }
       if (!noDuplicatesOnLine
         && planet_occurrences[planetData.name] > 0
         && extra_points
@@ -536,8 +551,12 @@ function main (focusPlanet) {
           planet_point = extra_points[extra_points.length - planet_occurrences[planetData.name]];
       }
       
-      let previous_planet = leyline.planets[i === 0 ? total - 1 : i - 1];
+      let previous_planet = leyline.planets[i === 0 ? total - 1 : i - 1]
       previous_planet_point = previous_planet_point ?? getPointFromPlanet(previous_planet);
+      if (useStartingPlanetsFirstPoint
+        && previous_planet.name === startingPlanet.name) {
+        previous_planet_point = getPointFromPlanet(previous_planet, /* firstPoint= */ true);
+      }
       
       let arc = createArc(circle, planet_point, previous_planet_point);
       let title = document.createElementNS($("#map > svg").attr("xmlns"), "title");
