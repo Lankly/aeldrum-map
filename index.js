@@ -75,9 +75,7 @@ function main (focusPlanet) {
   
   generateOnePointIntersectionLeylines();
   
-  // generateTwoPointIntersectionLeylines();
-  
-  generateNPointIntersectionLeylines();
+  generateRemainingLeylines();
   
   centerView();
   
@@ -110,103 +108,7 @@ function main (focusPlanet) {
     if (changed) { return generateOnePointIntersectionLeylines(); }
   }
   
-  function generateTwoPointIntersectionLeylines() {
-    do {
-      next_leyline = getNextLeyline({ minConnections: 2, maxConnections: 2, noInscribed: true });
-      
-      if (next_leyline) {
-        generateCircularLeylineWithTwoIntersections(next_leyline);
-      }
-    } while (next_leyline);
-    
-    function generateCircularLeylineWithTwoIntersections (leyline) {
-      if (!leyline) { return; }
-      
-      let radius = calculateRadius(leyline);
-      
-      let intersecting_planets = leyline.planets
-        .map((p) => getPointFromPlanet(p))
-        .filter((p) => p);
-        
-      if (intersecting_planets.length !== 2) { return; }
-        
-      // Calculate possible centers for the circle
-      let center_1 = calculateCenter(intersecting_planets[0], intersecting_planets[1], radius, false);
-      let center_2 = calculateCenter(intersecting_planets[0], intersecting_planets[1], radius, true);
-      
-      // And take the one that's furthest from the center of mass
-      let avg = getCenterOfMass();
-      let distance_1 = getDistance(center_1, avg);
-      let distance_2 = getDistance(center_2, avg);
-      
-      let center = (distance_1 < distance_2) ? center_1 : center_2;
-      
-      // Now figure out which direction to print the planets in        
-      let num_planets_between_intersections_clockwise =
-        leyline.planets.reduce((total, planet) => {
-          if (planet.point) {
-            if (total === 0) { return 1; }
-            return -total;
-          }
-          if (total > 0) {
-            return total + 1;
-          }
-        }, 0);
-        
-      let num_planets_between_intersections_counterclockwise =
-        leyline.planets.reverse().reduce((total, planet) => {
-          if (planet.point) {
-            if (total === 0) { return 1; }
-            return -total;
-          }
-          if (total > 0) {
-            return total + 1;
-          }
-        }, 0);
-        
-      if (num_planets_between_intersections_counterclockwise < num_planets_between_intersections_clockwise) {
-        leyline.planets = leyline.planets.reverse();
-      }
-      
-      // Actually create the leyline
-      let circle = circle_group.circle(center.x, center.y, radius);
-      leyline.circle = circle;
-      circle.fill = "transparent";
-      circle.style.stroke = "black";
-      
-      // TODO
-    }
-    
-    function calculateCenter(pointA, pointB, r, flip) {
-      // Stolen from http://mathforum.org/library/drmath/view/53027.html
-      let x1 = pointA.x;
-      let x2 = pointB.x;
-      let y1 = pointA.y;
-      let y2 = pointB.y;
-      let x3 = (x1+x2) / 2;
-      let y3 = (y1+y2) / 2;
-      
-      let q = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
-      
-      let x_right_side = Math.sqrt(Math.pow(r, 2) - Math.pow((q / 2), 2)) * (y1 - y2) / q;
-      let y_right_side = Math.sqrt(Math.pow(r, 2) - Math.pow((q / 2), 2)) * (x2 - x1) / q;
-      
-      let x;
-      let y;
-      if (flip) {
-        x = x3 - x_right_side;
-        y = y3 - y_right_side;
-      }
-      else {
-        x = x3 + x_right_side;
-        y = y3 + y_right_side;
-      }
-      
-      return { x: x, y: y };
-    }
-  }
-  
-  function generateNPointIntersectionLeylines() {
+  function generateRemainingLeylines() {
     const min_space_between_leyline_edges = 100;
     
     let next_leyline;
