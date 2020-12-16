@@ -122,6 +122,16 @@ path {
   paint-order: stroke;
 }
 
+#github {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  opacity: 50%;
+}
+#github:hover {
+  opacity: 100%;
+}
+
 #neocities {
   position: absolute;
   width: 100px;
