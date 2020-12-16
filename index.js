@@ -469,6 +469,7 @@ function main (focusPlanet) {
       
       // Click behavior
       let clickdown = false;
+      let hold_highlight = false;
       $(planet_point.root).mousedown(() => {
         clickdown = true;
       });
@@ -476,8 +477,7 @@ function main (focusPlanet) {
         if (!clickdown) { return; }
         
         clickdown = false;
-        $(planet_point.root).mouseleave();
-        recenterOnPlanet(planets[planetData.name]);
+        hold_highlight = !hold_highlight;
       });
         
       // Hover behavior
@@ -503,6 +503,7 @@ function main (focusPlanet) {
         text_dom_group.append(hover_planet_label);
       });
       $(planet_point.root).mouseleave(() => {
+        if (hold_highlight) { return; }
         $(`g.${ planetData.name }`).removeClass("path-highlight");
         $(`text.${ planetData.name }`).removeClass("font-highlight");
         $(`text.neighbor-${ planetData.name }`).removeClass("font-neighbor-highlight");
