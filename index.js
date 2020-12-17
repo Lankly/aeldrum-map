@@ -13,7 +13,8 @@ var flags = {
   multigateOnly: false,
   samePlanetPaths: false,
   samePlanetPathsOnHover: true,
-  hideDuplicatesOnLeyline: false
+  hideDuplicatesOnLeyline: false,
+  showPowers: false
 };
 
 var planets;
@@ -317,9 +318,14 @@ function main (focusPlanet) {
     let points_to_add = getPointsToAdd();
     points_to_add.forEach(addPlanet);
     
-    addNeighborMetadata();    
-    addArcsWithDistances();
+    addNeighborMetadata();
     addSamePlanetArcs();
+    if (flags.showPowers) {
+      addRegionArcs();
+    }
+    else {
+      addArcsWithDistances();
+    }
     points_to_add.forEach(addNotes);
       
     circle.style.stroke = "transparent";
@@ -343,6 +349,7 @@ function main (focusPlanet) {
           planets[startingPlanet.name]
             .allPoints[leyline.aeldman_name]
             .push(existing_point);
+          planetData.point = existing_point;
           startingPlanetLeyline = null;
           return;
       }
@@ -421,6 +428,7 @@ function main (focusPlanet) {
       });
       
       // Now add the new point to "point"
+      planetData.point = planet_point;
       planets[planetData.name].point = planet_point;
       planets[planetData.name].allPoints[leyline.aeldman_name].push(planet_point);
       ++point_index;
@@ -479,6 +487,153 @@ function main (focusPlanet) {
         previous_planet_point = planet_point;
         ++planet_occurrences[planetData.name];
       });
+    }
+    
+    function addRegionArcs () {
+      let planets = getPointsToAdd({
+        noReorder: true,
+        getFilled: true
+      });
+      
+      // Explode the region data into the full length of the leyline
+      // This is useful for getting the exact portion for this arc.
+      // We will account for '?'-length regions later
+      let region_data = leyline.controllers.reduce((arr, region) => {
+        if (region.length === '?') {
+          arr.push(region);
+        }
+        else {
+          for (let i = 0; i < region.length; ++i) {
+            arr.push(region);
+          }
+        }
+        return arr;
+      }, []);
+      
+      planets.forEach((planet, i) => {
+        let next_index = planet.distance;
+        if (next_index === '?') {
+          next_index = region_data.findIndex((d) => d.length === '?') + 1;
+        }
+        const region_segment_expanded = next_index === 0
+          ? [region_data[0]]
+          : region_data.slice(0, next_index);
+        
+        region_data = region_data.slice(planet.distance);
+        
+        // Now we will collapse it back, with the correct lengths
+        const region_segment_data = region_segment_expanded
+          .reduce((obj, region) => {
+            let block_index = 0;
+            let identifier = `${ region.name }|${ block_index }`;
+            if (obj.prev !== identifier) {
+              while (Object.keys(obj).includes(identifier)) {
+                ++block_index;
+                identifier = `${region.controller}|${block_index}`;
+              }
+              obj[identifier] = { region: region, count: 0 };
+            }
+            ++obj[identifier].count;
+            obj.prev = identifier;
+            return obj;
+          }, {});
+        delete region_segment_data.prev;
+        
+        // This segment will now have the correct lengths (except '?')
+        let region_segment = Object.keys(region_segment_data)
+          .map((identifier) => region_segment_data[identifier])
+          .map((data) => {
+            // Might need to shallow copy?
+            if (data.region.length === '?') {
+              data.region.lenFromHere = '?';
+            }
+            else {
+              data.region.lenFromHere = data.count;
+            }
+            return data.region;
+          });
+        
+        // Make '?'-length regions the average length
+        const no_unknown = region_segment.filter((s) => s.length !== '?');
+        const avg_len = no_unknown
+          .reduce((sum, region) => { return sum + region.length; }, 0)
+          / no_unknown.length;
+        
+        let j;
+        do {
+          j = region_segment.findIndex((s) => s.lenFromHere === '?');
+          if (j >= 0) {
+            region_segment[j].lenFromHere = avg_len;
+          }
+        } while (j >= 0);
+        
+        // Now we can actually create the arcs
+        const next_planet = planets[i >= (planets.length - 1) ? 0 : i + 1];
+        const total_len = region_segment.reduce((sum, region) => { return sum + region.lenFromHere; }, 0);
+        
+        const temp_arc = createArc(leyline.circle, next_planet.point, planet.point, { noPair: true });
+        const arc_len = temp_arc.getTotalLength();
+        const arc_units = arc_len / total_len;
+        
+        let prev_point = planet.point;
+        let dist_so_far = 0;
+        region_segment.forEach((region, i) => {
+          dist_so_far += region.lenFromHere * arc_units;
+          
+          const next_point = dist_so_far >= arc_len
+            ? next_planet.point
+            : temp_arc.getPointAtLength(arc_len - dist_so_far);
+          
+          let color = "magenta";
+          if (powers[region.name] && powers[region.name].color) {
+            color = powers[region.name].color;
+          }
+          
+          const class_name = `region_${region.name.replace(/[^A-Za-z]/g, '_')}`;
+          let region_arc = createArc(
+            leyline.circle,
+            next_point,
+            prev_point,
+            { 
+              color: color,
+              tooltip: region.name,
+              foregroundClass: class_name
+            });
+            
+          // Handle Click
+          let clickdown = false;
+          let node = $(region_arc.root);
+          node.mousedown(() => {
+            clickdown = true;
+          });
+          node.mouseup(() => {
+            if (!clickdown) { return; }
+            clickdown = false;
+            if (hold_highlight.has(class_name)) {
+              hold_highlight.delete(class_name);
+            }
+            else {
+              hold_highlight.add(class_name);
+            }
+          });
+            
+          // Handle Hover
+          node.mouseenter(() => {
+            $(`.${class_name}`).addClass("path-highlight");
+          });
+          node.mouseleave(() => {
+            clickdown = false;
+            if (!hold_highlight.has(class_name)) {
+              $(`.${class_name}`).removeClass("path-highlight");
+            }
+          });
+          
+          prev_point = next_point;
+        });
+        
+        temp_arc.remove();
+      });
+      leyline.circle.style.stroke = "transparent";
     }
     
     function addSamePlanetArcs () {
@@ -622,7 +777,9 @@ function main (focusPlanet) {
       }
     }
     
-    function getPointsToAdd () {
+    function getPointsToAdd (settings) {
+      let noReorder = settings && settings.noReorder;
+      let getFilled = settings && settings.getFilled;
       let points =  leyline.planets;
       
       if (noDuplicatesOnLine) {
@@ -636,13 +793,13 @@ function main (focusPlanet) {
           return unique;
         });
       }
-      if (!makeNewControlPoints) {
+      if (!getFilled && !makeNewControlPoints) {
         points = points.filter((point) => {
           return point.point === undefined;
         });
       }
       // And in which order
-      if (startingPlanet) {
+      if (startingPlanet && !noReorder) {
         const starting_planet_index = points
           .findIndex((p) => p.name === startingPlanet.name);
         if (starting_planet_index > 0) {
@@ -874,7 +1031,11 @@ function main (focusPlanet) {
   
   function createArc (circle, pointA, pointB, settings) {
     const radius = (settings && settings.radius) || circle.r;
+    const color = (settings && settings.color) || circle.style.stroke;
+    const tooltip = settings && settings.tooltip;
+    const foregroundClass = settings && settings.foregroundClass;
     const forNote = settings && settings.forNote; // Uses the notes group and doesn't pair
+    const noPair = settings && settings.noPair;
     
     const path_value = `M ${pointA.x} ${pointA.y} A ${radius} ${radius} 0 0 0 ${pointB.x} ${pointB.y}`;
     
@@ -883,6 +1044,9 @@ function main (focusPlanet) {
     if (forNote) {
       path = notes_group.path(path_value);
     }
+    else if (noPair) {
+      path = arc_group.path(path_value);
+    }
     else {
       arc_pair = arc_group.group();
       let background_path = arc_pair.path(path_value);
@@ -890,11 +1054,20 @@ function main (focusPlanet) {
       
       path = arc_pair.path(path_value);
       $(path.root).addClass("foreground-path");
+      if (foregroundClass) {
+        $(path.root).addClass(foregroundClass);
+      }
     }
     path.style.fill = "none";
-    path.style.stroke = circle.style.stroke;
+    path.style.stroke = color;
     
-    return forNote ? path : arc_pair;
+    let return_item = (forNote || noPair) ? path : arc_pair;
+    
+    if (tooltip) {
+      $(return_item.root).attr("title", tooltip);
+    }
+    
+    return return_item;
   }
 }
 
@@ -1148,6 +1321,7 @@ function setupUI () {
     };
     flag_index += 0.9;
     
+    /*
     let no_duplicates = additionalInteractive.checkBox(padding, padding + distance_between * flag_index, "Allow inner loops", flags.hideDuplicatesOnLeyline);
     no_duplicates.onchange = () => {
       flags.hideDuplicatesOnLeyline = no_duplicates.value;
@@ -1156,15 +1330,25 @@ function setupUI () {
       reset();
     };
     ++flag_index;
+    */
+    
+    let show_powers = additionalInteractive.checkBox(padding, padding + distance_between * flag_index, "Show Regions", flags.showPowers);
+    show_powers.onchange = () => {
+      clearAll();
+      flags.showPowers = show_powers.value;
+      reset();
+    };
     
     [
       inscribable,
       multigateOnly,
       same_planet_paths,
       same_planet_paths_on_hover,
-      no_duplicates
+      show_powers,
+      // no_duplicates,
     ]
     .forEach((checkbox) => {
+      if (!checkbox) { return; }
       $(checkbox.label.root).click(() => { checkbox.toggle(); });
     });
   }
@@ -1272,6 +1456,7 @@ function setupUI () {
   }
   
   function clearAll () {
+    const leylines_before = leylines;
     $("body").css("cursor", "wait !important");
     Object.keys(planets).map((i) => planets[i]).forEach((p) => {
       p.point && p.point.remove();
@@ -1285,6 +1470,10 @@ function setupUI () {
       }
     });
     Object.keys(leylines).map((i) => leylines[i]).forEach((l) => {
+      l.planets.forEach((p) => {
+        if (p.point) { p.point.remove(); }
+        delete p.point;
+      });
       l.circle && l.circle.remove();
       delete l.circle;
       delete l.inscribing_leyline;
@@ -1292,6 +1481,7 @@ function setupUI () {
     
     notes_group.clear();
     arc_group.clear();
+    circle_group.clear();
     text_group.clear();
   }
   
