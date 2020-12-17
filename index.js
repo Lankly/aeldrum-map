@@ -1235,7 +1235,7 @@ function setupUI () {
   }
   
   function generateAdditionalControls () {
-    const width = 210,
+    const width = 225,
       height = 200, // This should match one of the values in the CSS for this interactive
       padding = 30,
       distance_between = 38;
@@ -1332,7 +1332,7 @@ function setupUI () {
     ++flag_index;
     */
     
-    let show_powers = additionalInteractive.checkBox(padding, padding + distance_between * flag_index, "Show Regions", flags.showPowers);
+    let show_powers = additionalInteractive.checkBox(padding, padding + distance_between * flag_index, "Show Leyline Regions", flags.showPowers);
     show_powers.onchange = () => {
       clearAll();
       flags.showPowers = show_powers.value;
