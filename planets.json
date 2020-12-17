@@ -20,6 +20,9 @@
     "full_name": "Bishant",
     "capital": true
   },
+  "brass_gates": {
+    "full_name": "Brass Gates"
+  },
   "brumaire": {
     "full_name": "Brumaire"
   },
@@ -50,6 +53,9 @@
   "firhbank": {
     "full_name": "Firhbank"
   },
+  "folds": {
+    "full_name": "The Folds"
+  },
   "genova": {
     "full_name": "Genova"
   },
@@ -59,6 +65,9 @@
   "grantworlds": {
     "full_name": "Kirvan Grantworlds",
     "group": true
+  },
+  "great_aksai": {
+    "full_name": "Great Aksai"
   },
   "gul_dan": {
     "full_name": "Gul'Dan"
@@ -81,6 +90,9 @@
   "ireland": {
     "full_name": "Republic of Ireland"
   },
+  "kolong": {
+    "full_name": "Kolong"
+  },
   "konira": {
     "full_name": "Konira"
   },
@@ -92,6 +104,9 @@
   },
   "lidenia": {
     "full_name": "Lidenia"
+  },
+  "limei": {
+    "full_name": "Limei"
   },
   "mexico": {
     "full_name": "Gran Mexico"
@@ -114,11 +129,19 @@
   "nss_exclusion_zone": {
     "full_name": "NSS Exclusion Zone (Impassible)"
   },
+  "palaceworlds": {
+    "full_name": "Palaceworlds",
+    "group": true
+  },
   "paravel": {
     "full_name": "Paravel"
   },
   "percel": {
     "full_name": "Percel"
+  },
+  "petty_kings": {
+    "full_name": "Petty Kings",
+    "group": true
   },
   "pin_jump": {
     "full_name": "Pin-Jump"
@@ -152,6 +175,9 @@
   "sivella": {
     "full_name": "Sivella"
   },
+  "stitch": {
+    "full_name": "The Stitch"
+  },
   "sveiss": {
     "full_name": "Sveiss"
   },
@@ -161,11 +187,18 @@
   "tar_thalran": {
     "full_name": "Tar'Thalran"
   },
+  "tarim": {
+    "full_name": "Tarim"
+  },
   "telrion": {
     "full_name": "Telrion"
   },
   "trade_league": {
     "full_name": "Sermayan Trade League"
+  },
+  "triad_exclaves": {
+    "full_name": "Triad Exclaves",
+    "group": true
   },
   "videna": {
     "full_name": "Videna"
@@ -173,8 +206,19 @@
   "villenta": {
     "full_name": "Villenta"
   },
+  "volunes_seat": {
+    "full_name": "Volune's Seat",
+    "capital": true
+  },
   "witch_haven": {
     "full_name": "Witch Haven"
+  },
+  "witolm": {
+    "full_name": "Witolm"
+  },
+  "yushan": {
+    "full_name": "Yushan",
+    "capital": true
   },
   "zanevuela": {
     "full_name": "Zanevuela"
