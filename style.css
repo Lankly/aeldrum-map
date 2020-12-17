@@ -82,6 +82,23 @@ path {
   position: absolute;
   top: -1.2em;
   left: 25px;
+  background-color: rgb(256, 256, 256, 0.5);
+}
+
+#region-checkboxes {
+  position: absolute;
+  top: 15vh;
+  right: calc(5vh + 200px);
+}
+#region-checkboxes::after {
+  content: "Spacial Regions";
+  white-space: nowrap;
+  font-family: cursive;
+  font-size: 24px;
+  position: absolute;
+  top: -1.2em;
+  left: 25px;
+  background-color: rgb(256, 256, 256, 0.5);
 }
 
 #planet-selector-container {
@@ -93,9 +110,7 @@ path {
   content: "Center Planet:";
   font-size: 12px;
   white-space: nowrap;
-  background-color: rgb(256, 256, 256, 0.5);
 }
-
 
 #additional-controls {
   position: absolute;
