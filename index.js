@@ -518,6 +518,9 @@ function main (focusPlanet) {
         const region_segment_expanded = next_index === 0
           ? [region_data[0]]
           : region_data.slice(0, next_index);
+        if (region_segment_expanded.length === 0) {
+          return alert("Leyline region data invalid.");
+        }
         
         region_data = region_data.slice(planet.distance);
         
