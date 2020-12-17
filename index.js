@@ -1507,7 +1507,7 @@ function setupUI () {
     $("body").bind("mouseup", stopPan);
     $("body").bind("mouseleave", stopPan);
     $("body").bind("mousemove", pan);
-    $("body").bind("touchstart", startPan);
+    $(interactive.root).bind("touchstart", startPan);
     $("body").bind("touchend", stopPan);
     $("body").bind("touchmove", pan);
     
