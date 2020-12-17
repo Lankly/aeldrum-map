@@ -173,6 +173,13 @@
     "owned_planets": [
     ]
   },
+  "Naga Remnants": {
+    "color": "gold",
+    "darker_color": "goldenrod",
+    "owned_planets": [
+      "towers_of_the_naga"
+    ]
+  },
   "New Celestial Confederacy": {
     "color": "#4a86e8",
     "darker_color": "darkblue",
