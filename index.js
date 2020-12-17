@@ -83,9 +83,7 @@ function main (focusPlanet) {
   $( document ).tooltip();
   
   function generateOnePointIntersectionLeylines() {
-    const generatedLeylines = Object.keys(leylines)
-      .map((i) => leylines[i])
-      .filter((l) => l.circle);
+    const generatedLeylines = getLeylines().filter((l) => l.circle);
       
     let changed = false;
     generatedLeylines.forEach((leyline) => {
@@ -126,9 +124,7 @@ function main (focusPlanet) {
     
     function generateNPointCircularLeyline (leyline) {
       const avg = getCenterOfMass();
-      const generated_leylines = Object.keys(leylines)
-        .map((i) => leylines[i])
-        .filter((l) => l.circle);
+      const generated_leylines = getLeylines().filter((l) => l.circle);
       
       const radius = calculateRadius(leyline);
       
@@ -181,7 +177,7 @@ function main (focusPlanet) {
   function generateInscribableLeylines() {
     if (!flags.generateInscribed) { return; }
     
-    let generated_leylines = Object.keys(leylines).map(i => leylines[i]).filter((l) => l.circle);
+    let generated_leylines = getLeylines().filter((l) => l.circle);
     
     generated_leylines.forEach((leyline) => {
       let prev_circle = leyline.circle;
@@ -240,8 +236,8 @@ function main (focusPlanet) {
     function getNextNestedLeyline (startingLeyline, radius, maxConnections) {
       if (!startingLeyline) { return; }
       
-      const starting_leyline_already_inscribed = Object.keys(leylines)
-        .find((i) => leylines[i].inscribing_leyline === startingLeyline);
+      const starting_leyline_already_inscribed = getLeylines()
+        .find((l) => l.inscribing_leyline === startingLeyline);
       if (starting_leyline_already_inscribed) { return; }
       
       const starting_leyline_names = startingLeyline.planets.map((p) => p.name);
@@ -249,7 +245,7 @@ function main (focusPlanet) {
       const too_close_min = radius * 0.8;
       let best;
       
-      Object.keys(leylines).map((i) => leylines[i]).filter((l) => !l.circle).forEach((leyline) => {
+      getLeylines().filter((l) => !l.circle).forEach((leyline) => {
         // Make sure this leyline only has a valid number of connections to the starting leyline
         let connections = leyline.planets.reduce((total, planet) => { return total + (starting_leyline_names.includes(planet.name) ? 1 : 0); }, 0);
         if (connections > maxConnections) { return; }
@@ -328,10 +324,15 @@ function main (focusPlanet) {
       
       // Skip the starting planet, if it was provided and the point already exists
       if (startingPlanet
+        && startingPlanetLeyline
         && planets[startingPlanet.name].point
         && startingPlanet.name === planetData.name) {
-          const existing_point = planets[startingPlanet.name].allPoints[startingPlanetLeyline.aeldman_name][0];
-          planets[startingPlanet.name].allPoints[leyline.aeldman_name].push(existing_point);
+          const existing_point = planets[startingPlanet.name]
+            .allPoints[startingPlanetLeyline.aeldman_name][0];
+          planets[startingPlanet.name]
+            .allPoints[leyline.aeldman_name]
+            .push(existing_point);
+          startingPlanetLeyline = null;
           return;
       }
       
@@ -340,7 +341,7 @@ function main (focusPlanet) {
         point_index,
         points_to_add.length,
         {
-          startingPoint: getPointFromPlanet(startingPlanet),
+          startingPoint: startingPlanet && planets[startingPlanet.name].allPoints[leyline.aeldman_name][0],
           rotatePercent: rotatePercent,
           capital: planets[planetData.name].capital
         });
@@ -419,7 +420,7 @@ function main (focusPlanet) {
         const previous_planet_name = leyline.planets[((i > 0 ? i : total) - 1) % total].name;
         const next_planet_name = leyline.planets[(i + 1) % total].name;
         
-        const planet_text = $(`.${leyline.aeldman_name}.${planet.name}`);
+        const planet_text = $(`.${ leyline.aeldman_name}.${planet.name}`);
         planet_text.addClass(`neighbor-${ previous_planet_name }`);
         planet_text.addClass(`neighbor-${ next_planet_name }`);
       });
@@ -476,7 +477,7 @@ function main (focusPlanet) {
         let allPoints_on_line = allPoints[leyline.aeldman_name];
         if (!allPoints_on_line || allPoints_on_line.length < 1) { return; }
         
-        let points_on_other_lines = Object.keys(leylines).map((i) => leylines[i])
+        let points_on_other_lines = getLeylines()
           .filter((l) => l.aeldman_name !== leyline.aeldman_name)
           .reduce((points, l) => {
             if (allPoints[l.aeldman_name] && allPoints[l.aeldman_name].length > 0) {
@@ -695,7 +696,7 @@ function main (focusPlanet) {
     
     let possible = [];
     
-    Object.keys(leylines).map((i) => leylines[i]).forEach((leyline) => {
+    getLeylines().forEach((leyline) => {
       // Leyline has already been generated
       if (leyline.circle) { return; }
       
@@ -759,7 +760,7 @@ function main (focusPlanet) {
     let best;
     let startingLeylinePlanets = startingLeyline.planets.map((p) => p.name);
     
-    Object.keys(leylines).map((i) => leylines[i]).forEach((leyline) => {
+    getLeylines().forEach((leyline) => {
       if (leyline.circle) { return; }
       
       // Make sure this leyline only has a valid number of connections on the current state
@@ -853,7 +854,7 @@ function main (focusPlanet) {
     return Math.pow(num_points, .825) * 20;
   }
   
-  function getDistance(pointA, pointB) {
+  function getDistance (pointA, pointB) {
     const a = { x: pointA.cx ?? pointA.x, y: pointA.cy ?? pointA.y };
     const b = { x: pointB.cx ?? pointB.x, y: pointB.cy ?? pointB.y };
     
@@ -887,6 +888,7 @@ function main (focusPlanet) {
 }
 
 let recenterOnPlanet;
+let resetLeylineCheckboxes;
 function setupUI () {
   xOrigin = width;
   yOrigin = height;
@@ -912,11 +914,16 @@ function setupUI () {
   handlePanning();
   let zoom_slider = generateZoomSlider();
   generateLeylineCheckboxes();
+  generateRegionCheckboxes();
   generatePlanetSelector();
   generateAdditionalControls();
   
   function generateLeylineCheckboxes () {
-    const total_leylines = Object.keys(leylines).length;
+    let lines = Object.keys(leylines)
+      .map((i) => leylines[i])
+      .filter((l) => !l.skip);
+    
+    const total_leylines = lines.length;
     const box_padding = 30;
     const padding_between = 20;
     const controls_height = 18;
@@ -934,9 +941,7 @@ function setupUI () {
     let background = checkboxes.rectangle(0, 0, controls_width, control_box_height);
     background.fill = "white";
     
-    Object.keys(leylines).forEach((leylineNumber, i) => {
-      let leyline = leylines[leylineNumber];
-      
+    lines.forEach((leyline, i) => {
       let checkbox = checkboxes.checkBox(
         box_padding,
         box_padding + i * (padding_between + controls_height),
@@ -949,17 +954,99 @@ function setupUI () {
       checkbox.onchange = () => {
         clearAll();
         if (checkbox.value) {
-          leylines[leylineNumber] = leyline;
           checkbox.box.fill = leyline.color;
         }
-        else {
-          delete leylines[leylineNumber];
-        }
+        
+        leyline.skip = !checkbox.value;
+        
         reset();
       }
       
       $(checkbox.label.root).click(() => { checkbox.toggle(); });
-      
+    });
+    
+    resetLeylineCheckboxes = function () {
+      checkboxes.remove();
+      generateLeylineCheckboxes();
+    };
+  }
+  
+  function generateRegionCheckboxes () {
+    const box_padding = 30;
+    const padding_between = 20;
+    const controls_height = 18;
+    
+    let regions = [
+      { json_name: "imperial", label: "Imperial Space" },
+      { json_name: "celestial", label: "Celestial Space" },
+      { json_name: "naga", label: "Naga Space" }
+    ];
+    
+    let regionInteractive = new Interactive("region-checkboxes", {
+      width: 190,
+      height: box_padding * 2 + ((regions.length - 1) * (padding_between + controls_height)),
+      originX: 0,
+      originY: 0
+    });
+    regionInteractive.border = true;
+    let background = regionInteractive.rectangle(0, 0, regionInteractive.width, regionInteractive.height);
+    background.fill = "white";
+    
+    regions.forEach((region, i) => {
+      const selected = Object.keys(leylines)
+        .map((i) => leylines[i])
+        .some((l) => l.region === region.json_name && !l.skip);
+        
+      let checkbox = regionInteractive.checkBox(
+        box_padding,
+        box_padding + (padding_between + controls_height) * i,
+        region.label,
+        selected);
+      region.checkbox = checkbox;
+        
+      checkbox.onchange = () => {
+        clearAll();
+        
+        Object.keys(leylines).map((i) => leylines[i]).forEach((leyline) => {
+          if (leyline.region === region.json_name) {
+            leyline.skip = !checkbox.value;
+          }
+        });
+        
+        const focus_planet = startingPlanet.name;
+        let focus_planet_exists_in_selection = getLeylines()
+          .some((l) => l.planets.map((p) => p.name).includes(focus_planet));
+          
+        if (!focus_planet_exists_in_selection) {
+          const visible_planets = getLeylines().reduce((arr, line) =>{
+            return arr.concat(line.planets.map((p) => p.name));
+          }, []);
+          
+          const occurrences = visible_planets.reduce((occ, name) => {
+            if (occ[name] === undefined) { occ[name] = 0; }
+            
+            ++occ[name];
+            
+            return occ;
+          }, {});
+          
+          const planet_with_most_occurrences = Object.keys(occurrences)
+            .reduce((most, name) => {
+              if (most === null || most.occurrence < occurrences[name]) {
+                return { name: name, occurrence: occurrences[name] };
+              }
+              return most;
+            }, null);
+          
+          if (planet_with_most_occurrences) {
+            $("#planet-selector").val(planet_with_most_occurrences.name);
+            return $("#planet-selector").change();
+          }
+        }
+        
+        resetLeylineCheckboxes();
+        reset();
+      };
     });
   }
   
@@ -1273,6 +1360,13 @@ function setupUI () {
   }
 }
 
+  
+function getLeylines () {
+  return Object.keys(leylines)
+    .map((i) => leylines[i])
+    .filter((l) => !l.skip);
+}
+  
 function getAngle(reference, control) {
   let angle = Math.abs(Math.atan2(control.y - reference.y, reference.x - control.x));
   
