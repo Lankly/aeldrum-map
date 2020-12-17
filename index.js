@@ -18,6 +18,7 @@ var flags = {
 
 var planets;
 var leylines;
+var powers;
 $.ajax("planets.json", {
   dataType: "json",
   success: function (data) {
@@ -29,8 +30,19 @@ $.ajax("planets.json", {
       success: function (data) {
         leylines = data;
         
-        setupUI();
-        main();
+        $.ajax("powers.json", {
+          dataType: "json",
+          success: function (data) {
+            powers = data;
+        
+            setupUI();
+            main();
+          },
+          error: function (xhr, status, err) {
+            alert("Failed to download powers information!");
+            console.log(err);
+          }
+        });
       },
       error: function (xhr, status, err) {
         alert("Failed to download leyline information!");
