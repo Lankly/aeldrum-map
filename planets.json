@@ -6,6 +6,9 @@
   "ahlam": {
     "full_name": "Ahlam"
   },
+  "anathemas_domain": {
+    "full_name": "Anathema's Domain"
+  },
   "antenil": {
     "full_name": "Antenil"
   },
@@ -15,6 +18,10 @@
   },
   "bastions": {
     "full_name": "Adarnum Bastions"
+  },
+  "bier": {
+    "full_name": "The Bier",
+    "type": "object"
   },
   "bishant": {
     "full_name": "Bishant",
@@ -35,11 +42,17 @@
   "chelonia": {
     "full_name": "Chelonia"
   },
+  "corrobel_exclusion_zone": {
+    "full_name": "Corrobel Exclusion Zone"
+  },
   "crosslanes": {
     "full_name": "The Crosslanes"
   },
   "del_mar": {
     "full_name": "Del'Mar"
+  },
+  "dustworld": {
+    "full_name": "The Dustworld"
   },
   "dwarf_clans": {
     "full_name": "Dwarf Clans"
@@ -55,6 +68,12 @@
   },
   "folds": {
     "full_name": "The Folds"
+  },
+  "forgotten_world": {
+    "full_name": "The Forgotten World"
+  },
+  "gates_of_corrobel": {
+    "full_name": "Gates of Corrobel"
   },
   "genova": {
     "full_name": "Genova"
@@ -123,11 +142,20 @@
   "mir_thalran": {
     "full_name": "Mir'Thalran"
   },
+  "mouth_of_shavar": {
+    "full_name": "The Mouth of Shavar"
+  },
+  "nidevs_court": {
+    "full_name": "Nidev's Court"
+  },
   "nippon_gates": {
     "full_name": "Nippon Gates"
   },
   "nss_exclusion_zone": {
     "full_name": "NSS Exclusion Zone (Impassible)"
+  },
+  "palace_of_the_rainbow_serpent": {
+    "full_name": "Palace of the Rainbow Serpent"
   },
   "palaceworlds": {
     "full_name": "Palaceworlds",
@@ -138,6 +166,9 @@
   },
   "percel": {
     "full_name": "Percel"
+  },
+  "perfect_prince_renegades": {
+    "full_name": "Perfect Prince Renegades"
   },
   "petty_kings": {
     "full_name": "Petty Kings",
@@ -172,8 +203,19 @@
   "sierna": {
     "full_name": "Sierna"
   },
+  "sigvalds_court": {
+    "full_name": "Sigvald's Court"
+  },
   "sivella": {
     "full_name": "Sivella"
+  },
+  "smugglers_run": {
+    "full_name": "Smuggler's Run",
+    "group": true
+  },
+  "station": {
+    "full_name": "The Station",
+    "type": "object"
   },
   "stitch": {
     "full_name": "The Stitch"
@@ -193,12 +235,18 @@
   "telrion": {
     "full_name": "Telrion"
   },
+  "towers_of_the_naga": {
+    "full_name": "Towers of the Naga"
+  },
   "trade_league": {
     "full_name": "Sermayan Trade League"
   },
   "triad_exclaves": {
     "full_name": "Triad Exclaves",
     "group": true
+  },
+  "turrenes_world": {
+    "full_name": "Turrene's World"
   },
   "videna": {
     "full_name": "Videna"
