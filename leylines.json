@@ -413,5 +413,66 @@
       { "name": "Ashgarate of New Nippon", "length": 13 },
       { "name": "Lawless", "length": "?" }
     ]
+  },
+  "15": {
+    "aeldman_name": "Line 15",
+    "mage_imperium_name": "",
+    "region": "naga",
+    "color": "tomato",
+    "darker_color": "maroon",
+    "skip": true,
+    "planets": [
+      { "name": "pin_jump", "distance": 8 },
+      { "name": "forgotten_world", "distance": 16 },
+      { "name": "mouth_of_shavar", "distance": 6 },
+      { "name": "smugglers_run", "distance": 5 },
+      { "name": "anathemas_domain", "distance": 4 },
+      { "name": "bier", "distance": 4 },
+      { "name": "smugglers_run", "distance": 3 },
+      { "name": "perfect_prince_renegades", "distance": 2 },
+      { "name": "towers_of_the_naga", "distance": 1 },
+      { "name": "turrenes_world", "distance": 2 },
+      { "name": "towers_of_the_naga", "distance": 3 },
+      { "name": "gates_of_corrobel", "distance": 1 },
+      { "name": "corrobel_exclusion_zone", "distance": 6 },
+      { "name": "palace_of_the_rainbow_serpent", "distance": "?" }
+    ],
+    "controllers": [
+      { "name": "Serene Duchy of Aeldrum", "length": 17 },
+      { "name": "Orcish Protectorates", "length": 2 },
+      { "name": "Serene Duchy of Aeldrum", "length": 11 },
+      { "name": "Lawless", "length": 18 },
+      { "name": "Naga Remnants", "length": 11 },
+      { "name": "Lawless", "length": 8 },
+      { "name": "Unexplored", "length": "?" }
+    ]
+  },
+  "16": {
+    "aeldman_name": "Line 16",
+    "mage_imperium_name": "",
+    "region": "naga",
+    "color": "tomato",
+    "darker_color": "maroon",
+    "skip": true,
+    "planets": [
+      { "name": "forgotten_world", "distance": 2 },
+      { "name": "sigvalds_court", "distance": 4 },
+      { "name": "station", "distance": 3 },
+      { "name": "nidevs_court", "distance": 3 },
+      { "name": "corrobel_exclusion_zone", "distance": 4 },
+      { "name": "mouth_of_shavar", "distance": 4, "status": "Quarantined" },
+      { "name": "corrobel_exclusion_zone", "distance": 4 },
+      { "name": "towers_of_the_naga", "distance": 7 },
+      { "name": "perfect_prince_renegades", "distance": 21 }
+    ],
+    "controllers": [
+      { "name": "Serene Duchy of Aeldrum", "length": 1 },
+      { "name": "Kingdom of Veran", "length": 11 },
+      { "name": "Lawless", "length": 9 },
+      { "name": "Naga Remnants", "length": 7 },
+      { "name": "Lawless", "length": 8 },
+      { "name": "Kingdom of Veran", "length": 12 },
+      { "name": "Serene Duchy of Aeldrum", "length": 4 }
+    ]
   }
 }
