@@ -301,11 +301,13 @@
     ],
     "controllers": [
       { "name": "Lawless", "length": 3 },
-      { "name": "Brass Cities", "length": 24 },
+      { "name": "Brass Cities", "length": 20 },
+      { "name": "New Celestial Confederacy", "length": 4 },
       { "name": "Nippon States", "length": 3 },
       { "name": "Lawless", "length": 3 },
       { "name": "Marches of the Ascendancy", "length": 5 },
-      { "name": "Lawless", "length": "?" }
+      { "name": "Unexplored", "length": "?" },
+      { "name": "Lawless", "length": 28 }
     ]
   },
   "11": {
@@ -330,7 +332,7 @@
     "controllers": [
       { "name": "Serene Duchy of Aeldrum", "length": 1 },
       { "name": "New Celestial Confederacy", "length": 11 },
-      { "name": "Nipponese States", "length": 30 },
+      { "name": "Nippon States", "length": 30 },
       { "name": "Aksai Chin", "length": 16 }
     ]
   },
@@ -412,7 +414,8 @@
       { "name": "Brass Cities", "length": 5 },
       { "name": "Middle Kingdom", "length": 12 },
       { "name": "Ashgarate of New Nippon", "length": 13 },
-      { "name": "Lawless", "length": "?" }
+      { "name": "Lawless", "length": 19 },
+      { "name": "Unexplored", "length": "?" }
     ]
   },
   "15": {
