@@ -2,6 +2,7 @@
   "1": {
     "aeldman_name": "Aeldrum",
     "mage_imperium_name": "Aeldrum",
+    "region": "imperial",
     "color": "red",
     "darker_color": "darkred",
     "planets": [
@@ -24,6 +25,7 @@
   "2": {
     "aeldman_name": "Struthil",
     "mage_imperium_name": "",
+    "region": "imperial",
     "color": "cornflowerblue",
     "darker_color": "darkslateblue",
     "planets": [
@@ -46,6 +48,7 @@
   "3": {
     "aeldman_name": "Orim",
     "mage_imperium_name": "",
+    "region": "imperial",
     "color": "goldenrod",
     "darker_color": "peru",
     "planets": [
@@ -82,6 +85,7 @@
   "4": {
     "aeldman_name": "Galthad",
     "mage_imperium_name": "",
+    "region": "imperial",
     "color": "green",
     "darker_color": "darkgreen",
     "planets": [
@@ -120,6 +124,7 @@
   "5": {
     "aeldman_name": "Shantine",
     "mage_imperium_name": "Petrine",
+    "region": "imperial",
     "color": "royalblue",
     "darker_color": "darkblue",
     "planets": [
@@ -150,6 +155,7 @@
   "6": {
     "aeldman_name": "Estonne",
     "mage_imperium_name": "",
+    "region": "imperial",
     "color": "plum",
     "darker_color": "rebeccapurple",
     "planets": [
@@ -192,6 +198,7 @@
   "7": {
     "aeldman_name": "Fialta",
     "mage_imperium_name": "Hybern",
+    "region": "imperial",
     "color": "blueviolet",
     "darker_color": "darkmagenta",
     "planets": [
@@ -223,6 +230,7 @@
   "8": {
     "aeldman_name": "Allegheny",
     "mage_imperium_name": "",
+    "region": "imperial",
     "color": "lightskyblue",
     "darker_color": "deepskyblue",
     "planets": [
@@ -249,6 +257,7 @@
   "9": {
     "aeldman_name": "Neveth",
     "mage_imperium_name": "",
+    "region": "imperial",
     "color": "mediumaquamarine",
     "darker_color": "darkseagreen",
     "planets": [
@@ -273,6 +282,136 @@
       { "name": "Dwarf Kingdom of Druz", "length": 5 },
       { "name": "Independent Worlds", "length": 3 },
       { "name": "Saldanese Exclusion Zone", "length": 1 }
+    ]
+  },
+  "10": {
+    "aeldman_name": "Line 10",
+    "mage_imperium_name": "",
+    "region": "celestial",
+    "color": "tomato",
+    "darker_color": "maroon",
+    "skip": true,
+    "planets": [
+      { "name": "petty_kings", "distance": 4 },
+      { "name": "brass_gates", "distance": 19 },
+      { "name": "tarim", "distance": 0 },
+      { "name": "witolm", "distance": 6 },
+      { "name": "stitch", "distance": "?" }
+    ],
+    "controllers": [
+      { "name": "Lawless", "length": 3 },
+      { "name": "Brass Cities", "length": 24 },
+      { "name": "Nippon States", "length": 3 },
+      { "name": "Lawless", "length": 3 },
+      { "name": "Marches of the Ascendancy", "length": 5 },
+      { "name": "Lawless", "length": "?" }
+    ]
+  },
+  "11": {
+    "aeldman_name": "Line 11",
+    "mage_imperium_name": "",
+    "region": "celestial",
+    "color": "tomato",
+    "darker_color": "maroon",
+    "skip": true,
+    "planets": [
+      { "name": "pin_jump", "distance": 4 },
+      { "name": "tarim", "distance": 0 },
+      { "name": "witolm", "distance": 5 },
+      { "name": "palaceworlds", "distance": 3 },
+      { "name": "nippon_gates", "distance": 8, "status": "Upper" },
+      { "name": "limei", "distance": 5 },
+      { "name": "stitch", "distance": 14 },
+      { "name": "nippon_gates", "distance": 2, "status": "Upper" },
+      { "name": "nippon_gates", "distance": 8, "status": "Lower" },
+      { "name": "great_aksai", "distance": 9 }
+    ],
+    "controllers": [
+      { "name": "Serene Duchy of Aeldrum", "length": 1 },
+      { "name": "New Celestial Confederacy", "length": 11 },
+      { "name": "Nipponese States", "length": 30 },
+      { "name": "Aksai Chin", "length": 16 }
+    ]
+  },
+  "12": {
+    "aeldman_name": "Line 12",
+    "mage_imperium_name": "",
+    "region": "celestial",
+    "color": "tomato",
+    "darker_color": "maroon",
+    "skip": true,
+    "planets": [
+      { "name": "palaceworlds", "distance": 2 },
+      { "name": "kolong", "distance": 4 },
+      { "name": "folds", "distance": 1 },
+      { "name": "volunes_seat", "distance": 2 },
+      { "name": "folds", "distance": 11 },
+      { "name": "brass_gates", "distance": 4 },
+      { "name": "stitch", "distance": 4 },
+      { "name": "great_aksai", "distance": 7 },
+      { "name": "kolong", "distance": 12 },
+      { "name": "nippon_gates", "distance": 8, "status": "Lower" }
+    ],
+    "controllers": [
+      { "name": "Lawless", "length": 1 },
+      { "name": "New Celestial Confederacy", "length": 9 },
+      { "name": "Middle Kingdom", "length": 4 },
+      { "name": "Protectorate of the Mirror", "length": 9 },
+      { "name": "Brass Cities", "length": 5 },
+      { "name": "Nippon States", "length": 1 },
+      { "name": "Aksai Chin", "length": 8 },
+      { "name": "Triad Princes", "length": 11 },
+      { "name": "Nippon States", "length": 17 }
+    ]
+  },
+  "13": {
+    "aeldman_name": "Line 13",
+    "mage_imperium_name": "",
+    "region": "celestial",
+    "color": "tomato",
+    "darker_color": "maroon",
+    "skip": true,
+    "planets": [
+      { "name": "petty_kings", "distance": 3 },
+      { "name": "folds", "distance": 1 },
+      { "name": "volunes_seat", "distance": 2 },
+      { "name": "folds", "distance": 9 },
+      { "name": "limei", "distance": 15 },
+      { "name": "kolong", "distance": 11 },
+      { "name": "yushan", "distance": 7 },
+      { "name": "kolong", "distance": 2 },
+      { "name": "triad_exclaves", "distance": "?" }
+    ],
+    "controllers": [
+      { "name": "Lawless", "length": 1 },
+      { "name": "Middle Kingdom", "length": 39 },
+      { "name": "Princely State of Yushan", "length": 9 },
+      { "name": "Triad Princes", "length": 2 },
+      { "name": "Lawless", "length": "?" }
+    ]
+  },
+  "14": {
+    "aeldman_name": "Line 14",
+    "mage_imperium_name": "",
+    "region": "celestial",
+    "color": "tomato",
+    "darker_color": "maroon",
+    "skip": true,
+    "planets": [
+      { "name": "petty_kings", "distance": 12 },
+      { "name": "folds", "distance": 1 },
+      { "name": "volunes_seat", "distance": 2 },
+      { "name": "folds", "distance": 17 },
+      { "name": "nippon_gates", "distance": 6, "status": "Lower" },
+      { "name": "petty_kings", "distance": "?" }
+    ],
+    "controllers": [
+      { "name": "Lawless", "length": 2 },
+      { "name": "Aksai Chin", "length": 3 },
+      { "name": "Brass Cities", "length": 5 },
+      { "name": "Middle Kingdom", "length": 12 },
+      { "name": "Ashgarate of New Nippon", "length": 13 },
+      { "name": "Lawless", "length": "?" }
     ]
   }
 }
