@@ -117,12 +117,13 @@ function main (focusPlanet) {
       next_leyline = getNextLeyline();
       
       if (next_leyline) {
-        generateNPointCircularLeyline(next_leyline);
+        generateUnconnectedCircularLeyline(next_leyline);
+        generateInscribableLeylines();
       }
       
     } while (next_leyline);
     
-    function generateNPointCircularLeyline (leyline) {
+    function generateUnconnectedCircularLeyline (leyline) {
       const avg = getCenterOfMass();
       const generated_leylines = getLeylines().filter((l) => l.circle);
       
@@ -169,8 +170,6 @@ function main (focusPlanet) {
         centerCoord: coords,
         makeNewControlPoints: true
       });
-      
-      generateInscribableLeylines();
     }
   }
   
