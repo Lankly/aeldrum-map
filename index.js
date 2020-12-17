@@ -1095,7 +1095,7 @@ function setupUI () {
   
   setupGradient();
   generateAxisLines();
-  handlePanning();
+  handlePanning(interactive, { scaleByZoomSlider: true });
   let zoom_slider = generateZoomSlider();
   generateLeylineCheckboxes();
   generateRegionCheckboxes();
@@ -1112,14 +1112,16 @@ function setupUI () {
     const padding_between = 20;
     const controls_height = 18;
     const widest_text = Object.keys(leylines).map((i) => leylines[i]).reduce((max, l) => { return Math.max(max, l.aeldman_name.length); }, 0);
+    const max_height = height * 0.55;
     const control_box_height = box_padding * 2 + ((total_leylines - 1) * (padding_between + controls_height));
     const controls_width = widest_text * 10 + 2 * box_padding;
     
     let checkboxes = new Interactive("leyline-checkboxes", {
       width: controls_width,
-      height: control_box_height,
+      height: Math.min(max_height, control_box_height),
       originX: 0,
-      originY: 0
+      originY: 0,
+      border: true
     });
     checkboxes.border = true;
     let background = checkboxes.rectangle(0, 0, controls_width, control_box_height);
@@ -1148,6 +1150,12 @@ function setupUI () {
       
       $(checkbox.label.root).click(() => { checkbox.toggle(); });
     });
+    
+    if (control_box_height > max_height) {
+      handlePanning(checkboxes, {
+        boundingBox: background.getBoundingBox(),
+      });
+    }
     
     resetLeylineCheckboxes = function () {
       checkboxes.remove();
@@ -1489,18 +1497,19 @@ function setupUI () {
     main(startingPlanet);
   }
   
-  function handlePanning () {
+  function handlePanning (interactive, settings) {
+    let boundingBox = settings && settings.boundingBox;
+    let scaleByZoomSlider = settings && settings.scaleByZoomSlider;
     let panning;
     
     $("body").bind("mousewheel", scrollHandler);
-    $("#map").bind("mousedown", startPan);
+    $(interactive.root).bind("mousedown", startPan);
     $("body").bind("mouseup", stopPan);
     $("body").bind("mouseleave", stopPan);
     $("body").bind("mousemove", pan);
     $("body").bind("touchstart", startPan);
     $("body").bind("touchend", stopPan);
     $("body").bind("touchmove", pan);
-    
     
     function startPan (event) {
       panning = { 
@@ -1531,16 +1540,31 @@ function setupUI () {
         ?? event.originalEvent.touches[0].pageY
         ?? event.originalEvent.changedTouches[0].pageY;
       
-      let delta_x = (panning.x - x) / zoom_slider.value;
-      let delta_y = (panning.y - y) / zoom_slider.value;
+      let delta_x = (panning.x - x) / (scaleByZoomSlider ? zoom_slider.value : 1);
+      let delta_y = (panning.y - y) / (scaleByZoomSlider ? zoom_slider.value : 1);
       
       let viewbox_parts = interactive.viewBox.split(' ');
+      const viewbox_x = parseInt(viewbox_parts[0]);
+      const viewbox_y = parseInt(viewbox_parts[1]);
+      const viewbox_width = parseInt(viewbox_parts[2]);
+      const viewbox_height = parseInt(viewbox_parts[3]);
+      
+      if (boundingBox) {
+        if (viewbox_x + delta_x < boundingBox.x
+          || viewbox_x + viewbox_width + delta_x > boundingBox.x + boundingBox.width){
+          delta_x = 0;
+        }
+        if (viewbox_y + delta_y < boundingBox.y
+          || viewbox_y + viewbox_height + delta_y > boundingBox.y + boundingBox.height) {
+          delta_y = 0;
+        }
+      }
       
       interactive.setViewBox(
-        Math.min(width, Math.max(-width, parseInt(viewbox_parts[0]) + delta_x)),
-        Math.min(height, Math.max(-height, parseInt(viewbox_parts[1]) + delta_y)),
-        parseInt(viewbox_parts[2]),
-        parseInt(viewbox_parts[3]));
+        Math.min(width, Math.max(-width, viewbox_x + delta_x)),
+        Math.min(height, Math.max(-height, viewbox_y + delta_y)),
+        viewbox_width,
+        viewbox_height);
       
       startPan(event);
     }
