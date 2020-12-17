@@ -19,13 +19,32 @@
     ]
   },
   "Independent Worlds": {
-    "color": "white",
+    "color": "lightgrey",
     "darker_color": "grey",
     "owned_planets": [
       "crosslanes",
       "grantworlds",
       "savage",
       "witch_haven"
+    ]
+  },
+  "Lawless": {
+    "color": "grey",
+    "darker_color": "darkgrey",
+    "owned_planets": [
+    ]
+  },
+  "Unexplored": {
+    "color": "black",
+    "darker_color": "black",
+    "owned_planets": [
+    ]
+  },
+  "Aksai Chin": {
+    "color": "darkseagreen",
+    "darker_color": "forestgreen",
+    "owned_planets": [
+      "great_aksai"
     ]
   },
   "Alusian Subjugates": {
@@ -35,6 +54,16 @@
     "owned_planets": [
       "alusian_subjugates"
     ]
+  },
+  "Ashgarate of New Nippon": {
+    "color": "#7f6000",
+    "darker_color": "black",
+    "owned_planets": [
+    ]
+  },
+  "Brass Cities": {
+    "color": "#ffe598",
+    "darker_color": "orange"
   },
   "Despotate of Alusia": {
     "color": "#00b050",
@@ -63,13 +92,15 @@
     ]
   },
   "Dwarf Kingdom of Druz": {
-    "color": "darkbrown",
+    "color": "#7f6000",
     "darker_color": "black",
     "minor": true,
     "owned_planets": [
     ]
   },
   "Enclave Protectorates": {
+    "color": "darkgreen",
+    "darker_color": "black",
     "minor": true,
     "owned_planets": [
       "enclave_outlet1",
@@ -109,6 +140,13 @@
     "owned_planets": [
     ]
   },
+  "Kingdom of Veran": {
+    "color": "#00b0f0",
+    "darker_color": "darkblue",
+    "minor": true,
+    "owned_planets": [
+    ]
+  },
   "Knights of Adarnum": {
     "color": "#073763",
     "darker_color": "darkblue",
@@ -123,6 +161,24 @@
       "ireland"
     ]
   },
+  "Marches of the Ascendancy": {
+    "color": "#1155cc",
+    "darker_color": "midnightblue",
+    "owned_planets": [
+    ]
+  },
+  "Middle Kingdom": {
+    "color": "#ffc000",
+    "darker_color": "brown",
+    "owned_planets": [
+    ]
+  },
+  "New Celestial Confederacy": {
+    "color": "#4a86e8",
+    "darker_color": "darkblue",
+    "owned_planets": [
+    ]
+  },
   "Nippon States": {
     "color": "#f4b083",
     "darker_color": "brown",
@@ -131,8 +187,8 @@
       "nippon_gates"
     ]
   },
-  "Orcish Direcrtate": {
-    "color": "grey",
+  "Orcish Directorate": {
+    "color": "#595959",
     "darker_color": "darkgrey",
     "secondary": true,
     "owned_planets": [
@@ -151,16 +207,28 @@
     "owned_planets": [
     ]
   },
+  "Princly State of Yushan": {
+    "color": "magenta",
+    "darker_color": "darkmagenta",
+    "owned_planets": [
+    ]
+  },
+  "Protectorate of the Mirror": {
+    "color": "#660000",
+    "darker_color": "black",
+    "owned_planets": [
+    ]
+  },
   "Republic of Sermaye": {
-    "color": "",
-    "darker_color": "",
+    "color": "#5b9bd5",
+    "darker_color": "darkblue",
     "secondary": true,
     "owned_planets": [
       "sevalne"
     ]
   },
   "Saldanese Exclusion Zone": {
-    "color": "peach",
+    "color": "#e69138",
     "darker_color": "orange",
     "owned_planets": [
       "messidor",
@@ -187,7 +255,7 @@
     ]
   },
   "Shantine Protectorates": {
-    "color": "20124d",
+    "color": "#20124d",
     "darker_color": "black",
     "parent": "Shantine Empire",
     "owned_planets": [
@@ -203,5 +271,9 @@
       "tar_thalran",
       "mir_thalran"
     ]
+  },
+  "Triad Princes": {
+    "color": "#ed7d31",
+    "darker_color": "brown"
   }
 }
