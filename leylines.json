@@ -318,7 +318,7 @@
     "darker_color": "maroon",
     "skip": true,
     "planets": [
-      { "name": "pin_jump", "distance": 4 },
+      { "name": "pin_jump", "distance": 4, "notes": [ "To Imperial Space", "To Naga Space" ] },
       { "name": "tarim", "distance": 0 },
       { "name": "witolm", "distance": 5 },
       { "name": "palaceworlds", "distance": 3 },
@@ -426,7 +426,7 @@
     "darker_color": "maroon",
     "skip": true,
     "planets": [
-      { "name": "pin_jump", "distance": 8 },
+      { "name": "pin_jump", "distance": 8, "notes": [ "To Imperial Space", "To Celestial Space" ] },
       { "name": "forgotten_world", "distance": 16 },
       { "name": "mouth_of_shavar", "distance": 6 },
       { "name": "smugglers_run", "distance": 5 },
