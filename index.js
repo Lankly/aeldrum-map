@@ -717,7 +717,7 @@ function main (focusPlanet) {
           
           if (intersect_area > line_area * max_ratio) {
             text.x += text_bb.width / 2;
-            text.y += text_bb.width / 2;
+            text.y += text_bb.width / 2 * (text.x < point.x ? 1 : -1);
             $(text.root).attr("transform", `rotate(${ text.x < point.x ? '-' : '' }90,${ text.x },${ text.y })`);
           }
         }
