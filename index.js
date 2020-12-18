@@ -1412,9 +1412,14 @@ function setupUI () {
   function generatePlanetSelector () {
     let selector = $("#planet-selector");
     
-    Object.keys(planets).map((i) => planets[i]).forEach(planet => {
-      selector.append(`<option value="${ planet.name }">${ planet.full_name }</option>`);
-    });
+    Object.keys(planets).map((i) => planets[i])
+      .sort((a, b) => {
+        return a.full_name > b.full_name ? 1 : b.full_name > a.full_name ? -1 : 0;
+      })
+      .forEach(planet => {
+        selector.append(`<option value="${ planet.name }">${ planet.full_name }</option>`);
+      });
+    selector.val(startingPlanet.name);
     
     selector.change((event) => {
       recenterOnPlanet(planets[selector.val()]);
