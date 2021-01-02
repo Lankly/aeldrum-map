@@ -183,17 +183,17 @@
       { "name": "sidenia", "distance": 2 }
     ],
     "controllers": [
-      { "name": "Fialta Free States", "length": 2 },
+      { "name": "Fialta Confederacy", "length": 2 },
       { "name": "Despotate of Alusia", "length": 7 },
       { "name": "Serene Duchy of Aeldrum", "length": 16 },
       { "name": "Deutschreich", "length": 5 },
       { "name": "Despotate of Alusia", "length": 7 },
       { "name": "Shantine Empire", "length": 3 },
-      { "name": "Fialta Free States", "length": 2 },
+      { "name": "Fialta Confederacy", "length": 2 },
       { "name": "Fialta Imperium", "length": 1 },
-      { "name": "Fialta Free States", "length": 6 },
+      { "name": "Fialta Confederacy", "length": 6 },
       { "name": "Fialta Imperium", "length": 3 },
-      { "name": "Fialta Free States", "length": 1 }
+      { "name": "Fialta Confederacy", "length": 1 }
     ]
   },
   "7": {
@@ -216,15 +216,15 @@
     ],
     "controllers": [
       { "name": "Thalranese Marches", "length": 1 },
-      { "name": "Fialta Free States", "length": 12 },
+      { "name": "Fialta Confederacy", "length": 12 },
       { "name": "Fialta Imperium", "length": 10 },
       { "name": "Despotate of Alusia", "length": 3 },
-      { "name": "Fialta Free States", "length": 5 },
+      { "name": "Fialta Confederacy", "length": 5 },
       { "name": "Fialta Imperium", "length": 5 },
       { "name": "Shantine Empire", "length": 1 },
       { "name": "Fialta Imperium", "length": 17 },
       { "name": "Serene Duchy of Aeldrum", "length": 1 },
-      { "name": "Fialta Free States", "length": 4 },
+      { "name": "Fialta Confederacy", "length": 4 },
       { "name": "Thalranese Marches", "length": 8 }
     ]
   },
