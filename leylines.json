@@ -237,6 +237,7 @@
     "planets": [
       { "name": "nippon_gates", "distance": 4 },
       { "name": "mir_thalran", "distance": 0 },
+      { "name": "resal", "distance": 2 },
       { "name": "tar_thalran", "distance": 18 },
       { "name": "harwel", "distance": 10 },
       { "name": "pin_jump", "distance": 9, "notes": [ "To Celestial Space", "To Naga Space" ] },
@@ -247,12 +248,14 @@
     ],
     "controllers": [
       { "name": "Nippon States", "length": 1 },
-      { "name": "Thalranese Marches", "length": 8 },
+      { "name": "Fialta Confederacy", "length": 3 },
+      { "name": "Thalranese Marches", "length": 3 },
+      { "name": "Fialta Confederacy", "length": 2 },
       { "name": "Orcish Directorate", "length": 7 },
       { "name": "Serene Duchy of Aeldrum", "length": 28 },
       { "name": "Thalranese Marches", "length": 5 },
-      { "name": "Saldanese Exclusion Zone", "length": 3 },
-      { "name": "Nippon States", "length": 4 }
+      { "name": "Saldanese Exclusion Zone", "length": 5 },
+      { "name": "Nippon States", "length": 2 }
     ]
   },
   "9": {
