@@ -1366,19 +1366,25 @@ function setupUI () {
   
   function generateZoomSlider () {
     const slider_width = width / 4;
-    const slider_text_width = 65;
     const slider_default_value = 1;
+    const padding_between = 20;
+    const padding_around = 10;
     const max_zoom = 2;
     const min_zoom = .25;
     
     const sliderInteractive = new Interactive("zoom-slider", {
-      width: slider_width + slider_text_width,
+      width: slider_width,
       height: 30,
       originX: 0,
       originY: 0
     });
     
-    let slider = sliderInteractive.slider(10, 20, { min: min_zoom, max: max_zoom, value: slider_default_value, width: slider_width } );    
+    let slider = sliderInteractive.slider(padding_around, 20, {
+      min: min_zoom,
+      max: max_zoom,
+      value: slider_default_value,
+      width: slider_width
+    });    
     slider.onchange = () => {
       const viewbox_parts = interactive.viewBox.split(' ');
       
@@ -1396,15 +1402,24 @@ function setupUI () {
         new_width > 0 ? Math.ceil(new_width) : Math.floor(new_width),
         new_height > 0 ? Math.ceil(new_height) : Math.floor(new_height)
       );
+        
+      // Also change the interactive size of the slider to fit the text properly
+      sliderInteractive.width =
+        padding_around * 2
+        + slider.width
+        + padding_between
+        + slider_text.getBoundingBox().width;
       
       slider.updateDependents();
     };
     
-    let slider_text = sliderInteractive.text(slider_width + 20, 25);
+    let slider_text = sliderInteractive.text(slider_width + padding_between, 25);
     slider_text.update = () => { slider_text.contents = `${ Math.floor(slider.value * 100) }%`; };
     slider_text.update();
     
     slider_text.addDependency(slider);
+    
+    slider.onchange();
     
     return slider;
   }
