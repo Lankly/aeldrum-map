@@ -325,7 +325,7 @@
       { "name": "tarim", "distance": 0 },
       { "name": "witolm", "distance": 5 },
       { "name": "palaceworlds", "distance": 3 },
-      { "name": "nippon_gates", "distance": 8, "status": "Upper" },
+      { "name": "nippon_gates", "distance": 8, "status": "Upper", "notes": [ "To Imperial Space" ] },
       { "name": "limei", "distance": 5 },
       { "name": "stitch", "distance": 14 },
       { "name": "nippon_gates", "distance": 2, "status": "Upper" },
