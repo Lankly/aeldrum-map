@@ -202,7 +202,7 @@ function main (focusPlanet) {
       let overlap_planet_index = next_leyline.planets.findIndex((p) => planetNames.includes(p.name));
       
       let rotatePercent = 0;
-      if (overlap_planet_index !== -1) {
+      if (overlap_planet_index !== -1 && (!flags.theaterOnly || next_leyline.planets[overlap_planet_index].theater)) {
         const circumference = leyline.circle.getTotalLength();
         const planet_name = next_leyline.planets[overlap_planet_index].name;
         const outer_index = leyline.planets.findIndex((p) => p.name === planet_name);
@@ -290,6 +290,7 @@ function main (focusPlanet) {
     let rotatePercent = settings && settings.rotatePercent;
     let makeNewControlPoints = settings && settings.makeNewControlPoints;
     let noDuplicatesOnLine = flags.hideDuplicatesOnLeyline;
+    let theaterOnly = flags.theaterOnly;
     
     // Create the leyline
     let radius = calculateRadius(leyline);
@@ -484,7 +485,11 @@ function main (focusPlanet) {
             arc_node.find(".foreground-path").css("stroke", `url(#gradient-${leyline.aeldman_name})`);
             break;
           default:
-          distance_tooltip = `Distance: ~${(previous_planet.distance * 10000).toLocaleString('en-US')} etheric miles`;
+          distance_tooltip = `Distance: ~${((
+            theaterOnly
+            ? previous_planet.theater_dist
+            : previous_planet.distance)
+            * 10000).toLocaleString('en-US')} etheric miles`;
         }
         arc_node.attr("title", distance_tooltip);
         circle.addDependency(arc);
@@ -495,7 +500,7 @@ function main (focusPlanet) {
     }
     
     function addRegionArcs () {
-      let planets = getPointsToAdd({
+      let planets_to_add = getPointsToAdd({
         noReorder: true,
         getFilled: true
       });
@@ -514,9 +519,19 @@ function main (focusPlanet) {
         }
         return arr;
       }, []);
+        
+      // Adjust for theater-only
+      // The issue is that the first planet on the line might not be a theater,
+      // so it will start at the wrong point
+      if (theaterOnly) {
+        for (let i = 0; i < leyline.planets.length && !planets[leyline.planets[i].name].theater; ++i) {
+          let elements_to_shift = region_data.splice(0, leyline.planets[i].distance);
+          region_data = region_data.concat(elements_to_shift);
+        }
+      }
       
-      planets.forEach((planet, i) => {
-        let next_index = planet.distance;
+      planets_to_add.forEach((planet, i) => {
+        let next_index = theaterOnly ? planet.theater_dist : planet.distance;
         if (next_index === '?') {
           next_index = region_data.findIndex((d) => d.length === '?') + 1;
         }
@@ -576,7 +591,7 @@ function main (focusPlanet) {
         } while (j >= 0);
         
         // Now we can actually create the arcs
-        const next_planet = planets[i >= (planets.length - 1) ? 0 : i + 1];
+        const next_planet = planets_to_add[i >= (planets_to_add.length - 1) ? 0 : i + 1];
         const total_len = region_segment.reduce((sum, region) => { return sum + region.lenFromHere; }, 0);
         
         const temp_arc = createArc(leyline.circle, next_planet.point, planet.point, { noPair: true });
@@ -789,6 +804,27 @@ function main (focusPlanet) {
       let noReorder = settings && settings.noReorder;
       let getFilled = settings && settings.getFilled;
       let points =  leyline.planets;
+      
+      if (theaterOnly) {
+        let prev_theater = points.reverse().find((p) => planets[p.name].theater);
+        points.reverse();
+        points.forEach((point) => {
+          if (planets[point.name].theater) {
+            prev_theater = point;
+            point.theater_dist = point.distance;
+          }
+          else if (prev_theater.distance !== '?') {
+            if (point.distance === '?') {
+              prev_theater.theater_dist === '?';
+            }
+            else {
+              prev_theater.theater_dist += point.distance;
+            }
+          }
+        });
+        
+        points = points.filter((p) => planets[p.name].theater);
+      }
       
       if (noDuplicatesOnLine) {
         let uniques = new Set();
@@ -1012,9 +1048,13 @@ function main (focusPlanet) {
   }
   
   function getCenterOfMass () {
-    let num_created_planets = Object.keys(planets).reduce((total, name) => { return total + (planets[name].point ? 1 : 0); }, 0);
-    let avg_x = Object.keys(planets).reduce((total, name) => { return total + (planets[name].point ? planets[name].point.x : 0) }, 0) / num_created_planets;
-    let avg_y = Object.keys(planets).reduce((total, name) => { return total + (planets[name].point ? planets[name].point.y : 0) }, 0) / num_created_planets;
+    const all_planets = getPlanets();
+    
+    let num_created_planets = all_planets.reduce((total, planet) => { return total + (planets[planet.name].point ? 1 : 0); }, 0);
+    if (num_created_planets === 0) { return { x: 0, y: 0 }; }
+    
+    let avg_x = all_planets.reduce((total, planet) => { return total + (planets[planet.name].point ? planets[planet.name].point.x : 0) }, 0) / num_created_planets;
+    let avg_y = all_planets.reduce((total, planet) => { return total + (planets[planet.name].point ? planets[planet.name].point.y : 0) }, 0) / num_created_planets;
     
     return { x: avg_x, y: avg_y };
   }
@@ -1042,7 +1082,7 @@ function main (focusPlanet) {
   function calculateRadius (leylineOrNumber) {
     const num_points = Number.isInteger(leylineOrNumber)
       ? leylineOrNumber
-      : leylineOrNumber.planets.length;
+      : getPlanets(leylineOrNumber).length;
       
     return Math.pow(num_points, .825) * 20;
   }
@@ -1296,6 +1336,14 @@ function setupUI () {
     inscribable.onchange = () => {
       flags.generateInscribed = inscribable.value;
       clearAll();
+      
+      getLeylines().forEach((leyline) => {
+        const theaters = getPlanets(leyline);
+        if (theaters.length === 0) {
+          leyline.skip = true;
+        }
+      });
+      
       reset();
     }
     ++flag_index;
@@ -1305,35 +1353,6 @@ function setupUI () {
     theaterOnly.onchange = () => {
       flags.theaterOnly = theaterOnly.value;
       clearAll();
-      
-      if (theaterOnly.value === true) {
-        const leyline_planet_names = Object.keys(leylines)
-          .map((i) => leylines[i])
-          .reduce((arr, leyline) => { return arr.concat(leyline.planets.map((p) => p.name)); }, []);
-          
-        let planet_counts = {};
-        leyline_planet_names.forEach((name) => planet_counts[name] = (planet_counts[name] ?? 0) + 1);
-        
-        Object.keys(leylines).forEach((i) => {
-          let leyline = leylines[i];
-          
-          if (!theaterOnlySavedData[i]) {
-            theaterOnlySavedData[i] = [];
-          }
-          
-          theaterOnlySavedData[i] = theaterOnlySavedData[i].concat(leyline.planets);
-          leyline.planets = leyline.planets.filter((p) => planet_counts[p.name] > 1);
-        });
-      }
-      else {
-        Object.keys(leylines).forEach((i) => {
-          if (leylines[i]) {
-            leylines[i].planets = theaterOnlySavedData[i];
-            delete theaterOnlySavedData[i];
-          }
-        });
-      }
-      
       reset();
     }
     ++flag_index;
@@ -1907,6 +1926,16 @@ function getLeylines () {
   return Object.keys(leylines)
     .map((i) => leylines[i])
     .filter((l) => !l.skip);
+}
+
+function getPlanets (leyline) {
+  if (leyline) {
+    return leyline.planets.filter((p) => !flags.theaterOnly || planets[p.name].theater);
+  }
+  
+  return Object.keys(planets)
+    .map((i) => planets[i])
+    .filter((p) => !flags.theaterOnly || p.theater);
 }
   
 function getAngle(reference, control) {
