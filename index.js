@@ -362,10 +362,14 @@ function main (focusPlanet) {
         {
           startingPoint: startingPlanet && planets[startingPlanet.name].allPoints[leyline.aeldman_name][0],
           rotatePercent: rotatePercent,
-          capital: planets[planetData.name].capital
+          capital: planets[planetData.name].capital,
+          type: planets[planetData.name].type
         });
       if (planets[planetData.name].capital) {
         $(planet_point.root).addClass("capital-planet");
+      }
+      if (planets[planetData.name].type) {
+        $(planet_point.root).addClass(planets[planetData.name].type);
       }
       circle.addDependency(planet_point);
       
@@ -820,6 +824,7 @@ function main (focusPlanet) {
     let startingPoint = settings && settings.startingPoint;
     let rotatePercent = (settings && settings.rotatePercent) || 0;
     let capital = settings && settings.capital;
+    let type = settings && settings.type;
     
     rotatePercent = rotatePercent ?? 0;
     const circle_len = circle.getTotalLength();
@@ -840,15 +845,31 @@ function main (focusPlanet) {
     let planet_control_point = interactive.control(dist_xy.x, dist_xy.y);
     planet_control_point.constrainWithinBox(planet_control_point.x, planet_control_point.y, planet_control_point.x, planet_control_point.y);
     
-    // Handle capital planet
+    // Handle alternate symbols
+    const ns = $("#map > svg").attr("xmlns");
     if (capital) {
-      const ns = $("#map > svg").attr("xmlns");
       let group = $(planet_control_point.root);
       let star = $(document.createElementNS(ns, "polygon"));
       star.attr("points", "0,-6 -4,6 6,-2 -6,-2 4,6");
       star.attr("id", `${ group.attr("id") }-star`);
       
       group.append(star);
+    }
+    else if (type) {
+      switch (type) {
+        case "object":
+          let group = $(planet_control_point.root);
+          let square = $(document.createElementNS(ns, "rect"));
+          square.attr("x", "-3.5");
+          square.attr("y", "-3.5");
+          square.attr("width", "7");
+          square.attr("height", "7");
+          square.attr("transform", "rotate(45)");
+          square.attr("id", `${ group.attr("id") }-square`);
+          
+          group.append(square);
+          break;
+      }
     }
     
     return planet_control_point;
