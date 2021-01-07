@@ -12,6 +12,10 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
+.hidden {
+  top: -100vh;
+}
+
 path {
   padding: 5px;
 }
@@ -128,6 +132,40 @@ path {
   left: 25px;
   white-space: nowrap;
   background-color: rgb(256, 256, 256, 0.5);
+}
+#powers-legend {
+  position: absolute;
+  bottom: 5vh;
+  right: 5vh;
+  width: 40vw;
+  height: 30vh;
+  background-color: white;
+}
+#powers-legend::after {
+  content: "Regional Powers Legend";
+  font-family: cursive;
+  font-size: 20px;
+  position: absolute;
+  top: -1.2em;
+  right: 25px;
+  white-space: nowrap;
+  background-color: rgb(256, 256, 256, 0.5);
+}
+#powers-legend-expand {
+  position: absolute;
+  bottom: 5vh;
+  right: 5vh;
+  width: max(10vw, 50px);
+  height: 1.5em;
+}
+#powers-legend-collapse {
+  opacity: .5;
+}
+#powers-legend-collapse:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: .1em;
+  cursor: pointer;
 }
 
 #map {
