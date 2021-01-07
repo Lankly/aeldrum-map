@@ -55,7 +55,7 @@
       { "name": "telrion", "distance": 15, "notes": [ "Unexplored leyline?" ] },
       { "name": "aeldrum", "distance": 3 },
       { "name": "calath", "distance": 3 },
-      { "name": "enclave_outlet", "distance": 4 },
+      { "name": "enclave_outlet", "distance": 4, "notes": [ "To Elvish Enclaves" ] },
       { "name": "hilland", "distance": 2 },
       { "name": "sierna", "distance": 8 },
       { "name": "bishant", "distance": 3 },
