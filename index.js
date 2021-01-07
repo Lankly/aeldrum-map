@@ -1234,6 +1234,7 @@ function setupUI () {
         });
         
         const focus_planet = startingPlanet.name;
+        let to_return;
         let focus_planet_exists_in_selection = getLeylines()
           .some((l) => l.planets.map((p) => p.name).includes(focus_planet));
           
@@ -1260,12 +1261,14 @@ function setupUI () {
           
           if (planet_with_most_occurrences) {
             $("#planet-selector").val(planet_with_most_occurrences.name);
-            return $("#planet-selector").change();
+            to_return = $("#planet-selector").change();
           }
         }
         
         resetLeylineCheckboxes();
         reset();
+        
+        return to_return;
       };
     });
   }
