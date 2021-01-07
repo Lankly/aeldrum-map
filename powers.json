@@ -1,4 +1,26 @@
 {
+  "Lawless": {
+    "color": "grey",
+    "darker_color": "darkgrey",
+    "owned_planets": [
+    ]
+  },
+  "Unexplored": {
+    "color": "black",
+    "darker_color": "black",
+    "owned_planets": [
+    ]
+  },
+  "Independent Worlds": {
+    "color": "lightgrey",
+    "darker_color": "grey",
+    "owned_planets": [
+      "crosslanes",
+      "grantworlds",
+      "savage",
+      "witch_haven"
+    ]
+  },
   "Serene Duchy of Aeldrum": {
     "color": "red",
     "darker_color": "darkred",
@@ -16,28 +38,6 @@
       "sivella",
       "telrion",
       "villenta"
-    ]
-  },
-  "Independent Worlds": {
-    "color": "lightgrey",
-    "darker_color": "grey",
-    "owned_planets": [
-      "crosslanes",
-      "grantworlds",
-      "savage",
-      "witch_haven"
-    ]
-  },
-  "Lawless": {
-    "color": "grey",
-    "darker_color": "darkgrey",
-    "owned_planets": [
-    ]
-  },
-  "Unexplored": {
-    "color": "black",
-    "darker_color": "black",
-    "owned_planets": [
     ]
   },
   "Aksai Chin": {
@@ -269,6 +269,15 @@
       "genova",
       "mexico",
       "sveiss"
+    ]
+  },
+  "Smuggler's Run": {
+    "color": "grey",
+    "darker_color": "darkgrey",
+    "parent": "Lawless",
+    "owned_planets": [
+      "anathemas_domain",
+      "bier"
     ]
   },
   "Thalranese Marches": {
