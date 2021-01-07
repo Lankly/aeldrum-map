@@ -445,7 +445,7 @@
     ],
     "controllers": [
       { "name": "Serene Duchy of Aeldrum", "length": 17 },
-      { "name": "Orcish Protectorates", "length": 2 },
+      { "name": "Orcish Frontier Protectorates", "length": 2 },
       { "name": "Serene Duchy of Aeldrum", "length": 11 },
       { "name": "Smuggler's Run", "length": 14 },
       { "name": "Lawless", "length": 4 },
