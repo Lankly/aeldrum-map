@@ -440,6 +440,7 @@
       { "name": "towers_of_the_naga", "distance": 1 },
       { "name": "turrenes_world", "distance": 2 },
       { "name": "towers_of_the_naga", "distance": 3 },
+      { "name": "dustworld", "distance": 4 },
       { "name": "gates_of_corrobel", "distance": 1 },
       { "name": "corrobel_exclusion_zone", "distance": 6 },
       { "name": "palace_of_the_rainbow_serpent", "distance": "?" }
