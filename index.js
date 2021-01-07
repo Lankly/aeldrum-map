@@ -10,7 +10,7 @@ const height = window.innerHeight * 0.9;
 
 var flags = {
   generateInscribed: true, 
-  multigateOnly: false,
+  theaterOnly: false,
   samePlanetPaths: false,
   samePlanetPathsOnHover: true,
   hideDuplicatesOnLeyline: false,
@@ -1300,13 +1300,13 @@ function setupUI () {
     }
     ++flag_index;
     
-    let multigateOnly = additionalInteractive.checkBox(padding, padding + distance_between * flag_index, "Multigate only", flags.multigateOnly);
-    let multigateOnlySavedData = {};
-    multigateOnly.onchange = () => {
-      flags.multigateOnly = multigateOnly.value;
+    let theaterOnly = additionalInteractive.checkBox(padding, padding + distance_between * flag_index, "Theater only", flags.theaterOnly);
+    let theaterOnlySavedData = {};
+    theaterOnly.onchange = () => {
+      flags.theaterOnly = theaterOnly.value;
       clearAll();
       
-      if (multigateOnly.value === true) {
+      if (theaterOnly.value === true) {
         const leyline_planet_names = Object.keys(leylines)
           .map((i) => leylines[i])
           .reduce((arr, leyline) => { return arr.concat(leyline.planets.map((p) => p.name)); }, []);
@@ -1317,19 +1317,19 @@ function setupUI () {
         Object.keys(leylines).forEach((i) => {
           let leyline = leylines[i];
           
-          if (!multigateOnlySavedData[i]) {
-            multigateOnlySavedData[i] = [];
+          if (!theaterOnlySavedData[i]) {
+            theaterOnlySavedData[i] = [];
           }
           
-          multigateOnlySavedData[i] = multigateOnlySavedData[i].concat(leyline.planets);
+          theaterOnlySavedData[i] = theaterOnlySavedData[i].concat(leyline.planets);
           leyline.planets = leyline.planets.filter((p) => planet_counts[p.name] > 1);
         });
       }
       else {
         Object.keys(leylines).forEach((i) => {
           if (leylines[i]) {
-            leylines[i].planets = multigateOnlySavedData[i];
-            delete multigateOnlySavedData[i];
+            leylines[i].planets = theaterOnlySavedData[i];
+            delete theaterOnlySavedData[i];
           }
         });
       }
@@ -1387,7 +1387,7 @@ function setupUI () {
     
     [
       inscribable,
-      multigateOnly,
+      theaterOnly,
       same_planet_paths,
       same_planet_paths_on_hover,
       show_powers,
