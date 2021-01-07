@@ -808,6 +808,7 @@ function main (focusPlanet) {
       if (theaterOnly) {
         let prev_theater = points.reverse().find((p) => planets[p.name].theater);
         points.reverse();
+        
         points.forEach((point) => {
           if (planets[point.name].theater) {
             prev_theater = point;
@@ -1084,7 +1085,7 @@ function main (focusPlanet) {
       ? leylineOrNumber
       : getPlanets(leylineOrNumber).length;
       
-    return Math.pow(num_points, .825) * 20;
+    return Math.pow(Math.max(2, num_points), .825) * 20;
   }
   
   function getDistance (pointA, pointB) {
@@ -1280,7 +1281,7 @@ function setupUI () {
           
         if (!focus_planet_exists_in_selection) {
           const visible_planets = getLeylines().reduce((arr, line) =>{
-            return arr.concat(line.planets.map((p) => p.name));
+            return arr.concat(getPlanets(line).map((p) => p.name));
           }, []);
           
           const occurrences = visible_planets.reduce((occ, name) => {
@@ -1337,18 +1338,11 @@ function setupUI () {
       flags.generateInscribed = inscribable.value;
       clearAll();
       
-      getLeylines().forEach((leyline) => {
-        const theaters = getPlanets(leyline);
-        if (theaters.length === 0) {
-          leyline.skip = true;
-        }
-      });
-      
       reset();
     }
     ++flag_index;
     
-    let theaterOnly = additionalInteractive.checkBox(padding, padding + distance_between * flag_index, "Theater only", flags.theaterOnly);
+    let theaterOnly = additionalInteractive.checkBox(padding, padding + distance_between * flag_index, "Theater only (WIP)", flags.theaterOnly);
     let theaterOnlySavedData = {};
     theaterOnly.onchange = () => {
       flags.theaterOnly = theaterOnly.value;
@@ -1826,6 +1820,13 @@ function setupUI () {
   }
   
   function reset () {
+    getLeylines().forEach((leyline) => {
+      const visible_planets = getPlanets(leyline);
+      if (visible_planets.length === 0) {
+        leyline.skip = true;
+      }
+    });
+    
     main(startingPlanet);
     
     if (maybeShowLegend) {
