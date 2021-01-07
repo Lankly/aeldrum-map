@@ -175,7 +175,8 @@
     "group": true
   },
   "pin_jump": {
-    "full_name": "Pin-Jump"
+    "full_name": "Pin-Jump",
+    "type": "object"
   },
   "reilla": {
     "full_name": "Reilla"
