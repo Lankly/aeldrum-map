@@ -196,7 +196,7 @@
   },
   "Orcish Directorate": {
     "color": "#595959",
-    "darker_color": "darkgrey",
+    "darker_color": "black",
     "secondary": true,
     "owned_planets": [
     ]
