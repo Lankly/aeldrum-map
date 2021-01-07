@@ -380,6 +380,7 @@ function main (focusPlanet) {
       planet_text.x = planet_text.x - (planet_text.getBoundingBox().width / 2);
       planet_text.style.stroke = "white";
       planet_text.style["stroke-width"] = 5;
+      $(planet_text.root).addClass("planet-label");
       $(planet_text.root).addClass(planetData.name);
       $(planet_text.root).addClass(leyline.aeldman_name);
       if (planets[planetData.name].group) {
