@@ -41,11 +41,11 @@ path {
 .font-neighbor-highlight {
   font-weight: 450;
 }
-.capital-planet > polygon {
+.capital-planet > polygon, .object > rect {
   pointer-events: none;
   fill: #0366ee;
 }
-.capital-planet > circle:first-child {
+.capital-planet > circle:first-child, .object > circle:first-child {
   fill: transparent;
   stroke: transparent;
 }
