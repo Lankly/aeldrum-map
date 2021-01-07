@@ -431,11 +431,9 @@
     "planets": [
       { "name": "pin_jump", "distance": 8, "notes": [ "To Imperial Space", "To Celestial Space" ] },
       { "name": "forgotten_world", "distance": 16 },
-      { "name": "mouth_of_shavar", "distance": 6 },
-      { "name": "smugglers_run", "distance": 5 },
+      { "name": "mouth_of_shavar", "distance": 11 },
       { "name": "anathemas_domain", "distance": 4 },
-      { "name": "bier", "distance": 4 },
-      { "name": "smugglers_run", "distance": 3 },
+      { "name": "bier", "distance": 7 },
       { "name": "perfect_prince_renegades", "distance": 2 },
       { "name": "towers_of_the_naga", "distance": 1 },
       { "name": "turrenes_world", "distance": 2 },
@@ -449,7 +447,8 @@
       { "name": "Serene Duchy of Aeldrum", "length": 17 },
       { "name": "Orcish Protectorates", "length": 2 },
       { "name": "Serene Duchy of Aeldrum", "length": 11 },
-      { "name": "Lawless", "length": 18 },
+      { "name": "Smuggler's Run", "length": 14 },
+      { "name": "Lawless", "length": 4 },
       { "name": "Naga Remnants", "length": 11 },
       { "name": "Lawless", "length": 8 },
       { "name": "Unexplored", "length": "?" }
