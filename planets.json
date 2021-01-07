@@ -1,7 +1,8 @@
 {
   "aeldrum": {
     "full_name": "Aeldrum",
-    "capital": true
+    "capital": true,
+    "theater": true
   },
   "ahlam": {
     "full_name": "Ahlam"
@@ -25,31 +26,41 @@
   },
   "bishant": {
     "full_name": "Bishant",
-    "capital": true
+    "capital": true,
+    "theater": true
   },
   "brass_gates": {
     "full_name": "Brass Gates"
   },
   "brumaire": {
-    "full_name": "Brumaire"
+    "full_name": "Brumaire",
+    "theater": true
   },
   "calath": {
-    "full_name": "Calath"
+    "full_name": "Calath",
+    "theater": true
   },
   "carral": {
     "full_name": "Carral"
   },
   "chelonia": {
-    "full_name": "Chelonia"
+    "full_name": "Chelonia",
+    "theater": true
   },
   "corrobel_exclusion_zone": {
     "full_name": "Corrobel Exclusion Zone"
   },
   "crosslanes": {
-    "full_name": "The Crosslanes"
+    "full_name": "The Crosslanes",
+    "theater": true
   },
   "del_mar": {
-    "full_name": "Del'Mar"
+    "full_name": "Del'Mar",
+    "theater": true
+  },
+  "deutschreich": {
+    "full_name": "Deutschreich",
+    "theater": true
   },
   "dustworld": {
     "full_name": "The Dustworld"
@@ -58,13 +69,15 @@
     "full_name": "Dwarf Clans"
   },
   "enclave_outlet": {
-    "full_name": "Enclave Outlet"
+    "full_name": "Enclave Outlet",
+    "theater": true
   },
   "fialt": {
     "full_name": "Fialt"
   },
   "firhbank": {
-    "full_name": "Firhbank"
+    "full_name": "Firhbank",
+    "theater": true
   },
   "folds": {
     "full_name": "The Folds"
@@ -92,16 +105,19 @@
     "full_name": "Gul'Dan"
   },
   "harwel": {
-    "full_name": "Harwel"
+    "full_name": "Harwel",
+    "theater": true
   },
   "highvedlt": {
-    "full_name": "Highvedlt"
+    "full_name": "Highvedlt",
+    "theater": true
   },
   "hilland": {
     "full_name": "Hilland"
   },
   "hybern": {
-    "full_name": "Hybern"
+    "full_name": "Hybern",
+    "theater": true
   },
   "iberia": {
     "full_name": "Iberia"
@@ -116,13 +132,16 @@
     "full_name": "Konira"
   },
   "korinth": {
-    "full_name": "Korinth"
+    "full_name": "Korinth",
+    "theater": true
   },
   "lechtus": {
-    "full_name": "Lectus"
+    "full_name": "Lectus",
+    "theater": true
   },
   "lidenia": {
-    "full_name": "Lidenia"
+    "full_name": "Lidenia",
+    "theater": true
   },
   "limei": {
     "full_name": "Limei"
@@ -131,7 +150,8 @@
     "full_name": "Gran Mexico"
   },
   "marivan": {
-    "full_name": "Marivan"
+    "full_name": "Marivan",
+    "theater": true
   },
   "messidor": {
     "full_name": "Messidor"
@@ -140,7 +160,8 @@
     "full_name": "Milgar"
   },
   "mir_thalran": {
-    "full_name": "Mir'Thalran"
+    "full_name": "Mir'Thalran",
+    "theater": true
   },
   "mouth_of_shavar": {
     "full_name": "The Mouth of Shavar"
@@ -149,7 +170,8 @@
     "full_name": "Nidev's Court"
   },
   "nippon_gates": {
-    "full_name": "Nippon Gates"
+    "full_name": "Nippon Gates",
+    "theater": true
   },
   "nss_exclusion_zone": {
     "full_name": "NSS Exclusion Zone (Impassible)"
@@ -176,27 +198,32 @@
   },
   "pin_jump": {
     "full_name": "Pin-Jump",
+    "theater": true,
     "type": "object"
   },
   "reilla": {
-    "full_name": "Reilla"
+    "full_name": "Reilla",
+    "theater": true
   },
   "resal": {
     "full_name": "Resal"
   },
   "saldan": {
     "full_name": "Saldan",
-    "capital": true
+    "capital": true,
+    "theater": true
   },
   "savage": {
     "full_name": "Savage Worlds",
     "group": true
   },
   "semal": {
-    "full_name": "Semal"
+    "full_name": "Semal",
+    "theater": true
   },
   "sevalne": {
-    "full_name": "Sevalne"
+    "full_name": "Sevalne",
+    "theater": true
   },
   "shantaran_free_state": {
     "full_name": "Shantaran Free State"
@@ -205,7 +232,8 @@
     "full_name": "Sidenia"
   },
   "sierna": {
-    "full_name": "Sierna"
+    "full_name": "Sierna",
+    "theater": true
   },
   "sigvalds_court": {
     "full_name": "Sigvald's Court"
@@ -227,13 +255,15 @@
     "full_name": "Switzreich"
   },
   "tar_thalran": {
-    "full_name": "Tar'Thalran"
+    "full_name": "Tar'Thalran",
+    "theater": true
   },
   "tarim": {
     "full_name": "Tarim"
   },
   "telrion": {
-    "full_name": "Telrion"
+    "full_name": "Telrion",
+    "theater": true
   },
   "towers_of_the_naga": {
     "full_name": "Towers of the Naga"
@@ -269,7 +299,8 @@
     "capital": true
   },
   "zanevuela": {
-    "full_name": "Zanevuela"
+    "full_name": "Zanevuela",
+    "theater": true
   },
   "zemlya": {
     "full_name": "Zemlya"
