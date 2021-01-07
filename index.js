@@ -1172,9 +1172,7 @@ function setupUI () {
   generatePowersLegend();
   
   function generateLeylineCheckboxes () {
-    let lines = Object.keys(leylines)
-      .map((i) => leylines[i])
-      .filter((l) => !l.skip);
+    let lines = getLeylines(/* includeDisabled= */ true);
     
     const total_leylines = lines.length;
     const box_padding = 30;
@@ -1201,9 +1199,11 @@ function setupUI () {
         box_padding,
         box_padding + i * (padding_between + controls_height),
         leyline.aeldman_name,
-        /* enabled= */ true);
+        /* enabled= */ !leyline.disabled);
         
-      checkbox.box.fill = leyline.color;
+      if (!leyline.disabled) {
+        checkbox.box.fill = leyline.color;
+      }
       checkbox.box.style.stroke = leyline.darker_color;
         
       checkbox.onchange = () => {
@@ -1212,7 +1212,7 @@ function setupUI () {
           checkbox.box.fill = leyline.color;
         }
         
-        leyline.skip = !checkbox.value;
+        leyline.disabled = !checkbox.value;
         
         reset();
       }
@@ -1274,40 +1274,8 @@ function setupUI () {
           }
         });
         
-        const focus_planet = startingPlanet.name;
-        let to_return;
-        let focus_planet_exists_in_selection = getLeylines()
-          .some((l) => l.planets.map((p) => p.name).includes(focus_planet));
-          
-        if (!focus_planet_exists_in_selection) {
-          const visible_planets = getLeylines().reduce((arr, line) =>{
-            return arr.concat(getPlanets(line).map((p) => p.name));
-          }, []);
-          
-          const occurrences = visible_planets.reduce((occ, name) => {
-            if (occ[name] === undefined) { occ[name] = 0; }
-            
-            ++occ[name];
-            
-            return occ;
-          }, {});
-          
-          const planet_with_most_occurrences = Object.keys(occurrences)
-            .reduce((most, name) => {
-              if (most === null || most.occurrence < occurrences[name]) {
-                return { name: name, occurrence: occurrences[name] };
-              }
-              return most;
-            }, null);
-          
-          if (planet_with_most_occurrences) {
-            $("#planet-selector").val(planet_with_most_occurrences.name);
-            to_return = $("#planet-selector").change();
-          }
-        }
-        
-        resetLeylineCheckboxes();
         reset();
+        resetLeylineCheckboxes();
         
         return to_return;
       };
@@ -1583,9 +1551,7 @@ function setupUI () {
       function getVisiblePowers () {
         const visible_powers = Object.keys(powers).map((i) => powers[i]);
         
-        const lines = Object.keys(leylines)
-          .map((i) => leylines[i])
-          .filter((l) => !l.skip);
+        const lines = getLeylines();
         const controllers = [].concat(...lines.map((l) => l.controllers));
         const names = new Set(controllers.map((c) => c.name));
         
@@ -1820,7 +1786,40 @@ function setupUI () {
   }
   
   function reset () {
-    getLeylines().forEach((leyline) => {
+    const focus_planet = startingPlanet.name;
+    let focus_planet_exists_in_selection = getLeylines()
+      .some((l) => l.planets.map((p) => p.name).includes(focus_planet));
+      
+    if (!focus_planet_exists_in_selection) {
+      const visible_planets = getLeylines().reduce((arr, line) =>{
+        return arr.concat(getPlanets(line).map((p) => p.name));
+      }, []);
+      
+      const occurrences = visible_planets.reduce((occ, name) => {
+        if (occ[name] === undefined) { occ[name] = 0; }
+        
+        ++occ[name];
+        
+        return occ;
+      }, {});
+      
+      const planet_with_most_occurrences = Object.keys(occurrences)
+        .reduce((most, name) => {
+          if (most === null || most.occurrence < occurrences[name]) {
+            return { name: name, occurrence: occurrences[name] };
+          }
+          return most;
+        }, null);
+      console.log(planet_with_most_occurrences);
+      
+      if (planet_with_most_occurrences) {
+        $("#planet-selector").val(planet_with_most_occurrences.name);
+        $("#planet-selector").change();
+        return;
+      }
+    }
+        
+    getLeylines(/* includeDisabled= */ true).forEach((leyline) => {
       const visible_planets = getPlanets(leyline);
       if (visible_planets.length === 0) {
         leyline.skip = true;
@@ -1923,10 +1922,11 @@ function setupUI () {
 }
 
   
-function getLeylines () {
+function getLeylines (includeDisabled) {
   return Object.keys(leylines)
     .map((i) => leylines[i])
-    .filter((l) => !l.skip);
+    .filter((l) => !l.skip)
+    .filter((l) => !l.disabled || includeDisabled);
 }
 
 function getPlanets (leyline) {
