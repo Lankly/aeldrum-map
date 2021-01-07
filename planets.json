@@ -213,10 +213,6 @@
   "sivella": {
     "full_name": "Sivella"
   },
-  "smugglers_run": {
-    "full_name": "Smuggler's Run",
-    "group": true
-  },
   "station": {
     "full_name": "The Station",
     "type": "object"
