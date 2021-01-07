@@ -1276,8 +1276,6 @@ function setupUI () {
         
         reset();
         resetLeylineCheckboxes();
-        
-        return to_return;
       };
     });
   }
