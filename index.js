@@ -677,12 +677,18 @@ function main (focusPlanet) {
         
         
         points_on_other_lines.forEach((next_point, i) => {
-          helper(allPoints_on_line[0], next_point);
+          const other_point = allPoints_on_line[0];
+          
+          if (other_point !== next_point) {
+            helper(other_point, next_point);
+          }
         });
         
         allPoints_on_line.forEach((point, i) => {
           for (let j = i; j < allPoints_on_line.length; ++j) {
             let next_point = allPoints_on_line[j];
+            
+            if (point === next_point) { continue; }
             
             helper(point, next_point);
           }
@@ -1103,6 +1109,10 @@ function main (focusPlanet) {
     const forNote = settings && settings.forNote; // Uses the notes group and doesn't pair
     const noPair = settings && settings.noPair;
     
+    if (pointA.x == pointB.x && pointA.y === pointB.y) {
+      return createCircleArc();
+    }
+    
     const path_value = `M ${pointA.x} ${pointA.y} A ${radius} ${radius} 0 0 0 ${pointB.x} ${pointB.y}`;
     
     let arc_pair;
@@ -1134,6 +1144,17 @@ function main (focusPlanet) {
     }
     
     return return_item;
+    
+    function createCircleArc () {
+      let new_arc = circle_group.circle(circle.cx, circle.cy, circle.r);
+      
+      new_arc.style.stroke = circle.style.stroke;
+      new_arc.style.fill = circle.style.fill;
+      
+      $(new_arc.root).addClass("foreground-path");
+      
+      return new_arc;
+    }
   }
 }
 
