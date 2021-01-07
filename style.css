@@ -198,6 +198,10 @@ path {
   stroke-width: 3px;
 }
 
+.planet-label {
+  pointer-events: none
+}
+
 .ui-tooltip {
   pointer-events: none;
 }
