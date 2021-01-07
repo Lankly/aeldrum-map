@@ -35,6 +35,7 @@ $.ajax("planets.json", {
           dataType: "json",
           success: function (data) {
             powers = data;
+            Object.keys(powers).forEach((name) => powers[name].name = name);
         
             setupUI();
             main();
@@ -1076,6 +1077,8 @@ function main (focusPlanet) {
 
 let recenterOnPlanet;
 let resetLeylineCheckboxes;
+let clearLegend;
+let maybeShowLegend;
 function setupUI () {
   xOrigin = width;
   yOrigin = height;
@@ -1104,6 +1107,7 @@ function setupUI () {
   generateRegionCheckboxes();
   generatePlanetSelector();
   generateAdditionalControls();
+  generatePowersLegend();
   
   function generateLeylineCheckboxes () {
     let lines = Object.keys(leylines)
@@ -1347,6 +1351,13 @@ function setupUI () {
     show_powers.onchange = () => {
       clearAll();
       flags.showPowers = show_powers.value;
+      if (show_powers.value) {
+        $("#powers-legend-expand").removeClass("hidden");
+      }
+      else {
+        $("#powers-legend").addClass("hidden");
+        $("#powers-legend-expand").addClass("hidden");
+      }
       reset();
     };
     
@@ -1448,6 +1459,256 @@ function setupUI () {
     y.style.stroke = "lightgrey";
   }
   
+  function generatePowersLegend () {
+    let expander = $("#powers-legend-expand");
+    let legend = $("#powers-legend");
+    
+    generateExpander();
+    
+    // Make hidden on page load
+    expander.addClass("hidden");
+    legend.addClass("hidden");
+    
+    function generateExpander () {
+      const expanderInteractive = new Interactive("powers-legend-expand", {
+        width: expander.width(),
+        height: expander.height(),
+        originX: 0,
+        originY: 0
+      });
+      
+      let expand_checkbox = expanderInteractive.checkBox(0, 0, "Show Regions Legend", false);
+      const expand_checkbox_width = expand_checkbox.getBoundingBox().width;
+      const expand_checkbox_height = expand_checkbox.getBoundingBox().height;
+      expander.width(expand_checkbox_width);
+      expander.height(expand_checkbox_height);
+      expanderInteractive.width = expand_checkbox_width;
+      expanderInteractive.height = expand_checkbox_height;
+      expand_checkbox.box.y += Math.ceil(expand_checkbox_height / 2);
+      expand_checkbox.label.y += Math.ceil(expand_checkbox_height / 2);
+      expand_checkbox.box.x += Math.ceil(expand_checkbox.box.width / 2);
+      expand_checkbox.label.x += Math.ceil(expand_checkbox.box.width / 2);
+    
+      expand_checkbox.onchange = () => {
+        if (expand_checkbox.value) {
+          expand_checkbox.value = false;
+        }
+        else {
+          expander.addClass("hidden");
+          legend.removeClass("hidden");
+          flags.showLegend = true;
+          generateLegend();
+        }
+      };
+    }
+    
+    function generateLegend () {
+      const outer_padding = 30;
+      const inner_column_padding = 20;
+      const nested_indent_amount = 20;
+      const legendInteractive = new Interactive("powers-legend", {
+        width: legend.width(),
+        height: legend.height(),
+        originX: 0,
+        originY: 0
+      });
+      legendInteractive.border = true;
+      
+      let temp_text = legendInteractive.text(0, 0, "Text");
+      const checkbox_height = temp_text.getBoundingBox().height;
+      const inner_checkbox_padding = checkbox_height / 3;
+      temp_text.remove();
+      
+      const powers_arr = getVisiblePowers();
+      const top_level_powers = powers_arr.filter((p) => !p.parent);
+      
+      // These should all already be in alphabetical order
+      const top_level_major = top_level_powers.filter((p) => !p.secondary && !p.minor);
+      const top_level_secondary = top_level_powers.filter((p) => p.secondary);
+      const top_level_minor = top_level_powers.filter((p) => p.minor);
+      
+      const major_blocks = top_level_major.map((power) => generatePowerGroup(power));
+      const secondary_blocks = top_level_secondary.map((power) => generatePowerGroup(power));
+      const minor_blocks = top_level_minor.map((power) => generatePowerGroup(power));
+      const all_blocks = major_blocks.concat(secondary_blocks).concat(minor_blocks);
+      
+      distributeBlocks();
+      generateCollapseButton();
+      
+      let bounds = legendInteractive.getBoundingBox();
+      bounds.height += outer_padding;
+      bounds.width += outer_padding;
+      
+      if (bounds.height > legend.height() || bounds.width > legend.width()) {
+        handlePanning(legendInteractive, { boundingBox: bounds })
+      }
+      
+      function getVisiblePowers () {
+        const visible_powers = Object.keys(powers).map((i) => powers[i]);
+        
+        const lines = Object.keys(leylines)
+          .map((i) => leylines[i])
+          .filter((l) => !l.skip);
+        const controllers = [].concat(...lines.map((l) => l.controllers));
+        const names = new Set(controllers.map((c) => c.name));
+        
+        return visible_powers.filter((p) => names.has(p.name));
+      }
+      
+      function generatePowerGroup (topLevelPower, g) {
+        let group = (g ?? legendInteractive).group();
+        
+        const top_level_checkbox = generatePowerCheckbox(topLevelPower, 0);
+        
+        let children;
+        do {
+          const children = powers_arr.filter((p) => p.parent === topLevelPower.name);
+          
+          const child_blocks = children.map((child) => generatePowerGroup(child, group));
+          child_blocks.forEach((block, i) => block
+            .setAttribute("transform", `translate(${ nested_indent_amount }, ${ (i + 1) * checkbox_height })`));
+        } while (children && children.length > 0);
+        
+        return group;
+        
+        function generatePowerCheckbox (power, level) {
+          let checkbox = legendInteractive.checkBox(outer_padding, outer_padding, power.name, true);
+          
+          checkbox.box.fill = power.color;
+          checkbox.box.stroke = power.darker_color;
+          
+          let elem = $(checkbox.root);
+          
+          // Handle highlighting
+          let highlight = false;
+          let paths = $(`path.region_${ power.name.replace(/[^A-Za-z0-9]/g, '_') }`);
+          let label = $(checkbox.label.root);
+          elem.mouseenter(() => {
+            paths.addClass("path-highlight");
+            label.addClass("font-highlight");
+          });
+          elem.mouseleave(() => {
+            if (!highlight) {
+              paths.removeClass("path-highlight");
+              label.removeClass("font-highlight");
+            }
+          });
+          
+          // Handle clicking
+          checkbox.onchange = () => {
+            checkbox.box.fill = power.color;
+          }
+          elem.click(() => {
+            highlight = !highlight;
+          });
+          
+          group.appendChild(checkbox);
+          
+          return checkbox;
+        }
+      }
+      
+      function distributeBlocks () {
+        const cols = calcNumCols(); // An array of the widths of each column
+        const blocks_per_col = Math.ceil(all_blocks.length / cols.length);
+        let y_offset = 0;
+        all_blocks.forEach((block, i) => {
+          const column_index = Math.floor(i / blocks_per_col);
+          block.setAttribute(
+            "transform",
+            `translate(${
+              ((column_index === 0) ? 0 : cols[column_index - 1])
+              + column_index * inner_column_padding
+            }, ${ y_offset })`);
+          y_offset += block.getBoundingBox().height + inner_checkbox_padding;
+          if ((i + 1) % blocks_per_col === 0) {
+            y_offset = 0;
+          }
+        });
+      
+        legendInteractive.width =
+          2 * outer_padding
+          + cols.reduce((total, x) => { return total + x; }, 0)
+          + (cols.length - 1) * inner_column_padding;
+        legend.width(legendInteractive.width);
+        
+        if (legendInteractive.getBoundingBox().height < legend.height()) {
+          legend.height(legendInteractive.getBoundingBox().height + outer_padding);
+          legendInteractive.height = legendInteractive.getBoundingBox().height + outer_padding;
+        }
+        
+        function calcNumCols () {
+          if (powers_arr.length * checkbox_height < legend.height()) {
+            return [Math.max(...all_blocks.map((block) => block.getBoundingBox().width))];
+          }
+          
+          let best_fit = [];
+          let max_width = legend.width();
+          
+          let min_width = Math.min(...all_blocks.map((block) => block.getBoundingBox().width));
+          
+          for (let i = 1; (min_width * i + (i - 1) * inner_column_padding + 2 * outer_padding) <= max_width; ++i) {
+            let column_widths = [];
+            for (let j = 0; j < i; ++j) {
+              const blocks_per_col = all_blocks.length / i;
+              const this_col = all_blocks.slice(j * blocks_per_col, (j + 1) * blocks_per_col);
+              const max_width = Math.max(...this_col.map((block) => block.getBoundingBox().width));
+              column_widths.push(max_width);
+            }
+            
+            const total_width =
+              2 * outer_padding
+              + column_widths.reduce((total, x) => { return total + x; }, 0)
+              + (i - 1) * inner_column_padding;
+            
+            if (total_width <= max_width) {
+              best_fit = column_widths;
+            }
+          }
+          
+          return best_fit;
+        }
+      }
+      
+      function generateCollapseButton () {
+        const padding = 5;
+        
+        let label = legendInteractive.text(0, 0, '⌄');
+        label.x += label.getBoundingBox().width / 2 + padding;
+        label.y += label.getBoundingBox().height / 2 + padding;
+        let elem = $(label.root);
+        
+        elem.attr("id", "powers-legend-collapse");
+        
+        elem.click(() => {
+          flags.showLegend = false;
+          clearLegend();
+        });
+      }
+      
+      clearLegend = function () {
+        expander.removeClass("hidden");
+        legendInteractive.remove();
+        legend.css("width", "");
+        legend.css("height", "");
+        legend.addClass("hidden");
+      }
+      
+      maybeShowLegend = function () {
+        if (flags.showLegend) {
+          if (clearLegend) {
+            clearLegend();
+          }
+          
+          expander.addClass("hidden");
+          legend.removeClass("hidden");
+          
+          setTimeout(generateLegend, 1);
+        }
+      }
+    }
+  }
+  
   function setupGradient () {
     let defs = interactive.defs();
     const ns = $("#map > svg").attr("xmlns");
@@ -1510,6 +1771,11 @@ function setupUI () {
       delete l.inscribing_leyline;
     });
     
+    if (clearLegend) {
+      clearLegend();
+      clearLegend = undefined;
+    }
+    
     notes_group.clear();
     arc_group.clear();
     circle_group.clear();
@@ -1518,6 +1784,10 @@ function setupUI () {
   
   function reset () {
     main(startingPlanet);
+    
+    if (maybeShowLegend) {
+      maybeShowLegend();
+    }
   }
   
   function handlePanning (interactive, settings) {
