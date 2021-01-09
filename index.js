@@ -479,13 +479,15 @@ function main (focusPlanet) {
         arc_node.addClass(previous_planet.name);
         
         let distance_tooltip;
+        console.log(`Line ${leyline.aeldman_name}: ${previous_planet.name} -> ${planetData.name} = ${previous_planet.distance}`);
         switch (previous_planet.distance) {
           case 0:
             distance_tooltip = "Distance: < 4000 etheric miles";
             break;
           case '?':
             distance_tooltip = "Distance unknown";
-            arc_node.find(".foreground-path").css("stroke", `url(#gradient-${leyline.aeldman_name})`);
+            arc_node.find(".foreground-path").css("stroke", `url(#gradient-${leyline.aeldman_name.replace(/[^A-Za-z0-9]/g, '_')})`);
+            console.log(arc_node.find(".foreground-path"));
             break;
           default:
           distance_tooltip = `Distance: ~${((
@@ -1755,7 +1757,7 @@ function setupUI () {
     
     Object.keys(leylines).map((i) => leylines[i]).forEach((leyline) => {
       let linearGradient = $(document.createElementNS(ns, "linearGradient"));
-      linearGradient.attr("id", `gradient-${leyline.aeldman_name}`);
+      linearGradient.attr("id", `gradient-${leyline.aeldman_name.replace(/[^A-Za-z0-9]/g, '_')}`);
       
       let stop1 = $(document.createElementNS(ns, "stop"));
       stop1.attr("offset", "0%");
