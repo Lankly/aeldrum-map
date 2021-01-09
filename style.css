@@ -27,7 +27,11 @@ path {
 .same-planet-path {
   stroke-dasharray: 4;
 }
-.foreground-path:hover, .background-path:hover + path, .path-highlight, .legend-path-highlight {
+.foreground-path:hover,
+.background-path:hover + path,
+.path-highlight,
+.legend-path-highlight,
+.leylines-path-highlight {
   stroke-width: 2px;
   display: inherit;
 }
@@ -35,7 +39,9 @@ path {
 .group-planet {
   font-style: italic;
 }
-.font-highlight, .legend-font-highlight {
+.font-highlight,
+.legend-font-highlight,
+.leylines-font-highlight {
   font-weight: bold;
 }
 .font-neighbor-highlight {
