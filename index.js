@@ -471,7 +471,9 @@ function main (focusPlanet) {
           previous_planet_point = previous_planet_allPoints[previous_planet_allPoints.length - 1];
         }
         
-        let arc = createArc(circle, planet_point, previous_planet_point);
+        let arc = createArc(circle, planet_point, previous_planet_point, {
+          foregroundClass: leyline.aeldman_name.replace(/[^A-Za-z0-9]/g, '_')
+        });
         let arc_node = $(arc.root);
         arc_node.addClass(planetData.name);
         arc_node.addClass(previous_planet.name);
@@ -1607,13 +1609,13 @@ function setupUI () {
           let paths = $(`path.region_${ power.name.replace(/[^A-Za-z0-9]/g, '_') }`);
           let label = $(checkbox.label.root);
           elem.mouseenter(() => {
-            paths.addClass("path-highlight");
-            label.addClass("font-highlight");
+            paths.addClass("legend-path-highlight");
+            label.addClass("legend-font-highlight");
           });
           elem.mouseleave(() => {
             if (!highlight) {
-              paths.removeClass("path-highlight");
-              label.removeClass("font-highlight");
+              paths.removeClass("legend-path-highlight");
+              label.removeClass("legend-font-highlight");
             }
           });
           
