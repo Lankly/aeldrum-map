@@ -1229,6 +1229,21 @@ function setupUI () {
         checkbox.box.fill = leyline.color;
       }
       checkbox.box.style.stroke = leyline.darker_color;
+      
+      let elem = $(checkbox.root);
+      let label = $(checkbox.label.root);
+      let paths_selector = `path.${ leyline.aeldman_name.replace(/[^A-Za-z0-9]/g, '_') }`;
+      let highlight = false;
+      elem.mouseenter(() => {
+        $(paths_selector).addClass("leylines-path-highlight");
+        label.addClass("leylines-font-highlight");
+      });
+      elem.mouseleave(() => {
+        if (!highlight) {
+          $(paths_selector).removeClass("leylines-path-highlight");
+          label.removeClass("leylines-font-highlight");
+        }
+      });
         
       checkbox.onchange = () => {
         clearAll();
