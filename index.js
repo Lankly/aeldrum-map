@@ -1847,7 +1847,6 @@ function setupUI () {
           }
           return most;
         }, null);
-      console.log(planet_with_most_occurrences);
       
       if (planet_with_most_occurrences) {
         $("#planet-selector").val(planet_with_most_occurrences.name);
