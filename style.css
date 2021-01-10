@@ -215,6 +215,31 @@ path {
   font-size: 8pt;
 }
 
+#tree-controls {
+  position: absolute;
+  top: calc(10vh + 5vw);
+  left: 5vw;
+  width: max(250px, 25vw);
+  height: max(100px, 10vh);
+}
+
+#graph-link, #map-link {
+  color: grey;
+  position: absolute;
+  right: calc(5px + 40px); /* Padding + thickness of github button*/
+  top: 5px;
+  padding: .3em;
+  border: solid;
+  border-width: 2px;
+  border-color: grey;
+  border-radius: .5em;
+}
+#graph-link:hover, #map-link:hover {
+  color: white;
+  background: dodgerblue;
+  border-color: dodgerblue;
+}
+
 #github {
   position: absolute;
   right: 5px;
