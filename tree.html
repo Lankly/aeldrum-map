@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tree Mode</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="stylesheet" href="https://vectorjs.org/library.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://kit.fontawesome.com/60ca403337.js" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script type="module" src="tree.js" defer="defer"></script>
+  </head>
+  <body>
+    <div id="main-container">
+      <h1>Map of Aeldrum: Tree Mode</h1>
+      <a id="map-link" href="/index.html"><i class="far fa-dot-circle"></i></a>
+      <a href="https://github.com/Lankly/aeldrum-map" target="_blank" rel="noopener noreferrer" title="View source on GitHub">
+        <img id="github" src="/GitHub-Mark-32px.png" />
+      </a>
+      <div id="tree"></div>
+      <div id="tree-controls">
+        <span id="a-label">Planet A: </span><select id="planet1-selector"></select>
+        <span id="b-label">Planet B: </span><select id="planet2-selector"></select>
+        <span id="distance-label">Distance: </span><span id="distance-slider"></span>
+      </div>
+    </div>
+  </body>
+</html>
