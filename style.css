@@ -87,10 +87,10 @@ path {
 }
 #leyline-checkboxes::after {
   content: "Leylines";
-  font-family: cursive;
-  font-size: 24px;
+  font-family: Tangerine;
+  font-size: 32pt;
   position: absolute;
-  top: -1.2em;
+  top: -0.8em;
   left: 25px;
   background-color: rgb(256, 256, 256, 0.5);
 }
@@ -103,10 +103,10 @@ path {
 #region-checkboxes::after {
   content: "Spacial Regions";
   white-space: nowrap;
-  font-family: cursive;
-  font-size: 24px;
+  font-family: Tangerine;
+  font-size: 32pt;
   position: absolute;
-  top: -1.2em;
+  top: -0.8em;
   left: 25px;
   background-color: rgb(256, 256, 256, 0.5);
 }
@@ -131,10 +131,10 @@ path {
 }
 #additional-controls::before {
   content: "Additional Controls";
-  font-family: cursive;
-  font-size: 20px;
+  font-family: Tangerine;
+  font-size: 32pt;
   position: absolute;
-  top: -1.2em;
+  top: -0.8em;
   left: 25px;
   white-space: nowrap;
   background-color: rgb(256, 256, 256, 0.5);
@@ -149,10 +149,10 @@ path {
 }
 #powers-legend::after {
   content: "Regional Powers Legend";
-  font-family: cursive;
-  font-size: 20px;
+  font-family: Tangerine;
+  font-size: 32pt;
   position: absolute;
-  top: -1.2em;
+  top: -0.8em;
   right: 25px;
   white-space: nowrap;
   background-color: rgb(256, 256, 256, 0.5);
