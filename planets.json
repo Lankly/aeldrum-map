@@ -6,6 +6,7 @@
   },
   "ahlam": {
     "full_name": "Ahlam",
+    "capital": true,
     "theater": true
   },
   "anathemas_domain": {
