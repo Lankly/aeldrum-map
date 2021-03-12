@@ -68,7 +68,16 @@
     "full_name": "The Dustworld"
   },
   "dwarf_clans": {
-    "full_name": "Dwarf Clans"
+    "full_name": "Dwarf Clans",
+    "group": true
+  },
+  "dwarf_clans_1": {
+    "full_name": "Dwarf Clans",
+    "group": true
+  },
+  "dwarf_clans_2": {
+    "full_name": "Dwarf Clans",
+    "group": true
   },
   "enclave_outlet": {
     "full_name": "Enclave Outlet",
