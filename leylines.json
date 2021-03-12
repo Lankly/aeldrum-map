@@ -103,7 +103,7 @@
       { "name": "zemlya", "distance": 3 },
       { "name": "videna", "distance": 0 },
       { "name": "carral", "distance": 7 },
-      { "name": "dwarf_clans", "distance": 2 },
+      { "name": "dwarf_clans_1", "distance": 2 },
       { "name": "enclave_outlet", "distance": 6 }
     ],
     "controllers": [
@@ -266,7 +266,7 @@
     "darker_color": "darkseagreen",
     "planets": [
       { "name": "saldan", "distance": 3 },
-      { "name": "dwarf_clans", "distance": 5 },
+      { "name": "dwarf_clans_2", "distance": 5 },
       { "name": "nss_exclusion_zone", "distance": 10 },
       { "name": "aeldrum", "distance": 11 },
       { "name": "sevalne", "distance": 5 },
