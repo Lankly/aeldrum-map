@@ -211,24 +211,21 @@
         { "name": "del_mar", "distance": 8 },
         { "name": "zanevuela", "distance": 2 },
         { "name": "marivan", "distance": 1 },
-        { "name": "korinth", "distance": 9 },
+        { "name": "korinth", "distance": 12 },
         { "name": "fialt", "distance": 3 },
         { "name": "marivan", "distance": 3 },
         { "name": "semal", "distance": 8 },
-        { "name": "firhbank", "distance": 4 }
+        { "name": "firhbank", "distance": 5 }
       ],
       "controllers": [
-        { "name": "Thalranese Marches", "length": 1 },
-        { "name": "Fialta Confederacy", "length": 12 },
-        { "name": "Fialta Imperium", "length": 10 },
-        { "name": "Despotate of Alusia", "length": 3 },
-        { "name": "Fialta Confederacy", "length": 5 },
-        { "name": "Fialta Imperium", "length": 5 },
+        { "name": "Thalranese Marches", "length": 7 },
+        { "name": "Fialta Imperium", "length": 26 },
+        { "name": "Shantine Empire", "length": 1 },
+        { "name": "Fialta Imperium", "length": 2 },
         { "name": "Shantine Empire", "length": 1 },
         { "name": "Fialta Imperium", "length": 17 },
         { "name": "Serene Duchy of Aeldrum", "length": 1 },
-        { "name": "Fialta Confederacy", "length": 4 },
-        { "name": "Thalranese Marches", "length": 8 }
+        { "name": "Thalranese Marches", "length": 12 }
       ]
     },
     "8": {
