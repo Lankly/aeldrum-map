@@ -235,7 +235,7 @@
       "color": "lightskyblue",
       "darker_color": "deepskyblue",
       "planets": [
-        { "name": "nippon_gates", "distance": 4 },
+        { "name": "celestial_gates", "distance": 4 },
         { "name": "mir_thalran", "distance": 0 },
         { "name": "resal", "distance": 2 },
         { "name": "tar_thalran", "distance": 18 },
@@ -247,15 +247,15 @@
         { "name": "messidor", "distance": 6 }
       ],
       "controllers": [
-        { "name": "Nippon States", "length": 1 },
-        { "name": "Fialta Confederacy", "length": 3 },
-        { "name": "Thalranese Marches", "length": 3 },
-        { "name": "Fialta Confederacy", "length": 2 },
-        { "name": "Orcish Directorate", "length": 7 },
-        { "name": "Serene Duchy of Aeldrum", "length": 28 },
-        { "name": "Thalranese Marches", "length": 5 },
+        { "name": "Grand Celestial Confederacy", "length": 1 },
+        { "name": "Thalranese Subjugates", "length": 10 },
+        { "name": "Orcish Directorate", "length": 5 },
+        { "name": "Directorate Liberation Worlds", "length": 4 },
+        { "name": "Serene Duchy of Aeldrum", "length": 17 },
+        { "name": "Semalese Republic", "length": 7 },
+        { "name": "Thalranese Subjugates", "length": 5 },
         { "name": "Saldanese Exclusion Zone", "length": 5 },
-        { "name": "Nippon States", "length": 2 }
+        { "name": "Thalranese Subjugates", "length": 2 }
       ]
     },
     "9": {

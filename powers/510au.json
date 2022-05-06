@@ -154,6 +154,12 @@
         "zu_un"
       ]
     },
+    "Grand Celestial Confederacy": {
+      "color": "#4a86e8",
+      "darker_color": "darkblue",
+      "owned_planets": [
+      ]
+    },
     "Istomir": {
       "color": "palevioletred",
       "darker_color": "violetred",
@@ -212,12 +218,6 @@
       "darker_color": "goldenrod",
       "owned_planets": [
         "towers_of_the_naga"
-      ]
-    },
-    "New Celestial Confederacy": {
-      "color": "#4a86e8",
-      "darker_color": "darkblue",
-      "owned_planets": [
       ]
     },
     "Nippon States": {
@@ -292,6 +292,14 @@
         "saldan"
       ]
     },
+    "Semalese Republic": {
+      "color": "#993366",
+      "darker_color": "indigo",
+      "minor": true,
+      "owned_planets": [
+        "semal"
+      ]
+    },
     "Serene Republic of Calath": {
       "color": "goldenrod",
       "darker_color": "darkgoldenrod",
@@ -363,6 +371,16 @@
       "owned_planets": [
         "tar_thalran",
         "mir_thalran"
+      ]
+    },
+    "Thalranese Subjugates": {
+      "color": "darkviolet",
+      "darker_color": "indigo",
+      "parent": "Thalranese Marches",
+      "owned_planets": [
+        "mir_thalran",
+        "resal",
+        "tar_thalran"
       ]
     },
     "Triad Princes": {

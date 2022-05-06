@@ -48,6 +48,10 @@
     "carral": {
       "full_name": "Carral"
     },
+    "celestial_gates": {
+      "full_name": "Celestial Gates",
+      "theater": true
+    },
     "chelonia": {
       "full_name": "Chelonia",
       "theater": true
