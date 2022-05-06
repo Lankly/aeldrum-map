@@ -94,7 +94,7 @@
       "planets": [
         { "name": "aeldrum", "distance": 19 },
         { "name": "chelonia", "distance": 5, "notes": ["Aeldman Passthrough"] },
-        { "name": "outer_lane", "distance": 16 },
+        { "name": "outer_lane", "distance": 16, "notes": ["To Conduit Space"] },
         { "name": "crosslanes", "distance": 9 },
         { "name": "sevalne", "distance": 4 },
         { "name": "lechtus", "distance": 2 },
@@ -142,9 +142,11 @@
         { "name": "telrion", "distance": 5 },
         { "name": "korinth", "distance": 9 },
         { "name": "bishant", "distance": 7 },
+        { "name": "outer_lane", "distance": 0 },
         { "name": "ahlam", "distance": 3 },
         { "name": "lechtus", "distance": 7 },
-        { "name": "reilla", "distance": 14 },
+        { "name": "reilla", "distance": 3 },
+        { "name": "alusian_conduit", "distance": 11 },
         { "name": "crosslanes", "distance": 6 }
       ],
       "controllers": [
@@ -294,21 +296,27 @@
       "darker_color": "maroon",
       "skip": true,
       "planets": [
-        { "name": "petty_kings", "distance": 4 },
+        { "name": "alusian_conduit", "distance": 0, "notes": ["To Imperial Space"] },
+        { "name": "new_reilla", "distance": 11 },
+        { "name": "restored_pin_jump_route", "distance": 5 },
+        { "name": "urbos", "distance": 4 },
+        { "name": "siet_filiki", "distance": 10 },
         { "name": "brass_gates", "distance": 19 },
         { "name": "tarim", "distance": 0 },
-        { "name": "witolm", "distance": 6 },
-        { "name": "stitch", "distance": "?" }
+        { "name": "witolm", "distance": 6, "notes": ["DMZ"] },
+        { "name": "stitch", "distance": 17 },
+        { "name": "carceri_tribes", "distance": 4 }
       ],
       "controllers": [
-        { "name": "Lawless", "length": 3 },
+        { "name": "Outer Alusia", "length": 10 },
+        { "name": "Fialta Freebooters", "length": 1 },
+        { "name": "Valdosian Colonies", "length": 18 },
         { "name": "Brass Cities", "length": 20 },
-        { "name": "New Celestial Confederacy", "length": 4 },
-        { "name": "Nippon States", "length": 3 },
-        { "name": "Lawless", "length": 3 },
-        { "name": "Marches of the Ascendancy", "length": 5 },
-        { "name": "Unexplored", "length": "?" },
-        { "name": "Lawless", "length": 28 }
+        { "name": "Grand Celestial Confederacy", "length": 1 },
+        { "name": "Brass Cities", "length": 2 },
+        { "name": "Ascendancy-BCs DMZ", "length": 2 },
+        { "name": "Marches of the Ascendancy", "length": 14 },
+        { "name": "Outer Alusia", "length": 8 }
       ]
     },
     "11": {

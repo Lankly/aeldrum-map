@@ -68,6 +68,12 @@
         "alusian_subjugates"
       ]
     },
+    "Ascendancy-BCs DMZ": {
+      "color": "gray",
+      "darker_color": "dimgray",
+      "owned_planets": [
+      ]
+    },
     "Ashgarate of New Nippon": {
       "color": "#7f6000",
       "darker_color": "black",
@@ -242,6 +248,13 @@
       "owned_planets": [
       ]
     },
+    "Outer Alusia": {
+      "color": "springgreen",
+      "darker_color": "seagreen",
+      "parent": "Empire of Alusia",
+      "owned_planets": [
+      ]
+    },
     "Presidential Republic of Delarma": {
       "color": "#990000",
       "darker_color": "black",
@@ -394,6 +407,11 @@
     "Triad Princes": {
       "color": "#ed7d31",
       "darker_color": "brown"
+    },
+    "Valdosian Colonies": {
+      "color": "red",
+      "darker_color": "brown",
+      "minor": true
     },
     "Vassal Dwarf Clans": {
       "color": "darkslateblue",

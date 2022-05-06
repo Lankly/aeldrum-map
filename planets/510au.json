@@ -9,6 +9,9 @@
       "capital": true,
       "theater": true
     },
+    "alusian_conduit": {
+      "full_name": "Greater Alusian Conduit"
+    },
     "aldesh": {
       "full_name": "Republic of Aldesh"
     },
@@ -44,6 +47,10 @@
     "calath": {
       "full_name": "Calath",
       "theater": true
+    },
+    "carceri_tribes": {
+      "full_name": "Carceri Tribes",
+      "group": true
     },
     "carral": {
       "full_name": "Carral"
@@ -190,6 +197,9 @@
     "mouth_of_shavar": {
       "full_name": "The Mouth of Shavar"
     },
+    "new_reilla": {
+      "full_name": "New Reilla"
+    },
     "nidevs_court": {
       "full_name": "Nidev's Court"
     },
@@ -236,6 +246,9 @@
     "resal": {
       "full_name": "Resal"
     },
+    "restored_pin_jump_route": {
+      "full_name": "Restored Pin-Jump Route"
+    },
     "saldan": {
       "full_name": "Saldan",
       "capital": true,
@@ -258,6 +271,10 @@
     },
     "sierna": {
       "full_name": "Sierna",
+      "theater": true
+    },
+    "siet_filiki": {
+      "full_name": "Siet'Filiki",
       "theater": true
     },
     "sigvalds_court": {
@@ -299,6 +316,9 @@
     },
     "turrenes_world": {
       "full_name": "Turrene's World"
+    },
+    "urbos": {
+      "full_name": "Urbos"
     },
     "videna": {
       "full_name": "Videna"
