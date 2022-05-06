@@ -94,6 +94,14 @@
       "owned_planets": [
       ]
     },
+    "Dwarf Kingdom of Telrion": {
+      "color": "sandybrown",
+      "darker_color": "sienna",
+      "minor": true,
+      "owned_planets": [
+          "telrion"
+      ]
+    },
     "Empire of Alusia": {
       "color": "#00b050",
       "darker_color": "darkgreen",

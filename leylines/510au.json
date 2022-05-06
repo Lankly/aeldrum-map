@@ -136,8 +136,6 @@
       "color": "royalblue",
       "darker_color": "darkblue",
       "planets": [
-        { "name": "alusian_subjugates", "distance": 8 },
-        { "name": "crosslanes", "distance": 6 },
         { "name": "aeldrum", "distance": 2 },
         { "name": "brumaire", "distance": 4 },
         { "name": "bishant", "distance": 11 },
@@ -146,18 +144,17 @@
         { "name": "bishant", "distance": 7 },
         { "name": "ahlam", "distance": 3 },
         { "name": "lechtus", "distance": 7 },
-        { "name": "reilla", "distance": 6 }
+        { "name": "reilla", "distance": 14 },
+        { "name": "crosslanes", "distance": 6 }
       ],
       "controllers": [
-        { "name": "Alusian Subjugates", "length": 8 },
-        { "name": "Independent Worlds", "length": 1 },
-        { "name": "Serene Duchy of Aeldrum", "length": 6 },
-        { "name": "Shantine Empire", "length": 9 },
-        { "name": "Kingdom of Bec", "length": 3 },
-        { "name": "Serene Duchy of Aeldrum", "length": 5 },
-        { "name": "Shantine Empire", "length": 20 },
-        { "name": "Despotate of Alusia", "length": 15 },
-        { "name": "Alusian Subjugates", "length": 1 }
+        { "name": "Serene Duchy of Aeldrum", "length": 1 },
+        { "name": "Shantine Empire", "length": 14 },
+        { "name": "Dwarf Kingdom of Telrion", "length": 3 },
+        { "name": "Shantine Empire", "length": 27 },
+        { "name": "Empire of Alusia", "length": 17 },
+        { "name": "Sermayan Trade League", "length": 1 },
+        { "name": "Serene Duchy of Aeldrum", "length": 6 }
       ]
     },
     "6": {
