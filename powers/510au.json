@@ -154,6 +154,11 @@
         "zu_un"
       ]
     },
+    "Istomir": {
+      "color": "palevioletred",
+      "darker_color": "violetred",
+      "minor": true
+    },
     "Kingdom of Bec": {
       "color": "magenta",
       "darker_color": "darkmagenta",
