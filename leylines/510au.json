@@ -37,18 +37,13 @@
       "planets": [
         { "name": "aeldrum", "distance": 10 },
         { "name": "brumaire", "distance": 2 },
-        { "name": "highvedlt", "distance": 2 },
-        { "name": "savage", "distance": 2 },
-        { "name": "grantworlds", "distance": 14 },
+        { "name": "highvedlt", "distance": 18 },
         { "name": "bishant", "distance": 23 }
       ],
       "controllers": [
         { "name": "Serene Duchy of Aeldrum", "length": 8 },
-        { "name": "Shantine Empire", "length": 5 },
-        { "name": "Independent Worlds", "length": 8 },
-        { "name": "Shantine Protectorates", "length": 8 },
-        { "name": "Shantine Empire", "length": 18 },
-        { "name": "Serene Duchy of Aeldrum", "length": 10 }
+        { "name": "Shantine Empire", "length": 36 },
+        { "name": "Serene Duchy of Aeldrum", "length": 9 }
       ]
     },
     "3": {
