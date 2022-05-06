@@ -20,42 +20,9 @@ var flags = {
 var planets;
 var leylines;
 var powers;
-$.ajax("planets.json", {
-  dataType: "json",
-  success: function (data) {
-    planets = data;
-    Object.keys(planets).forEach((name) => planets[name].name = name);
-    
-    $.ajax("leylines.json", {
-      dataType: "json",
-      success: function (data) {
-        leylines = data;
-        
-        $.ajax("powers.json", {
-          dataType: "json",
-          success: function (data) {
-            powers = data;
-            Object.keys(powers).forEach((name) => powers[name].name = name);
-        
-            setupUI();
-            main();
-          },
-          error: function (xhr, status, err) {
-            alert("Failed to download powers information!");
-            console.log(err);
-          }
-        });
-      },
-      error: function (xhr, status, err) {
-        alert("Failed to download leyline information!");
-        console.log(err);
-      }
-    });
-  },
-  error: function (xhr, status, err) {
-    alert("Failed to download planet information!");
-    console.log(err);
-  }
+fetchData(() => {
+  setupUI();
+  main();
 });
 
 function main (focusPlanet) {
@@ -1193,6 +1160,7 @@ function setupUI () {
   let zoom_slider = generateZoomSlider();
   generateLeylineCheckboxes();
   generateRegionCheckboxes();
+  setupTimeframeSelector();
   generatePlanetSelector();
   generateAdditionalControls();
   generatePowersLegend();
@@ -1779,6 +1747,16 @@ function setupUI () {
     });
   }
   
+  function setupTimeframeSelector () {
+    $("#timeframe-selector").change((e) => {
+      clearAll();
+      fetchData(() => {
+        reset();
+        resetLeylineCheckboxes();
+      })
+    });
+  }
+
   recenterOnPlanet = function (planet) {
     clearAll();
     
@@ -1957,6 +1935,47 @@ function setupUI () {
       interactive.width + scroll_amount,
       interactive.height + scroll_amount);
   }
+}
+
+function fetchData (callback) {
+  let timeframe = $('#timeframe-selector').val();
+
+  $.ajax(`planets\\${timeframe}.json`, {
+    dataType: "json",
+    success: function (data) {
+      planets = data;
+      Object.keys(planets).forEach((name) => planets[name].name = name);
+      
+      $.ajax(`leylines\\${timeframe}.json`, {
+        dataType: "json",
+        success: function (data) {
+          leylines = data;
+          
+          $.ajax(`powers\\${timeframe}.json`, {
+            dataType: "json",
+            success: function (data) {
+              powers = data;
+              Object.keys(powers).forEach((name) => powers[name].name = name);
+
+              if (callback) callback.call();
+            },
+            error: function (xhr, status, err) {
+              alert("Failed to download powers information!");
+              console.log(err);
+            }
+          });
+        },
+        error: function (xhr, status, err) {
+          alert("Failed to download leyline information!");
+          console.log(err);
+        }
+      });
+    },
+    error: function (xhr, status, err) {
+      alert("Failed to download planet information!");
+      console.log(err);
+    }
+  });
 }
 
   

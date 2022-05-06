@@ -1,0 +1,296 @@
+{
+    "Lawless": {
+      "color": "grey",
+      "darker_color": "darkgrey",
+      "owned_planets": [
+      ]
+    },
+    "Unexplored": {
+      "color": "black",
+      "darker_color": "black",
+      "owned_planets": [
+      ]
+    },
+    "Independent Worlds": {
+      "color": "lightgrey",
+      "darker_color": "grey",
+      "owned_planets": [
+        "crosslanes",
+        "grantworlds",
+        "savage",
+        "witch_haven"
+      ]
+    },
+    "Serene Duchy of Aeldrum": {
+      "color": "red",
+      "darker_color": "darkred",
+      "owned_planets": [
+        "aeldrum",
+        "antenil",
+        "calath",
+        "chelonia",
+        "harwel",
+        "lidenia",
+        "paravel",
+        "percel",
+        "pin_jump",
+        "semal",
+        "sivella",
+        "telrion",
+        "villenta"
+      ]
+    },
+    "Aksai Chin": {
+      "color": "darkseagreen",
+      "darker_color": "forestgreen",
+      "owned_planets": [
+        "great_aksai"
+      ]
+    },
+    "Alusian Subjugates": {
+      "color": "#6aa84f",
+      "darker_color": "darkgreen",
+      "parent": "Despotate of Alusia",
+      "owned_planets": [
+        "alusian_subjugates"
+      ]
+    },
+    "Ashgarate of New Nippon": {
+      "color": "#7f6000",
+      "darker_color": "black",
+      "owned_planets": [
+      ]
+    },
+    "Brass Cities": {
+      "color": "#ffe598",
+      "darker_color": "orange"
+    },
+    "Despotate of Alusia": {
+      "color": "#00b050",
+      "darker_color": "darkgreen",
+      "owned_planets": [
+        "ahlam",
+        "carral",
+        "del_mar",
+        "gnoll",
+        "hilland",
+        "lectus",
+        "mexico",
+        "reilla",
+        "sierna",
+        "videna",
+        "zemlya"
+      ]
+    },
+    "Deutschreich": {
+      "color": "#7f7f7f",
+      "darker_color": "darkgrey",
+      "secondary": true,
+      "owned_planets": [
+        "nss_exclusion_zone",
+        "switzreich"
+      ]
+    },
+    "Dwarf Kingdom of Druz": {
+      "color": "#7f6000",
+      "darker_color": "black",
+      "minor": true,
+      "owned_planets": [
+      ]
+    },
+    "Enclave Protectorates": {
+      "color": "darkgreen",
+      "darker_color": "black",
+      "minor": true,
+      "owned_planets": [
+        "enclave_outlet1",
+        "enclave_outlet2",
+        "enclave_outlet3",
+        "enclave_outlet4"
+      ]
+    },
+    "Fialta Confederacy": {
+      "color": "plum",
+      "darker_color": "rebeccapurple",
+      "parent": "Fialta Imperium",
+      "owned_planets": [
+        "gul_dan",
+        "milgar",
+        "shantaran_free_state"
+      ]
+    },
+    "Fialta Imperium": {
+      "color": "#7030a0",
+      "darker_color": "darkpurple",
+      "owned_planets": [
+        "fialt",
+        "firhbank",
+        "hybern",
+        "konira",
+        "marivan",
+        "sidenia",
+        "zanevuela",
+        "zu_un"
+      ]
+    },
+    "Kingdom of Bec": {
+      "color": "magenta",
+      "darker_color": "darkmagenta",
+      "minor": true,
+      "owned_planets": [
+      ]
+    },
+    "Kingdom of Veran": {
+      "color": "#00b0f0",
+      "darker_color": "darkblue",
+      "minor": true,
+      "owned_planets": [
+      ]
+    },
+    "Knights of Adarnum": {
+      "color": "#073763",
+      "darker_color": "darkblue",
+      "parent": "Shantine Empire",
+      "owned_planets": [
+      ]
+    },
+    "League of Free Republics": {
+      "color": "cyan",
+      "darker_color": "blue",
+      "owned_planets": [
+        "ireland"
+      ]
+    },
+    "Marches of the Ascendancy": {
+      "color": "#1155cc",
+      "darker_color": "midnightblue",
+      "owned_planets": [
+      ]
+    },
+    "Middle Kingdom": {
+      "color": "#ffc000",
+      "darker_color": "brown",
+      "owned_planets": [
+      ]
+    },
+    "Naga Remnants": {
+      "color": "gold",
+      "darker_color": "goldenrod",
+      "owned_planets": [
+        "towers_of_the_naga"
+      ]
+    },
+    "New Celestial Confederacy": {
+      "color": "#4a86e8",
+      "darker_color": "darkblue",
+      "owned_planets": [
+      ]
+    },
+    "Nippon States": {
+      "color": "#f4b083",
+      "darker_color": "brown",
+      "owned_planets": [
+        "bastions",
+        "nippon_gates"
+      ]
+    },
+    "Orcish Directorate": {
+      "color": "#595959",
+      "darker_color": "black",
+      "secondary": true,
+      "owned_planets": [
+      ]
+    },
+    "Orcish Frontier Protectorates": {
+      "color": "grey",
+      "darker_color": "darkgrey",
+      "parent": "Orcish Directorate",
+      "owned_planets": [
+      ]
+    },
+    "Presidential Republic of Delarma": {
+      "color": "#990000",
+      "darker_color": "black",
+      "owned_planets": [
+      ]
+    },
+    "Princly State of Yushan": {
+      "color": "magenta",
+      "darker_color": "darkmagenta",
+      "owned_planets": [
+      ]
+    },
+    "Protectorate of the Mirror": {
+      "color": "#660000",
+      "darker_color": "black",
+      "owned_planets": [
+      ]
+    },
+    "Republic of Sermaye": {
+      "color": "#5b9bd5",
+      "darker_color": "darkblue",
+      "secondary": true,
+      "owned_planets": [
+        "sevalne"
+      ]
+    },
+    "Saldanese Exclusion Zone": {
+      "color": "#e69138",
+      "darker_color": "orange",
+      "owned_planets": [
+        "messidor",
+        "saldan"
+      ]
+    },
+    "Sermayan Trade League": {
+      "color": "lightskyblue",
+      "darker_color": "darkskyblue",
+      "parent": "Republic of Sermaye",
+      "owned_planets": [
+        "trade_league"
+      ]
+    },
+    "Shantine Empire": {
+      "color": "#002060",
+      "darker_color": "black",
+      "owned_planets": [
+        "bishant",
+        "brumaire",
+        "highvedlt",
+        "iberia",
+        "korinth"
+      ]
+    },
+    "Shantine Protectorates": {
+      "color": "#20124d",
+      "darker_color": "black",
+      "parent": "Shantine Empire",
+      "owned_planets": [
+        "genova",
+        "mexico",
+        "sveiss"
+      ]
+    },
+    "Smuggler's Run": {
+      "color": "grey",
+      "darker_color": "darkgrey",
+      "parent": "Lawless",
+      "owned_planets": [
+        "anathemas_domain",
+        "bier"
+      ]
+    },
+    "Thalranese Marches": {
+      "color": "#461e64",
+      "darker_color": "darkpurple",
+      "owned_planets": [
+        "tar_thalran",
+        "mir_thalran"
+      ]
+    },
+    "Triad Princes": {
+      "color": "#ed7d31",
+      "darker_color": "brown"
+    }
+  }
+  

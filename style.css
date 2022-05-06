@@ -121,6 +121,16 @@ path {
   font-size: 12px;
   white-space: nowrap;
 }
+#timeframe-selector-container {
+  position: absolute;
+  right: 5px;
+  top: calc(5vh - 5px);
+}
+#timeframe-selector-container::before {
+  content: "Timeframe:";
+  font-size: 12px;
+  white-space: nowrap;
+}
 
 #additional-controls {
   position: absolute;

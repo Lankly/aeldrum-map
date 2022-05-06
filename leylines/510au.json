@@ -1,0 +1,486 @@
+{
+    "1": {
+      "aeldman_name": "Aeldrum",
+      "mage_imperium_name": "Aeldrum",
+      "region": "imperial",
+      "color": "red",
+      "darker_color": "darkred",
+      "planets": [
+        { "name": "aeldrum", "distance": 2 },
+        { "name": "calath", "distance": 5 },
+        { "name": "percel", "distance": 15 },
+        { "name": "ireland", "distance": 4 },
+        { "name": "chelonia", "distance": 5 },
+        { "name": "sivella", "distance": 1 },
+        { "name": "lidenia", "distance": 3 },
+        { "name": "antenil", "distance": 0 },
+        { "name": "paravel", "distance": 1 }
+      ],
+      "controllers": [
+        { "name": "Serene Duchy of Aeldrum", "length": 21 },
+        { "name": "League of Free Republics", "length": 4 },
+        { "name": "Serene Duchy of Aeldrum", "length": 11 }
+      ]
+    },
+    "2": {
+      "aeldman_name": "Struthil",
+      "mage_imperium_name": "",
+      "region": "imperial",
+      "color": "cornflowerblue",
+      "darker_color": "darkslateblue",
+      "planets": [
+        { "name": "aeldrum", "distance": 10 },
+        { "name": "brumaire", "distance": 2 },
+        { "name": "highvedlt", "distance": 2 },
+        { "name": "savage", "distance": 2 },
+        { "name": "grantworlds", "distance": 14 },
+        { "name": "bishant", "distance": 23 }
+      ],
+      "controllers": [
+        { "name": "Serene Duchy of Aeldrum", "length": 8 },
+        { "name": "Shantine Empire", "length": 5 },
+        { "name": "Independent Worlds", "length": 8 },
+        { "name": "Shantine Protectorates", "length": 8 },
+        { "name": "Shantine Empire", "length": 18 },
+        { "name": "Serene Duchy of Aeldrum", "length": 10 }
+      ]
+    },
+    "3": {
+      "aeldman_name": "Orim",
+      "mage_imperium_name": "",
+      "region": "imperial",
+      "color": "goldenrod",
+      "darker_color": "peru",
+      "planets": [
+        { "name": "telrion", "distance": 15, "notes": [ "Unexplored leyline?" ] },
+        { "name": "aeldrum", "distance": 3 },
+        { "name": "calath", "distance": 3 },
+        { "name": "enclave_outlet", "distance": 4, "notes": [ "To Elvish Enclaves" ] },
+        { "name": "hilland", "distance": 2 },
+        { "name": "sierna", "distance": 8 },
+        { "name": "bishant", "distance": 3 },
+        { "name": "genova", "distance": 0 },
+        { "name": "sveiss", "distance": 1 },
+        { "name": "iberia", "distance": 0 },
+        { "name": "mexico", "distance": 7 },
+        { "name": "nippon_gates", "distance": 0, "notes": [ "To Celestial Space" ] },
+        { "name": "bastions", "distance": 5 },
+        { "name": "brumaire", "distance": 2 },
+        { "name": "dwarf_clans", "distance": 7 }
+      ],
+      "controllers": [
+        { "name": "Serene Duchy of Aeldrum", "length": 20 },
+        { "name": "Enclave Protectorates", "length": 4 },
+        { "name": "Despotate of Alusia", "length": 9 },
+        { "name": "Shantine Empire", "length": 5 },
+        { "name": "Shantine Protectorates", "length": 7 },
+        { "name": "Knights of Adarnum", "length": 1 },
+        { "name": "Nippon States", "length": 1 },
+        { "name": "Knights of Adarnum", "length": 1 },
+        { "name": "Shantine Empire", "length": 5 },
+        { "name": "Independent Worlds", "length": 4 },
+        { "name": "Serene Duchy of Aeldrum", "length": 3 }
+      ]
+    },
+    "4": {
+      "aeldman_name": "Galthad",
+      "mage_imperium_name": "",
+      "region": "imperial",
+      "color": "green",
+      "darker_color": "darkgreen",
+      "planets": [
+        { "name": "witch_haven", "distance": 5 },
+        { "name": "enclave_outlet", "distance": 5 },
+        { "name": "highvedlt", "distance": 4 },
+        { "name": "lidenia", "distance": 2 },
+        { "name": "aeldrum", "distance": 19 },
+        { "name": "chelonia", "distance": "?" },
+        { "name": "crosslanes", "distance": 4 },
+        { "name": "trade_league", "distance": 5 },
+        { "name": "sevalne", "distance": 4 },
+        { "name": "lechtus", "distance": 2 },
+        { "name": "reilla", "distance": 4 },
+        { "name": "zemlya", "distance": 3 },
+        { "name": "videna", "distance": 0 },
+        { "name": "carral", "distance": 7 },
+        { "name": "dwarf_clans_1", "distance": 2 },
+        { "name": "enclave_outlet", "distance": 6 }
+      ],
+      "controllers": [
+        { "name": "Independent Worlds", "length": 2 },
+        { "name": "Enclave Protectorates", "length": 5 },
+        { "name": "Shantine Empire", "length": 5 },
+        { "name": "Serene Duchy of Aeldrum", "length": 30 },
+        { "name": "Unexplored", "length": "?" },
+        { "name": "Independent Worlds", "length": 1 },
+        { "name": "Sermayan Trade League", "length": 7 },
+        { "name": "Republic of Sermaye", "length": 5 },
+        { "name": "Despotate of Alusia", "length": 12 },
+        { "name": "Presidential Republic of Delarma", "length": 5 },
+        { "name": "Enclave Protectorates", "length": 2 },
+        { "name": "Deutschreich", "length": 3 },
+        { "name": "Independent Worlds", "length": 2 }
+      ]
+    },
+    "5": {
+      "aeldman_name": "Shantine",
+      "mage_imperium_name": "Petrine",
+      "region": "imperial",
+      "color": "royalblue",
+      "darker_color": "darkblue",
+      "planets": [
+        { "name": "alusian_subjugates", "distance": 8 },
+        { "name": "crosslanes", "distance": 6 },
+        { "name": "aeldrum", "distance": 2 },
+        { "name": "brumaire", "distance": 4 },
+        { "name": "bishant", "distance": 11 },
+        { "name": "telrion", "distance": 5 },
+        { "name": "korinth", "distance": 9 },
+        { "name": "bishant", "distance": 7 },
+        { "name": "ahlam", "distance": 3 },
+        { "name": "lechtus", "distance": 7 },
+        { "name": "reilla", "distance": 6 }
+      ],
+      "controllers": [
+        { "name": "Alusian Subjugates", "length": 8 },
+        { "name": "Independent Worlds", "length": 1 },
+        { "name": "Serene Duchy of Aeldrum", "length": 6 },
+        { "name": "Shantine Empire", "length": 9 },
+        { "name": "Kingdom of Bec", "length": 3 },
+        { "name": "Serene Duchy of Aeldrum", "length": 5 },
+        { "name": "Shantine Empire", "length": 20 },
+        { "name": "Despotate of Alusia", "length": 15 },
+        { "name": "Alusian Subjugates", "length": 1 }
+      ]
+    },
+    "6": {
+      "aeldman_name": "Estonne",
+      "mage_imperium_name": "",
+      "region": "imperial",
+      "color": "plum",
+      "darker_color": "rebeccapurple",
+      "planets": [
+        { "name": "shantaran_free_state", "distance": 2 },
+        { "name": "firhbank", "distance": 4 },
+        { "name": "ahlam", "distance": 4 },
+        { "name": "calath", "distance": 6 },
+        { "name": "harwel", "distance": 2 },
+        { "name": "aeldrum", "distance": 2 },
+        { "name": "villenta", "distance": 5 },
+        { "name": "switzreich", "distance": 5 },
+        { "name": "sierna", "distance": 3 },
+        { "name": "reilla", "distance": 2 },
+        { "name": "gnoll", "distance": 1 },
+        { "name": "del_mar", "distance": 3 },
+        { "name": "korinth", "distance": 1 },
+        { "name": "konira", "distance": 2 },
+        { "name": "zanevuela", "distance": 3 },
+        { "name": "gul_dan", "distance": 1 },
+        { "name": "milgar", "distance": 4 },
+        { "name": "hybern", "distance": 1 },
+        { "name": "zu_un", "distance": 1 },
+        { "name": "hybern", "distance": 0 },
+        { "name": "sidenia", "distance": 2 }
+      ],
+      "controllers": [
+        { "name": "Fialta Confederacy", "length": 2 },
+        { "name": "Despotate of Alusia", "length": 7 },
+        { "name": "Serene Duchy of Aeldrum", "length": 16 },
+        { "name": "Deutschreich", "length": 5 },
+        { "name": "Despotate of Alusia", "length": 7 },
+        { "name": "Shantine Empire", "length": 3 },
+        { "name": "Fialta Confederacy", "length": 2 },
+        { "name": "Fialta Imperium", "length": 1 },
+        { "name": "Fialta Confederacy", "length": 6 },
+        { "name": "Fialta Imperium", "length": 3 },
+        { "name": "Fialta Confederacy", "length": 1 }
+      ]
+    },
+    "7": {
+      "aeldman_name": "Fialta",
+      "mage_imperium_name": "Hybern",
+      "region": "imperial",
+      "color": "blueviolet",
+      "darker_color": "darkmagenta",
+      "planets": [
+        { "name": "tar_thalran", "distance": 22 },
+        { "name": "hybern", "distance": 3 },
+        { "name": "del_mar", "distance": 8 },
+        { "name": "zanevuela", "distance": 2 },
+        { "name": "marivan", "distance": 1 },
+        { "name": "korinth", "distance": 9 },
+        { "name": "fialt", "distance": 3 },
+        { "name": "marivan", "distance": 3 },
+        { "name": "semal", "distance": 8 },
+        { "name": "firhbank", "distance": 4 }
+      ],
+      "controllers": [
+        { "name": "Thalranese Marches", "length": 1 },
+        { "name": "Fialta Confederacy", "length": 12 },
+        { "name": "Fialta Imperium", "length": 10 },
+        { "name": "Despotate of Alusia", "length": 3 },
+        { "name": "Fialta Confederacy", "length": 5 },
+        { "name": "Fialta Imperium", "length": 5 },
+        { "name": "Shantine Empire", "length": 1 },
+        { "name": "Fialta Imperium", "length": 17 },
+        { "name": "Serene Duchy of Aeldrum", "length": 1 },
+        { "name": "Fialta Confederacy", "length": 4 },
+        { "name": "Thalranese Marches", "length": 8 }
+      ]
+    },
+    "8": {
+      "aeldman_name": "Allegheny",
+      "mage_imperium_name": "",
+      "region": "imperial",
+      "color": "lightskyblue",
+      "darker_color": "deepskyblue",
+      "planets": [
+        { "name": "nippon_gates", "distance": 4 },
+        { "name": "mir_thalran", "distance": 0 },
+        { "name": "resal", "distance": 2 },
+        { "name": "tar_thalran", "distance": 18 },
+        { "name": "harwel", "distance": 10 },
+        { "name": "pin_jump", "distance": 9, "notes": [ "To Celestial Space", "To Naga Space" ] },
+        { "name": "semal", "distance": 2 },
+        { "name": "mir_thalran", "distance": 5 },
+        { "name": "saldan", "distance": 0 },
+        { "name": "messidor", "distance": 6 }
+      ],
+      "controllers": [
+        { "name": "Nippon States", "length": 1 },
+        { "name": "Fialta Confederacy", "length": 3 },
+        { "name": "Thalranese Marches", "length": 3 },
+        { "name": "Fialta Confederacy", "length": 2 },
+        { "name": "Orcish Directorate", "length": 7 },
+        { "name": "Serene Duchy of Aeldrum", "length": 28 },
+        { "name": "Thalranese Marches", "length": 5 },
+        { "name": "Saldanese Exclusion Zone", "length": 5 },
+        { "name": "Nippon States", "length": 2 }
+      ]
+    },
+    "9": {
+      "aeldman_name": "Neveth",
+      "mage_imperium_name": "",
+      "region": "imperial",
+      "color": "mediumaquamarine",
+      "darker_color": "darkseagreen",
+      "planets": [
+        { "name": "saldan", "distance": 3 },
+        { "name": "dwarf_clans_2", "distance": 5 },
+        { "name": "nss_exclusion_zone", "distance": 10 },
+        { "name": "aeldrum", "distance": 11 },
+        { "name": "sevalne", "distance": 5 },
+        { "name": "saldan", "distance": 8 },
+        { "name": "bishant", "distance": 16 }
+      ],
+      "controllers": [
+        { "name": "Saldanese Exclusion Zone", "length": 2 },
+        { "name": "Independent Worlds", "length": 5 },
+        { "name": "Republic of Sermaye", "length": 3 },
+        { "name": "Serene Duchy of Aeldrum", "length": 13 },
+        { "name": "Orcish Frontier Protectorates", "length": 3 },
+        { "name": "Republic of Sermaye", "length": 7 },
+        { "name": "Saldanese Exclusion Zone", "length": 3 },
+        { "name": "Shantine Empire", "length": 11 },
+        { "name": "Knights of Adarnum", "length": 2 },
+        { "name": "Dwarf Kingdom of Druz", "length": 5 },
+        { "name": "Independent Worlds", "length": 3 },
+        { "name": "Saldanese Exclusion Zone", "length": 1 }
+      ]
+    },
+    "10": {
+      "aeldman_name": "Line 10",
+      "mage_imperium_name": "",
+      "region": "celestial",
+      "color": "tomato",
+      "darker_color": "maroon",
+      "skip": true,
+      "planets": [
+        { "name": "petty_kings", "distance": 4 },
+        { "name": "brass_gates", "distance": 19 },
+        { "name": "tarim", "distance": 0 },
+        { "name": "witolm", "distance": 6 },
+        { "name": "stitch", "distance": "?" }
+      ],
+      "controllers": [
+        { "name": "Lawless", "length": 3 },
+        { "name": "Brass Cities", "length": 20 },
+        { "name": "New Celestial Confederacy", "length": 4 },
+        { "name": "Nippon States", "length": 3 },
+        { "name": "Lawless", "length": 3 },
+        { "name": "Marches of the Ascendancy", "length": 5 },
+        { "name": "Unexplored", "length": "?" },
+        { "name": "Lawless", "length": 28 }
+      ]
+    },
+    "11": {
+      "aeldman_name": "Line 11",
+      "mage_imperium_name": "",
+      "region": "celestial",
+      "color": "tomato",
+      "darker_color": "maroon",
+      "skip": true,
+      "planets": [
+        { "name": "pin_jump", "distance": 4, "notes": [ "To Imperial Space", "To Naga Space" ] },
+        { "name": "tarim", "distance": 0 },
+        { "name": "witolm", "distance": 5 },
+        { "name": "palaceworlds", "distance": 3 },
+        { "name": "nippon_gates", "distance": 8, "status": "Upper", "notes": [ "To Imperial Space" ] },
+        { "name": "limei", "distance": 5 },
+        { "name": "stitch", "distance": 14 },
+        { "name": "nippon_gates", "distance": 2, "status": "Upper" },
+        { "name": "nippon_gates", "distance": 8, "status": "Lower" },
+        { "name": "great_aksai", "distance": 9 }
+      ],
+      "controllers": [
+        { "name": "Serene Duchy of Aeldrum", "length": 1 },
+        { "name": "New Celestial Confederacy", "length": 11 },
+        { "name": "Nippon States", "length": 30 },
+        { "name": "Aksai Chin", "length": 16 }
+      ]
+    },
+    "12": {
+      "aeldman_name": "Line 12",
+      "mage_imperium_name": "",
+      "region": "celestial",
+      "color": "tomato",
+      "darker_color": "maroon",
+      "skip": true,
+      "planets": [
+        { "name": "palaceworlds", "distance": 2 },
+        { "name": "kolong", "distance": 4 },
+        { "name": "folds", "distance": 1 },
+        { "name": "volunes_seat", "distance": 2 },
+        { "name": "folds", "distance": 11 },
+        { "name": "brass_gates", "distance": 4 },
+        { "name": "stitch", "distance": 4 },
+        { "name": "great_aksai", "distance": 7 },
+        { "name": "kolong", "distance": 12 },
+        { "name": "nippon_gates", "distance": 8, "status": "Lower" }
+      ],
+      "controllers": [
+        { "name": "Lawless", "length": 1 },
+        { "name": "New Celestial Confederacy", "length": 9 },
+        { "name": "Middle Kingdom", "length": 4 },
+        { "name": "Protectorate of the Mirror", "length": 9 },
+        { "name": "Brass Cities", "length": 5 },
+        { "name": "Nippon States", "length": 1 },
+        { "name": "Aksai Chin", "length": 8 },
+        { "name": "Triad Princes", "length": 11 },
+        { "name": "Nippon States", "length": 17 }
+      ]
+    },
+    "13": {
+      "aeldman_name": "Line 13",
+      "mage_imperium_name": "",
+      "region": "celestial",
+      "color": "tomato",
+      "darker_color": "maroon",
+      "skip": true,
+      "planets": [
+        { "name": "petty_kings", "distance": 3 },
+        { "name": "folds", "distance": 1 },
+        { "name": "volunes_seat", "distance": 2 },
+        { "name": "folds", "distance": 9 },
+        { "name": "limei", "distance": 15 },
+        { "name": "kolong", "distance": 11 },
+        { "name": "yushan", "distance": 7 },
+        { "name": "kolong", "distance": 2 },
+        { "name": "triad_exclaves", "distance": "?" }
+      ],
+      "controllers": [
+        { "name": "Lawless", "length": 1 },
+        { "name": "Middle Kingdom", "length": 39 },
+        { "name": "Princely State of Yushan", "length": 9 },
+        { "name": "Triad Princes", "length": 2 },
+        { "name": "Lawless", "length": "?" }
+      ]
+    },
+    "14": {
+      "aeldman_name": "Line 14",
+      "mage_imperium_name": "",
+      "region": "celestial",
+      "color": "tomato",
+      "darker_color": "maroon",
+      "skip": true,
+      "planets": [
+        { "name": "petty_kings", "distance": 12 },
+        { "name": "folds", "distance": 1 },
+        { "name": "volunes_seat", "distance": 2 },
+        { "name": "folds", "distance": 17 },
+        { "name": "nippon_gates", "distance": 6, "status": "Lower" },
+        { "name": "petty_kings", "distance": "?" }
+      ],
+      "controllers": [
+        { "name": "Lawless", "length": 2 },
+        { "name": "Aksai Chin", "length": 3 },
+        { "name": "Brass Cities", "length": 5 },
+        { "name": "Middle Kingdom", "length": 12 },
+        { "name": "Ashgarate of New Nippon", "length": 13 },
+        { "name": "Lawless", "length": 19 },
+        { "name": "Unexplored", "length": "?" }
+      ]
+    },
+    "15": {
+      "aeldman_name": "Line 15",
+      "mage_imperium_name": "",
+      "region": "naga",
+      "color": "tomato",
+      "darker_color": "maroon",
+      "skip": true,
+      "planets": [
+        { "name": "pin_jump", "distance": 8, "notes": [ "To Imperial Space", "To Celestial Space" ] },
+        { "name": "forgotten_world", "distance": 16 },
+        { "name": "mouth_of_shavar", "distance": 11 },
+        { "name": "anathemas_domain", "distance": 4 },
+        { "name": "bier", "distance": 7 },
+        { "name": "perfect_prince_renegades", "distance": 2 },
+        { "name": "towers_of_the_naga", "distance": 1 },
+        { "name": "turrenes_world", "distance": 2 },
+        { "name": "towers_of_the_naga", "distance": 3 },
+        { "name": "dustworld", "distance": 4 },
+        { "name": "gates_of_corrobel", "distance": 1 },
+        { "name": "corrobel_exclusion_zone", "distance": 6 },
+        { "name": "palace_of_the_rainbow_serpent", "distance": "?" }
+      ],
+      "controllers": [
+        { "name": "Serene Duchy of Aeldrum", "length": 17 },
+        { "name": "Orcish Frontier Protectorates", "length": 2 },
+        { "name": "Serene Duchy of Aeldrum", "length": 11 },
+        { "name": "Smuggler's Run", "length": 14 },
+        { "name": "Lawless", "length": 4 },
+        { "name": "Naga Remnants", "length": 11 },
+        { "name": "Lawless", "length": 8 },
+        { "name": "Unexplored", "length": "?" }
+      ]
+    },
+    "16": {
+      "aeldman_name": "Line 16",
+      "mage_imperium_name": "",
+      "region": "naga",
+      "color": "tomato",
+      "darker_color": "maroon",
+      "skip": true,
+      "planets": [
+        { "name": "forgotten_world", "distance": 2 },
+        { "name": "sigvalds_court", "distance": 4 },
+        { "name": "station", "distance": 3 },
+        { "name": "nidevs_court", "distance": 3 },
+        { "name": "corrobel_exclusion_zone", "distance": 4 },
+        { "name": "mouth_of_shavar", "distance": 4, "status": "Quarantined" },
+        { "name": "corrobel_exclusion_zone", "distance": 4 },
+        { "name": "towers_of_the_naga", "distance": 7 },
+        { "name": "perfect_prince_renegades", "distance": 21 }
+      ],
+      "controllers": [
+        { "name": "Serene Duchy of Aeldrum", "length": 1 },
+        { "name": "Kingdom of Veran", "length": 11 },
+        { "name": "Lawless", "length": 9 },
+        { "name": "Naga Remnants", "length": 7 },
+        { "name": "Lawless", "length": 8 },
+        { "name": "Kingdom of Veran", "length": 12 },
+        { "name": "Serene Duchy of Aeldrum", "length": 4 }
+      ]
+    }
+  }
+  

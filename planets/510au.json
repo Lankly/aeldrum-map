@@ -1,0 +1,323 @@
+{
+    "aeldrum": {
+      "full_name": "Aeldrum",
+      "capital": true,
+      "theater": true
+    },
+    "ahlam": {
+      "full_name": "Ahlam",
+      "capital": true,
+      "theater": true
+    },
+    "anathemas_domain": {
+      "full_name": "Anathema's Domain"
+    },
+    "antenil": {
+      "full_name": "Antenil"
+    },
+    "alusian_subjugates": {
+      "full_name": "Alusian Subjugates",
+      "group": true
+    },
+    "bastions": {
+      "full_name": "Adarnum Bastions"
+    },
+    "bier": {
+      "full_name": "The Bier",
+      "type": "object"
+    },
+    "bishant": {
+      "full_name": "Bishant",
+      "capital": true,
+      "theater": true
+    },
+    "brass_gates": {
+      "full_name": "Brass Gates"
+    },
+    "brumaire": {
+      "full_name": "Brumaire",
+      "theater": true
+    },
+    "calath": {
+      "full_name": "Calath",
+      "theater": true
+    },
+    "carral": {
+      "full_name": "Carral"
+    },
+    "chelonia": {
+      "full_name": "Chelonia",
+      "theater": true
+    },
+    "corrobel_exclusion_zone": {
+      "full_name": "Corrobel Exclusion Zone"
+    },
+    "crosslanes": {
+      "full_name": "The Crosslanes",
+      "theater": true
+    },
+    "del_mar": {
+      "full_name": "Del'Mar",
+      "theater": true
+    },
+    "deutschreich": {
+      "full_name": "Deutschreich",
+      "theater": true
+    },
+    "dustworld": {
+      "full_name": "The Dustworld"
+    },
+    "dwarf_clans": {
+      "full_name": "Dwarf Clans",
+      "group": true
+    },
+    "dwarf_clans_1": {
+      "full_name": "Dwarf Clans",
+      "group": true
+    },
+    "dwarf_clans_2": {
+      "full_name": "Dwarf Clans",
+      "group": true
+    },
+    "enclave_outlet": {
+      "full_name": "Enclave Outlet",
+      "theater": true
+    },
+    "fialt": {
+      "full_name": "Fialt"
+    },
+    "firhbank": {
+      "full_name": "Firhbank",
+      "theater": true
+    },
+    "folds": {
+      "full_name": "The Folds"
+    },
+    "forgotten_world": {
+      "full_name": "The Forgotten World"
+    },
+    "gates_of_corrobel": {
+      "full_name": "Gates of Corrobel"
+    },
+    "genova": {
+      "full_name": "Genova"
+    },
+    "gnoll": {
+      "full_name": "Gnoll"
+    },
+    "grantworlds": {
+      "full_name": "Kirvan Grantworlds",
+      "group": true
+    },
+    "great_aksai": {
+      "full_name": "Great Aksai"
+    },
+    "gul_dan": {
+      "full_name": "Gul'Dan"
+    },
+    "harwel": {
+      "full_name": "Harwel",
+      "theater": true
+    },
+    "highvedlt": {
+      "full_name": "Highvedlt",
+      "theater": true
+    },
+    "hilland": {
+      "full_name": "Hilland"
+    },
+    "hybern": {
+      "full_name": "Hybern",
+      "theater": true
+    },
+    "iberia": {
+      "full_name": "Iberia"
+    },
+    "ireland": {
+      "full_name": "Republic of Ireland"
+    },
+    "kolong": {
+      "full_name": "Kolong"
+    },
+    "konira": {
+      "full_name": "Konira"
+    },
+    "korinth": {
+      "full_name": "Korinth",
+      "theater": true
+    },
+    "lechtus": {
+      "full_name": "Lectus",
+      "theater": true
+    },
+    "lidenia": {
+      "full_name": "Lidenia",
+      "theater": true
+    },
+    "limei": {
+      "full_name": "Limei"
+    },
+    "mexico": {
+      "full_name": "Gran Mexico"
+    },
+    "marivan": {
+      "full_name": "Marivan",
+      "theater": true
+    },
+    "messidor": {
+      "full_name": "Messidor"
+    },
+    "milgar": {
+      "full_name": "Milgar"
+    },
+    "mir_thalran": {
+      "full_name": "Mir'Thalran",
+      "theater": true
+    },
+    "mouth_of_shavar": {
+      "full_name": "The Mouth of Shavar"
+    },
+    "nidevs_court": {
+      "full_name": "Nidev's Court"
+    },
+    "nippon_gates": {
+      "full_name": "Nippon Gates",
+      "theater": true
+    },
+    "nss_exclusion_zone": {
+      "full_name": "NSS Exclusion Zone (Impassible)"
+    },
+    "palace_of_the_rainbow_serpent": {
+      "full_name": "Palace of the Rainbow Serpent"
+    },
+    "palaceworlds": {
+      "full_name": "Palaceworlds",
+      "group": true
+    },
+    "paravel": {
+      "full_name": "Paravel"
+    },
+    "percel": {
+      "full_name": "Percel"
+    },
+    "perfect_prince_renegades": {
+      "full_name": "Perfect Prince Renegades"
+    },
+    "petty_kings": {
+      "full_name": "Petty Kings",
+      "group": true
+    },
+    "pin_jump": {
+      "full_name": "Pin-Jump",
+      "theater": true,
+      "type": "object"
+    },
+    "reilla": {
+      "full_name": "Reilla",
+      "theater": true
+    },
+    "resal": {
+      "full_name": "Resal"
+    },
+    "saldan": {
+      "full_name": "Saldan",
+      "capital": true,
+      "theater": true
+    },
+    "savage": {
+      "full_name": "Savage Worlds",
+      "group": true
+    },
+    "semal": {
+      "full_name": "Semal",
+      "theater": true
+    },
+    "sevalne": {
+      "full_name": "Sevalne",
+      "theater": true
+    },
+    "shantaran_free_state": {
+      "full_name": "Shantaran Free State"
+    },
+    "sidenia": {
+      "full_name": "Sidenia"
+    },
+    "sierna": {
+      "full_name": "Sierna",
+      "theater": true
+    },
+    "sigvalds_court": {
+      "full_name": "Sigvald's Court"
+    },
+    "sivella": {
+      "full_name": "Sivella"
+    },
+    "station": {
+      "full_name": "The Station",
+      "type": "object"
+    },
+    "stitch": {
+      "full_name": "The Stitch"
+    },
+    "sveiss": {
+      "full_name": "Sveiss"
+    },
+    "switzreich": {
+      "full_name": "Switzreich"
+    },
+    "tar_thalran": {
+      "full_name": "Tar'Thalran",
+      "theater": true
+    },
+    "tarim": {
+      "full_name": "Tarim"
+    },
+    "telrion": {
+      "full_name": "Telrion",
+      "theater": true
+    },
+    "towers_of_the_naga": {
+      "full_name": "Towers of the Naga"
+    },
+    "trade_league": {
+      "full_name": "Sermayan Trade League"
+    },
+    "triad_exclaves": {
+      "full_name": "Triad Exclaves",
+      "group": true
+    },
+    "turrenes_world": {
+      "full_name": "Turrene's World"
+    },
+    "videna": {
+      "full_name": "Videna"
+    },
+    "villenta": {
+      "full_name": "Villenta"
+    },
+    "volunes_seat": {
+      "full_name": "Volune's Seat",
+      "capital": true
+    },
+    "witch_haven": {
+      "full_name": "Witch Haven"
+    },
+    "witolm": {
+      "full_name": "Witolm"
+    },
+    "yushan": {
+      "full_name": "Yushan",
+      "capital": true
+    },
+    "zanevuela": {
+      "full_name": "Zanevuela",
+      "theater": true
+    },
+    "zemlya": {
+      "full_name": "Zemlya"
+    },
+    "zu_un": {
+      "full_name": "Zu'un"
+    }
+  }
+  
