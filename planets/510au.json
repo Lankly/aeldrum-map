@@ -196,6 +196,9 @@
     "nss_exclusion_zone": {
       "full_name": "NSS Exclusion Zone (Impassible)"
     },
+    "outer_lane": {
+        "full_name": "The Outer Lane"
+    },
     "palace_of_the_rainbow_serpent": {
       "full_name": "Palace of the Rainbow Serpent"
     },
@@ -287,9 +290,6 @@
     },
     "towers_of_the_naga": {
       "full_name": "Towers of the Naga"
-    },
-    "trade_league": {
-      "full_name": "Sermayan Trade League"
     },
     "triad_exclaves": {
       "full_name": "Triad Exclaves",

@@ -319,6 +319,11 @@
         "korinth"
       ]
     },
+    "Shantine Outremer": {
+      "color": "royalblue",
+      "darker_color": "darkblue",
+      "parent": "Shantine Empire"
+    },
     "Shantine Protectorates": {
       "color": "#20124d",
       "darker_color": "black",
