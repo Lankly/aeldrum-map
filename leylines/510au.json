@@ -260,32 +260,30 @@
     },
     "9": {
       "aeldman_name": "Neveth",
-      "mage_imperium_name": "",
+      "mage_imperium_name": "Petrine",
       "region": "imperial",
       "color": "mediumaquamarine",
       "darker_color": "darkseagreen",
       "planets": [
-        { "name": "saldan", "distance": 3 },
-        { "name": "dwarf_clans_2", "distance": 5 },
-        { "name": "nss_exclusion_zone", "distance": 10 },
+        { "name": "saldan", "distance": 8 },
+        { "name": "nss_exclusion_zone", "distance": 10, "notes": ["Semi-passable"]},
         { "name": "aeldrum", "distance": 11 },
         { "name": "sevalne", "distance": 5 },
         { "name": "saldan", "distance": 8 },
         { "name": "bishant", "distance": 16 }
       ],
       "controllers": [
-        { "name": "Saldanese Exclusion Zone", "length": 2 },
+        { "name": "Saldanese Protectorates", "length": 5 },
+        { "name": "Aeldman Commonwealth Worlds", "length": 3 },
         { "name": "Independent Worlds", "length": 5 },
-        { "name": "Republic of Sermaye", "length": 3 },
-        { "name": "Serene Duchy of Aeldrum", "length": 13 },
-        { "name": "Orcish Frontier Protectorates", "length": 3 },
+        { "name": "Serene Duchy of Aeldrum", "length": 14 },
+        { "name": "Sermayan Trade League", "length": 3 },
         { "name": "Republic of Sermaye", "length": 7 },
         { "name": "Saldanese Exclusion Zone", "length": 3 },
         { "name": "Shantine Empire", "length": 11 },
         { "name": "Knights of Adarnum", "length": 2 },
-        { "name": "Dwarf Kingdom of Druz", "length": 5 },
-        { "name": "Independent Worlds", "length": 3 },
-        { "name": "Saldanese Exclusion Zone", "length": 1 }
+        { "name": "Dwarf Kingdom of Druz", "length": 8 },
+        { "name": "Saldanese Protectorates", "length": 1 }
       ]
     },
     "10": {

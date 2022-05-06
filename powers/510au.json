@@ -292,6 +292,14 @@
         "saldan"
       ]
     },
+    "Saldanese Protectorates": {
+      "color": "peru",
+      "darker_color": "orange",
+      "parent": "Saldanese Exclusion Zone",
+      "owned_planets": [
+        "saldan"
+      ]
+    },
     "Semalese Republic": {
       "color": "#993366",
       "darker_color": "indigo",
