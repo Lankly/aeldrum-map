@@ -8,7 +8,9 @@
       "planets": [
         { "name": "aeldrum", "distance": 2 },
         { "name": "calath", "distance": 5 },
-        { "name": "percel", "distance": 15 },
+        { "name": "percel", "distance": 4 },
+        { "name": "demalth", "distance": 2 },
+        { "name": "aldesh", "distance": 9 },
         { "name": "ireland", "distance": 4 },
         { "name": "chelonia", "distance": 5 },
         { "name": "sivella", "distance": 1 },
@@ -17,9 +19,13 @@
         { "name": "paravel", "distance": 1 }
       ],
       "controllers": [
-        { "name": "Serene Duchy of Aeldrum", "length": 21 },
-        { "name": "League of Free Republics", "length": 4 },
-        { "name": "Serene Duchy of Aeldrum", "length": 11 }
+        { "name": "Serene Duchy of Aeldrum", "length": 2 },
+        { "name": "Serene Republic of Calath", "length": 5 },
+        { "name": "Serene Republic of Percel", "length": 4 },
+        { "name": "Minor Republics", "length": 4 },
+        { "name": "League of Sovereign Republics", "length": 8 },
+        { "name": "Republic of Chelonia", "length": 4 },
+        { "name": "Serene Duchy of Aeldrum", "length": 9 }
       ]
     },
     "2": {

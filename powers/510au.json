@@ -154,9 +154,9 @@
       "owned_planets": [
       ]
     },
-    "League of Free Republics": {
-      "color": "cyan",
-      "darker_color": "blue",
+    "League of Sovereign Republics": {
+      "color": "burlywood",
+      "darker_color": "saddlebrown",
       "owned_planets": [
         "ireland"
       ]
@@ -171,6 +171,14 @@
       "color": "#ffc000",
       "darker_color": "brown",
       "owned_planets": [
+      ]
+    },
+    "Minor Republics": {
+      "color": "firebrick",
+      "darker_color": "brown",
+      "owned_planets": [
+          "demalth",
+          "aldesh"
       ]
     },
     "Naga Remnants": {
@@ -226,6 +234,14 @@
       "owned_planets": [
       ]
     },
+    "Republic of Chelonia": {
+      "color": "gold",
+      "darker_color": "darkgoldenrod",
+      "secondary": true,
+      "owned_planets": [
+        "chelonia"
+      ]
+    },
     "Republic of Sermaye": {
       "color": "#5b9bd5",
       "darker_color": "darkblue",
@@ -240,6 +256,20 @@
       "owned_planets": [
         "messidor",
         "saldan"
+      ]
+    },
+    "Serene Republic of Calath": {
+      "color": "goldenrod",
+      "darker_color": "darkgoldenrod",
+      "owned_planets": [
+        "calath"
+      ]
+    },
+    "Serene Republic of Percel": {
+      "color": "sienna",
+      "darker_color": "saddlebrown",
+      "owned_planets": [
+        "percel"
       ]
     },
     "Sermayan Trade League": {

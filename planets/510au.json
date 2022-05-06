@@ -9,6 +9,9 @@
       "capital": true,
       "theater": true
     },
+    "aldesh": {
+      "full_name": "Republic of Aldesh"
+    },
     "anathemas_domain": {
       "full_name": "Anathema's Domain"
     },
@@ -59,6 +62,9 @@
     "del_mar": {
       "full_name": "Del'Mar",
       "theater": true
+    },
+    "demalth": {
+      "full_name": "Republic of Demalth"
     },
     "deutschreich": {
       "full_name": "Deutschreich",
