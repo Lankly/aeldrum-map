@@ -40,6 +40,19 @@
         "villenta"
       ]
     },
+    "Adarnum Bastions": {
+      "color": "lightsalmon",
+      "darker_color": "salmon",
+      "parent": "Shantine Empire",
+      "owned_planets": [
+          "nippon_gates"
+      ]
+    },
+    "Aeldman Commonwealth Worlds": {
+      "color": "tomato",
+      "darker_color": "orangered",
+      "parent": "Serene Duchy of Aeldrum"
+    },
     "Aksai Chin": {
       "color": "darkseagreen",
       "darker_color": "forestgreen",
@@ -65,23 +78,6 @@
       "color": "#ffe598",
       "darker_color": "orange"
     },
-    "Despotate of Alusia": {
-      "color": "#00b050",
-      "darker_color": "darkgreen",
-      "owned_planets": [
-        "ahlam",
-        "carral",
-        "del_mar",
-        "gnoll",
-        "hilland",
-        "lectus",
-        "mexico",
-        "reilla",
-        "sierna",
-        "videna",
-        "zemlya"
-      ]
-    },
     "Deutschreich": {
       "color": "#7f7f7f",
       "darker_color": "darkgrey",
@@ -98,6 +94,24 @@
       "owned_planets": [
       ]
     },
+    "Empire of Alusia": {
+      "color": "#00b050",
+      "darker_color": "darkgreen",
+      "secondary": true,
+      "owned_planets": [
+        "ahlam",
+        "carral",
+        "del_mar",
+        "gnoll",
+        "hilland",
+        "lectus",
+        "mexico",
+        "reilla",
+        "sierna",
+        "videna",
+        "zemlya"
+      ]
+    },
     "Enclave Protectorates": {
       "color": "darkgreen",
       "darker_color": "black",
@@ -112,7 +126,6 @@
     "Fialta Confederacy": {
       "color": "plum",
       "darker_color": "rebeccapurple",
-      "parent": "Fialta Imperium",
       "owned_planets": [
         "gul_dan",
         "milgar",
@@ -250,6 +263,14 @@
         "sevalne"
       ]
     },
+    "Republic of Telrion": {
+      "color": "gold",
+      "darker_color": "darkgoldenrod",
+      "minor": true,
+      "owned_planets": [
+        "telrion"
+      ]
+    },
     "Saldanese Exclusion Zone": {
       "color": "#e69138",
       "darker_color": "orange",
@@ -263,6 +284,13 @@
       "darker_color": "darkgoldenrod",
       "owned_planets": [
         "calath"
+      ]
+    },
+    "Serene Republic of Liveth": {
+      "color": "firebrick",
+      "darker_color": "brown",
+      "owned_planets": [
+        "esvard"
       ]
     },
     "Serene Republic of Percel": {
@@ -313,6 +341,7 @@
     "Thalranese Marches": {
       "color": "#461e64",
       "darker_color": "darkpurple",
+      "minor": true,
       "owned_planets": [
         "tar_thalran",
         "mir_thalran"
@@ -321,6 +350,12 @@
     "Triad Princes": {
       "color": "#ed7d31",
       "darker_color": "brown"
+    },
+    "Vassal Dwarf Clans": {
+      "color": "darkslateblue",
+      "darker_color": "indigo",
+      "parent": "Shantine Protectorates",
+      "minor": true
     }
   }
   
