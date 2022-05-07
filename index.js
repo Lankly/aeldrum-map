@@ -287,8 +287,9 @@ function main (focusPlanet) {
     let points_to_add = getPointsToAdd();
     points_to_add.forEach(addPlanet);
     
+    addConduitMetadata();
     addNeighborMetadata();
-    addSamePlanetArcs();
+    addSamePlanetAndConduitArcs();
     if (flags.showPowers) {
       addRegionArcs();
     }
@@ -379,7 +380,7 @@ function main (focusPlanet) {
         
         let planet_labels = $(`text.${ planetData.name }`);
         planet_labels.addClass("font-highlight");
-        
+
         let neighbor_labels = $(`text.neighbor-${ planetData.name }`);
         neighbor_labels.addClass("font-neighbor-highlight");
         
@@ -394,11 +395,16 @@ function main (focusPlanet) {
         text_dom_group.append(hover_planet_label);
       });
       $(planet_point.root).mouseleave(() => {
-        if (hold_highlight.has(planetData.name)) { return; }
-        $(`g.${ planetData.name }`).removeClass("path-highlight");
-        $(`text.${ planetData.name }`).removeClass("font-highlight");
+        const hold_highlight_arr = Array.from(hold_highlight);
+
+        $(`g.${ planetData.name }`).not(selector_in_hh).removeClass("path-highlight");
+        $(`text.${ planetData.name }`).not(selector_in_hh).removeClass("font-highlight");
         $(`text.neighbor-${ planetData.name }`).removeClass("font-neighbor-highlight");
         clickdown = false;
+
+        function selector_in_hh (i, element) {
+          return hold_highlight_arr.find((name) => $(element).hasClass(name));
+        }
       });
       
       // Now add the new point to "point"
@@ -408,12 +414,29 @@ function main (focusPlanet) {
       ++point_index;
     }
     
+    function addConduitMetadata () {
+      leyline.planets.filter((p) => p.conduits).forEach((planet) => {
+        let planet_text = $(`.${leyline.aeldman_name.replace(/\s/,'.')}.${planet.name}`);
+
+        if (planet_text.length > 1) {
+          const same_planet_index = leyline.planets
+            .filter((p) => p.name === planet.name)
+            .indexOf(planet);
+          planet_text = $(planet_text[same_planet_index]);
+        }
+
+        planet.conduits.map((c) => c.split('__')[1]).forEach((c) => {
+          planet_text.addClass(c);
+        });
+      });
+    }
+
     function addNeighborMetadata () {
       leyline.planets.forEach((planet, i) => {      
         const previous_planet_name = leyline.planets[((i > 0 ? i : total) - 1) % total].name;
         const next_planet_name = leyline.planets[(i + 1) % total].name;
         
-        const planet_text = $(`.${ leyline.aeldman_name}.${planet.name}`);
+        const planet_text = $(`.${leyline.aeldman_name}.${planet.name}`);
         planet_text.addClass(`neighbor-${ previous_planet_name }`);
         planet_text.addClass(`neighbor-${ next_planet_name }`);
       });
@@ -446,7 +469,6 @@ function main (focusPlanet) {
         arc_node.addClass(previous_planet.name);
         
         let distance_tooltip;
-        console.log(`Line ${leyline.aeldman_name}: ${previous_planet.name} -> ${planetData.name} = ${previous_planet.distance}`);
         switch (previous_planet.distance) {
           case 0:
             distance_tooltip = "Distance: < 4000 etheric miles";
@@ -454,7 +476,6 @@ function main (focusPlanet) {
           case '?':
             distance_tooltip = "Distance unknown";
             arc_node.find(".foreground-path").css("stroke", `url(#gradient-${leyline.aeldman_name.replace(/[^A-Za-z0-9]/g, '_')})`);
-            console.log(arc_node.find(".foreground-path"));
             break;
           default:
           distance_tooltip = `Distance: ~${((
@@ -631,7 +652,7 @@ function main (focusPlanet) {
       leyline.circle.style.stroke = "transparent";
     }
     
-    function addSamePlanetArcs () {
+    function addSamePlanetAndConduitArcs () {
       leyline.planets.forEach((planet) => {
         let allPoints = planets[planet.name].allPoints;
         if (!allPoints) { return; }
@@ -665,11 +686,36 @@ function main (focusPlanet) {
             helper(point, next_point);
           }
         });
+
+        if (planet.conduits) {
+          planet.conduits.forEach((conduit) => {
+            let target_line = conduit.split('__')[0];
+            target_line = getLeylines().find((l) => {
+              let this_line = l.aeldman_name.toLowerCase().replace(/\s/,'_');
+              return target_line === this_line;
+            });
+            if (!target_line) return;
+
+            let target_planet = conduit.split('__')[1];
+            target_planet = target_line.planets.find((p) => {
+              if (p.name !== target_planet || !p.conduits){
+                return false;
+              }
+
+              return p.conduits.includes(`${leyline.aeldman_name.toLowerCase().replace(/\s/,'_')}__${planet.name}`);
+            });
+            if (!target_planet) return;
+
+            if (target_planet.point) {
+              helper(target_planet.point, planet.point, target_planet.name);
+            }
+          });
+        }
         
-        function helper(pointA, pointB) {
+        function helper(pointA, pointB, additional_classes) {
           let arc = createArc(circle, pointA, pointB, { radius: Math.pow(circle.r, 1.3) });
           $(arc.root).addClass("same-planet-path");
-          $(arc.root).addClass(planet.name);
+          $(arc.root).addClass([planet.name, additional_classes]);
         }
       });
     }
