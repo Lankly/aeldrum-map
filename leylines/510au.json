@@ -360,18 +360,18 @@
         { "name": "brass_gates", "distance": 4 },
         { "name": "stitch", "distance": 4 },
         { "name": "great_aksai", "distance": 7 },
-        { "name": "kolong", "distance": 12 },
-        { "name": "nippon_gates", "distance": 8, "status": "Lower" }
+        { "name": "kolong", "distance": 22 },
+        { "name": "nippon_gates", "local_name": "Lower Nippon Gates", "distance": 8 }
       ],
       "controllers": [
-        { "name": "Lawless", "length": 1 },
-        { "name": "New Celestial Confederacy", "length": 9 },
+        { "name": "Grand Celestial Confederacy", "length": 6 },
         { "name": "Middle Kingdom", "length": 4 },
-        { "name": "Protectorate of the Mirror", "length": 9 },
-        { "name": "Brass Cities", "length": 5 },
-        { "name": "Nippon States", "length": 1 },
-        { "name": "Aksai Chin", "length": 8 },
-        { "name": "Triad Princes", "length": 11 },
+        { "name": "Princely State of Keshig", "length": 3 },
+        { "name": "Protectorate of the Mirror", "length": 3 },
+        { "name": "Brass Cities", "length": 11 },
+        { "name": "Aksai Chin", "length": 7 },
+        { "name": "Princely State of Kolong", "length": 2 },
+        { "name": "Triad Princes", "length": 8 },
         { "name": "Nippon States", "length": 17 }
       ]
     },

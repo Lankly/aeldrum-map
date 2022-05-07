@@ -261,6 +261,19 @@
       "owned_planets": [
       ]
     },
+    "Princely State of Keshig": {
+      "color": "rosybrown",
+      "darker_color": "saddlebrown",
+      "owned_planets": [
+      ]
+    },
+    "Princely State of Kolong": {
+      "color": "olivedrab",
+      "darker_color": "darkgreen",
+      "owned_planets": [
+          "kolong"
+      ]
+    },
     "Princely State of Limei": {
       "color": "peachpuff",
       "darker_color": "sandybrown",
