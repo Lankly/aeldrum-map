@@ -43,7 +43,7 @@ function main (focusPlanet) {
   let previous_leyline = next_leyline;
   next_leyline = getNextLeyline({
     startingPlanet: focusPlanet,
-    minimizeConnections: next_leyline,
+    size: 0,
     noInscribed: true,
   });
   if (next_leyline) {
@@ -56,39 +56,10 @@ function main (focusPlanet) {
   
   generateInscribableLeylines();
   
-  // generateOnePointIntersectionLeylines();
-  
   generateRemainingLeylines();
   
   centerView();
   $( document ).tooltip();
-  
-  function generateOnePointIntersectionLeylines() {
-    const generatedLeylines = getLeylines().filter((l) => l.circle);
-      
-    let changed = false;
-    generatedLeylines.forEach((leyline) => {
-      let next_leyline;
-      do {
-        next_leyline = getNextLeyline({ startingLeyline: leyline, maxConnections: 1 });
-        
-        if (next_leyline) {
-          const intersect_planet = next_leyline.planets.find(getPointFromPlanet);
-          
-          generateCircularLeyline(
-            next_leyline,
-            {
-              startingPlanet: intersect_planet,
-              startingLeyline: leyline,
-              makeNewControlPoints: true
-            });
-          changed = true;
-        }
-      } while (next_leyline);
-    });
-    
-    if (changed) { return generateOnePointIntersectionLeylines(); }
-  }
   
   function generateRemainingLeylines() {
     const min_space_between_leyline_edges = 100;
@@ -162,7 +133,7 @@ function main (focusPlanet) {
     generated_leylines.forEach((leyline) => {
       let prev_circle = leyline.circle;
       
-      next_leyline = getNextNestedLeyline(leyline, prev_circle.r, 2);
+      next_leyline = getNextNestedLeyline(leyline, prev_circle.r, Number.MAX_SAFE_INTEGER);
       if (!next_leyline) { return; }
       
       let planetNames = leyline.planets.map((p) => p.name);
@@ -713,7 +684,7 @@ function main (focusPlanet) {
         }
         
         function helper(pointA, pointB, additional_classes) {
-          let arc = createArc(circle, pointA, pointB, { radius: Math.pow(circle.r, 1.3) });
+          let arc = createArc(circle, pointA, pointB, { radius: Math.pow(circle.r, 1.5) });
           $(arc.root).addClass("same-planet-path");
           $(arc.root).addClass([planet.name, additional_classes]);
         }
