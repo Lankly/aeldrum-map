@@ -315,7 +315,7 @@ function main (focusPlanet) {
       
       // Add the planet_point's name above it
       let planet_name = planets[planetData.name].full_name;
-      let planet_text = text_group.text(planet_point.x, planet_point.y - 10, planet_name);
+      let planet_text = text_group.text(planet_point.x, planet_point.y - 10, planetData.local_name || planet_name);
       planet_text.x = planet_text.x - (planet_text.getBoundingBox().width / 2);
       planet_text.style.stroke = "white";
       planet_text.style["stroke-width"] = 5;
@@ -676,6 +676,11 @@ function main (focusPlanet) {
               return p.conduits.includes(`${leyline.aeldman_name.toLowerCase().replace(/\s/,'_')}__${planet.name}`);
             });
             if (!target_planet) return;
+
+            // If they're on the same line, only allow one through
+            if (target_line === leyline && leyline.planets.indexOf(planet) < leyline.planets.indexOf(target_planet)) {
+              return;
+            }
 
             if (target_planet.point) {
               helper(target_planet.point, planet.point, target_planet.name);

@@ -261,7 +261,13 @@
       "owned_planets": [
       ]
     },
-    "Princly State of Yushan": {
+    "Princely State of Limei": {
+      "color": "peachpuff",
+      "darker_color": "sandybrown",
+      "owned_planets": [
+      ]
+    },
+    "Princely State of Yushan": {
       "color": "magenta",
       "darker_color": "darkmagenta",
       "owned_planets": [
