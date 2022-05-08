@@ -383,7 +383,7 @@
       "darker_color": "maroon",
       "skip": true,
       "planets": [
-        { "name": "new_sierna", "distance": 8 },
+        { "name": "new_sierna", "distance": 8, "conduits": ["lane_10__new_reilla"] },
         { "name": "folds", "distance": 1 },
         { "name": "volunes_seat", "distance": 2 },
         { "name": "folds", "distance": 9 },
@@ -426,21 +426,29 @@
       "darker_color": "maroon",
       "skip": true,
       "planets": [
-        { "name": "petty_kings", "distance": 12 },
+        { "name": "koa_grantworlds", "distance": 6 },
+        { "name": "brass_splinters", "distance": 3 },
+        { "name": "temple_worlds", "distance": 2 },
         { "name": "folds", "distance": 1 },
         { "name": "volunes_seat", "distance": 2 },
         { "name": "folds", "distance": 17 },
-        { "name": "nippon_gates", "distance": 6, "status": "Lower" },
-        { "name": "petty_kings", "distance": "?" }
+        { "name": "nippon_gates", "local_name": "Lower Nippon Gates", "distance": 8 },
+        { "name": "urbos", "distance": 3 },
+        { "name": "black_pyramid_site", "distance": 28 },
+        { "name": "lanetouch", "distance": 12 }
       ],
       "controllers": [
-        { "name": "Lawless", "length": 2 },
-        { "name": "Aksai Chin", "length": 3 },
-        { "name": "Brass Cities", "length": 5 },
-        { "name": "Middle Kingdom", "length": 12 },
+        { "name": "Independent Worlds", "length": 1 },
+        { "name": "Brass Cities", "length": 7 },
+        { "name": "Middle Kingdom", "length": 13 },
         { "name": "Ashgarate of New Nippon", "length": 13 },
-        { "name": "Lawless", "length": 19 },
-        { "name": "Unexplored", "length": "?" }
+        { "name": "Valdosian Colonies", "length": 6 },
+        { "name": "Fialta Imperium", "length": 4 },
+        { "name": "Fialta Freebooters", "length": 3 },
+        { "name": "Marches of the Ascendancy", "length": 12 },
+        { "name": "Labyrinthworlds", "length": 7 },
+        { "name": "Outer Alusia", "length": 8 },
+        { "name": "Outremer Kirvan Kingdoms", "length": 8 }
       ]
     },
     "15": {

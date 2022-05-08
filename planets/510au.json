@@ -23,15 +23,15 @@
     "aldesh": {
       "full_name": "Republic of Aldesh"
     },
+    "alusian_subjugates": {
+      "full_name": "Alusian Subjugates",
+      "group": true
+    },
     "anathemas_domain": {
       "full_name": "Anathema's Domain"
     },
     "antenil": {
       "full_name": "Antenil"
-    },
-    "alusian_subjugates": {
-      "full_name": "Alusian Subjugates",
-      "group": true
     },
     "bastions": {
       "full_name": "Adarnum Bastions"
@@ -45,8 +45,15 @@
       "capital": true,
       "theater": true
     },
+    "black_pyramid_site": {
+      "full_name": "Black Pryamid Site (defunct)",
+      "type": "object"
+    },
     "brass_gates": {
       "full_name": "Brass Gates"
+    },
+    "brass_splinters": {
+      "full_name": "Brass Splinters"
     },
     "brumaire": {
       "full_name": "Brumaire",
@@ -171,6 +178,10 @@
     },
     "ireland": {
       "full_name": "Republic of Ireland"
+    },
+    "koa_grantworlds": {
+      "full_name": "KoA Grantworlds",
+      "group": true
     },
     "kolong": {
       "full_name": "Kolong"
@@ -334,6 +345,10 @@
     "telrion": {
       "full_name": "Telrion",
       "theater": true
+    },
+    "temple_worlds": {
+      "full_name": "Temple Worlds",
+      "group": true
     },
     "towers_of_the_naga": {
       "full_name": "Towers of the Naga"
