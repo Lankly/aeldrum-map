@@ -4,6 +4,10 @@
       "capital": true,
       "theater": true
     },
+    "aeldman_celestial_command": {
+      "full_name": "Aeldman Celestial Command",
+      "type": "object"
+    },
     "ahlam": {
       "full_name": "Ahlam",
       "capital": true,
@@ -11,6 +15,10 @@
     },
     "alusian_conduit": {
       "full_name": "Greater Alusian Conduit"
+    },
+    "alusian_directorates": {
+      "full_name": "Alusian Directorates",
+      "group": true
     },
     "aldesh": {
       "full_name": "Republic of Aldesh"
@@ -106,6 +114,10 @@
     "fialt": {
       "full_name": "Fialt"
     },
+    "fialta_deep_ether_bases": {
+      "full_name": "Fialta Deep Ether Bases",
+      "type": "object"
+    },
     "firhbank": {
       "full_name": "Firhbank",
       "theater": true
@@ -115,6 +127,10 @@
     },
     "forgotten_world": {
       "full_name": "The Forgotten World"
+    },
+    "freeworlds": {
+      "full_name": "Freeworlds",
+      "group": true
     },
     "gates_of_corrobel": {
       "full_name": "Gates of Corrobel"
@@ -166,6 +182,9 @@
       "full_name": "Korinth",
       "theater": true
     },
+    "lanetouch": {
+      "full_name": "Lanetouch"
+    },
     "lechtus": {
       "full_name": "Lectus",
       "theater": true
@@ -187,6 +206,9 @@
     "messidor": {
       "full_name": "Messidor"
     },
+    "middle_kingdom": {
+      "full_name": "Middle Kingdom"
+    },
     "milgar": {
       "full_name": "Milgar"
     },
@@ -197,8 +219,14 @@
     "mouth_of_shavar": {
       "full_name": "The Mouth of Shavar"
     },
+    "na_sau": {
+      "full_name": "Na'Sau"
+    },
     "new_reilla": {
       "full_name": "New Reilla"
+    },
+    "new_sierna": {
+      "full_name": "New Sierna"
     },
     "nidevs_court": {
       "full_name": "Nidev's Court"

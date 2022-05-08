@@ -383,22 +383,39 @@
       "darker_color": "maroon",
       "skip": true,
       "planets": [
-        { "name": "petty_kings", "distance": 3 },
+        { "name": "new_sierna", "distance": 8 },
         { "name": "folds", "distance": 1 },
         { "name": "volunes_seat", "distance": 2 },
         { "name": "folds", "distance": 9 },
-        { "name": "limei", "distance": 15 },
+        { "name": "limei", "distance": 4 },
+        { "name": "middle_kingdom", "distance": 10 },
+        { "name": "aeldman_celestial_command", "distance": 1 },
         { "name": "kolong", "distance": 11 },
         { "name": "yushan", "distance": 7 },
         { "name": "kolong", "distance": 2 },
-        { "name": "triad_exclaves", "distance": "?" }
+        { "name": "triad_exclaves", "distance": 3 },
+        { "name": "na_sau", "distance": 1 },
+        { "name": "fialta_deep_ether_bases", "distance": 5 },
+        { "name": "urbos", "distance": 5 },
+        { "name": "freeworlds", "distance": 4 },
+        { "name": "alusian_directorates", "distance": 4 },
+        { "name": "lanetouch", "distance": 2 }
       ],
       "controllers": [
-        { "name": "Lawless", "length": 1 },
-        { "name": "Middle Kingdom", "length": 39 },
+        { "name": "Outer Alusia", "length": 6 },
+        { "name": "Middle Kingdom", "length": 13 },
+        { "name": "Princely State of Limei", "length": 3 },
+        { "name": "Middle Kingdom", "length": 12 },
+        { "name": "Serene Duchy of Aeldrum", "length": 1 },
+        { "name": "Middle Kingdom", "length": 6 },
+        { "name": "Fialta Freebooters", "length": 1 },
         { "name": "Princely State of Yushan", "length": 9 },
+        { "name": "Princely State of Kolong", "length": 3 },
         { "name": "Triad Princes", "length": 2 },
-        { "name": "Lawless", "length": "?" }
+        { "name": "Fialta Imperium", "length": 5 },
+        { "name": "Valdosian Colonies", "length": 8 },
+        { "name": "Independent Worlds", "length": 1 },
+        { "name": "Outer Alusia", "length": 9 }
       ]
     },
     "14": {
