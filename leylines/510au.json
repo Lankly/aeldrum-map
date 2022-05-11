@@ -390,7 +390,7 @@
         { "name": "limei", "distance": 4 },
         { "name": "middle_kingdom", "distance": 10 },
         { "name": "aeldman_celestial_command", "distance": 1 },
-        { "name": "kolong", "distance": 11 },
+        { "name": "kolong", "distance": 11, "conduits": ["line_15__pin_jump"] },
         { "name": "yushan", "distance": 7 },
         { "name": "kolong", "distance": 2 },
         { "name": "triad_exclaves", "distance": 3 },
@@ -459,7 +459,7 @@
       "darker_color": "maroon",
       "skip": true,
       "planets": [
-        { "name": "pin_jump", "distance": 8, "conduits": ["line_10__restored_pin_jump_route"], "notes": [ "To Imperial Space", "To Celestial Space" ] },
+        { "name": "pin_jump", "distance": 8, "conduits": ["line_10__restored_pin_jump_route", "line_13__kolong"], "notes": [ "To Imperial Space", "To Celestial Space" ] },
         { "name": "forgotten_world", "distance": 16 },
         { "name": "mouth_of_shavar", "distance": 11 },
         { "name": "anathemas_domain", "distance": 4 },
@@ -474,9 +474,10 @@
         { "name": "palace_of_the_rainbow_serpent", "distance": "?" }
       ],
       "controllers": [
-        { "name": "Serene Duchy of Aeldrum", "length": 17 },
-        { "name": "Orcish Frontier Protectorates", "length": 2 },
-        { "name": "Serene Duchy of Aeldrum", "length": 11 },
+        { "name": "Serene Duchy of Aeldrum", "length": 16 },
+        { "name": "New Orcish Directorate", "length": 4 },
+        { "name": "Serene Duchy of Aeldrum", "length": 4 },
+        { "name": "Perfect Princes", "length": 6 },
         { "name": "Smuggler's Run", "length": 14 },
         { "name": "Lawless", "length": 4 },
         { "name": "Naga Remnants", "length": 11 },

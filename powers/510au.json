@@ -226,6 +226,12 @@
         "towers_of_the_naga"
       ]
     },
+    "New Orcish Directorate": {
+      "color": "darkgrey",
+      "darker_color": "black",
+      "owned_planets": [
+      ]
+    },
     "Nippon States": {
       "color": "#f4b083",
       "darker_color": "brown",
@@ -252,6 +258,12 @@
       "color": "springgreen",
       "darker_color": "seagreen",
       "parent": "Empire of Alusia",
+      "owned_planets": [
+      ]
+    },
+    "Perfect Princes": {
+      "color": "dodgerblue",
+      "darker_color": "midnightblue",
       "owned_planets": [
       ]
     },
