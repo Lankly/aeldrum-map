@@ -537,6 +537,34 @@
         { "name": "Outer Alusia", "length": 8 },
         { "name": "Commonwealth of Noloth", "length": 7 }
       ]
+    },
+    "18": {
+      "aeldman_name": "Line 18",
+      "mage_imperium_name": "",
+      "region": "conduit",
+      "color": "tomato",
+      "darker_color": "maroon",
+      "skip": true,
+      "planets": [
+        { "name": "outer_marivan", "distance": 9 },
+        { "name": "religious_exile_colonies", "distance": 5 },
+        { "name": "free_worlds_3", "distance": 15 },
+        { "name": "alusian_allied_states", "distance": 6 },
+        { "name": "alusian_merchant_protectorates", "distance": 4 },
+        { "name": "crosslanes", "distance": 4 },
+        { "name": "free_worlds_4", "distance": 10 }
+      ],
+      "controllers": [
+        { "name": "Fialta Imperium", "length": 7 },
+        { "name": "Independent Worlds", "length": 9 },
+        { "name": "Guar'dok and Thur'dok Kingdoms", "length": 12 },
+        { "name": "Independent Worlds", "length": 7 },
+        { "name": "Outer Alusia", "length": 2 },
+        { "name": "Independent Worlds", "length": 8 },
+        { "name": "Adarnum Renegades", "length": 3 },
+        { "name": "Independent Worlds", "length": 4 },
+        { "name": "Fialta Imperium", "length": 1 }
+      ]
     }
   }
   

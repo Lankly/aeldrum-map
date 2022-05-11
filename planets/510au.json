@@ -23,6 +23,14 @@
     "aldesh": {
       "full_name": "Republic of Aldesh"
     },
+    "alusian_allied_states": {
+      "full_name": "Alusian Allied States",
+      "group": true
+    },
+    "alusian_merchant_protectorates": {
+      "full_name": "Alusian Merchant Protectorates",
+      "group": true
+    },
     "alusian_subjugates": {
       "full_name": "Alusian Subjugates",
       "group": true
@@ -147,6 +155,14 @@
       "full_name": "Free Worlds",
       "group": true
     },
+    "free_worlds_3": {
+      "full_name": "Free Worlds",
+      "group": true
+    },
+    "free_worlds_4": {
+      "full_name": "Free Worlds",
+      "group": true
+    },
     "gates_of_corrobel": {
       "full_name": "Gates of Corrobel"
     },
@@ -261,6 +277,9 @@
     "orestes": {
         "full_name": "Orestes"
     },
+    "outer_marivan": {
+        "full_name": "Grand Duchy of Outer Marivan"
+    },
     "outer_lane": {
         "full_name": "The Outer Lane"
     },
@@ -292,6 +311,10 @@
     "reilla": {
       "full_name": "Reilla",
       "theater": true
+    },
+    "religious_exile_colonies": {
+      "full_name": "Religious Exile Colonies",
+      "group": true
     },
     "resal": {
       "full_name": "Resal"
