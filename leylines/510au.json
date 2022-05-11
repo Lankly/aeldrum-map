@@ -397,7 +397,7 @@
         { "name": "na_sau", "distance": 1 },
         { "name": "fialta_deep_ether_bases", "distance": 5 },
         { "name": "urbos", "distance": 5 },
-        { "name": "freeworlds", "distance": 4 },
+        { "name": "free_worlds", "distance": 4 },
         { "name": "alusian_directorates", "distance": 4 },
         { "name": "lanetouch", "distance": 2 }
       ],
@@ -508,6 +508,34 @@
         { "name": "Perfect Prince Renegades", "length": 8 },
         { "name": "Perfect Princes", "length": 12 },
         { "name": "Serene Duchy of Aeldrum", "length": 4 }
+      ]
+    },
+    "17": {
+      "aeldman_name": "Line 17",
+      "mage_imperium_name": "",
+      "region": "conduit",
+      "color": "tomato",
+      "darker_color": "maroon",
+      "skip": true,
+      "planets": [
+        { "name": "outer_lane", "distance": 11, "conduits": ["galthad__outer_lane"] },
+        { "name": "tanvaal", "distance": 7 },
+        { "name": "orestes", "distance": "?" },
+        { "name": "orestes", "distance": 3 },
+        { "name": "crosslanes", "distance": 1 },
+        { "name": "free_worlds", "distance": 7 },
+        { "name": "new_sierna", "distance": 4 },
+        { "name": "free_worlds_2", "distance": 9 }
+      ],
+      "controllers": [
+        { "name": "Serene Duchy of Aeldrum / Shantine Empire", "length": 1 },
+        { "name": "Outremer Kirvan Kingdoms", "length": 18 },
+        { "name": "Labyrinthworlds", "length": 6 },
+        { "name": "Unexplored", "length": "?" },
+        { "name": "Outremer Kirvan Kingdoms", "length": 2 },
+        { "name": "Independent Worlds", "length": 4 },
+        { "name": "Outer Alusia", "length": 8 },
+        { "name": "Commonwealth of Noloth", "length": 7 }
       ]
     }
   }

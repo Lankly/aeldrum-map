@@ -84,6 +84,10 @@
       "color": "#ffe598",
       "darker_color": "orange"
     },
+    "Commonwealth of Noloth": {
+      "color": "crimson",
+      "darker_color": "brown"
+    },
     "Corrobel Exclusion Zone": {
       "color": "lightgrey",
       "darker_color": "grey"
@@ -196,6 +200,13 @@
       "owned_planets": [
       ]
     },
+    "Labyrinthworlds": {
+      "color": "grey",
+      "darker_color": "darkgray",
+      "parent": "Independent Worlds",
+      "owned_planets": [
+      ]
+    },
     "League of Sovereign Republics": {
       "color": "burlywood",
       "darker_color": "saddlebrown",
@@ -263,6 +274,15 @@
       "darker_color": "seagreen",
       "parent": "Empire of Alusia",
       "owned_planets": [
+      ]
+    },
+    "Outremer Kirvan Kingdoms": {
+      "color": "mediumturquoise",
+      "darker_color": "seagreen",
+      "parent": "Shantine Empire",
+      "owned_planets": [
+          "tanvaal",
+          "orestes"
       ]
     },
     "Perfect Princes": {
@@ -358,6 +378,13 @@
       "minor": true,
       "owned_planets": [
         "semal"
+      ]
+    },
+    "Serene Duchy of Aeldrum / Shantine Empire": {
+      "color": "magenta",
+      "darker_color": "darkmagenta",
+      "owned_planets": [
+          "outer_lane"
       ]
     },
     "Serene Republic of Calath": {

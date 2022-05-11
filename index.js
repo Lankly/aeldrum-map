@@ -1271,7 +1271,8 @@ function setupUI () {
     let regions = [
       { json_name: "imperial", label: "Imperial Space" },
       { json_name: "celestial", label: "Celestial Space" },
-      { json_name: "naga", label: "Naga Space" }
+      { json_name: "naga", label: "Naga Space" },
+      { json_name: "conduit", label: "Conduit Space" }
     ];
     
     let regionInteractive = new Interactive("region-checkboxes", {

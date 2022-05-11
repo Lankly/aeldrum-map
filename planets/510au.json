@@ -135,8 +135,16 @@
     "forgotten_world": {
       "full_name": "The Forgotten World"
     },
-    "freeworlds": {
-      "full_name": "Freeworlds",
+    "free_worlds": {
+      "full_name": "Free Worlds",
+      "group": true
+    },
+    "free_worlds_1": {
+      "full_name": "Free Worlds",
+      "group": true
+    },
+    "free_worlds_2": {
+      "full_name": "Free Worlds",
       "group": true
     },
     "gates_of_corrobel": {
@@ -250,6 +258,9 @@
       "full_name": "NSS Exclusion Zone",
       "theater": true
     },
+    "orestes": {
+        "full_name": "Orestes"
+    },
     "outer_lane": {
         "full_name": "The Outer Lane"
     },
@@ -334,6 +345,9 @@
     },
     "switzreich": {
       "full_name": "Switzreich"
+    },
+    "tanvaal": {
+      "full_name": "Tanvaal"
     },
     "tar_thalran": {
       "full_name": "Tar'Thalran",
