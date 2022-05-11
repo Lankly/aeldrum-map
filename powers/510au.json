@@ -84,6 +84,10 @@
       "color": "#ffe598",
       "darker_color": "orange"
     },
+    "Corrobel Exclusion Zone": {
+      "color": "lightgrey",
+      "darker_color": "grey"
+    },
     "Deutschreich": {
       "color": "#7f7f7f",
       "darker_color": "darkgrey",
@@ -266,6 +270,10 @@
       "darker_color": "midnightblue",
       "owned_planets": [
       ]
+    },
+    "Perfect Prince Renegades": {
+      "color": "deepskyblue",
+      "darker_color": "midnightblue"
     },
     "Presidential Republic of Delarma": {
       "color": "#990000",

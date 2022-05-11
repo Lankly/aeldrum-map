@@ -496,20 +496,17 @@
         { "name": "forgotten_world", "distance": 2 },
         { "name": "sigvalds_court", "distance": 4 },
         { "name": "station", "distance": 3 },
-        { "name": "nidevs_court", "distance": 3 },
-        { "name": "corrobel_exclusion_zone", "distance": 4 },
-        { "name": "mouth_of_shavar", "distance": 4, "status": "Quarantined" },
-        { "name": "corrobel_exclusion_zone", "distance": 4 },
-        { "name": "towers_of_the_naga", "distance": 7 },
-        { "name": "perfect_prince_renegades", "distance": 21 }
+        { "name": "nidevs_court", "distance": 7 },
+        { "name": "mouth_of_shavar", "distance": 8, "notes": ["Quarantined"] },
+        { "name": "towers_of_the_naga", "distance": 29 }
       ],
       "controllers": [
         { "name": "Serene Duchy of Aeldrum", "length": 1 },
-        { "name": "Kingdom of Veran", "length": 11 },
-        { "name": "Lawless", "length": 9 },
+        { "name": "Perfect Princes", "length": 11 },
+        { "name": "Corrobel Exclusion Zone", "length": 9 },
         { "name": "Naga Remnants", "length": 7 },
-        { "name": "Lawless", "length": 8 },
-        { "name": "Kingdom of Veran", "length": 12 },
+        { "name": "Perfect Prince Renegades", "length": 8 },
+        { "name": "Perfect Princes", "length": 12 },
         { "name": "Serene Duchy of Aeldrum", "length": 4 }
       ]
     }
