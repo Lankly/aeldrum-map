@@ -24,7 +24,7 @@ fetchData(() => {
   setupUI();
 });
 
-function main (planetA, planetB, distance) {
+function main (planetA, planetB) {
   const path = findPath();
   
   let x_coord = xOrigin - (getLabelWidth(planets[path[0]].full_name) / 2) - 20;
@@ -217,8 +217,8 @@ let distances;
 function setupUI () {
   xOrigin = width;
   yOrigin = height;
-  let startingPlanet = planets["aeldrum"];
-  let planetA, planetB, distance = 0;
+  let planetA = planets[getUrlParam('planetA')] || planets["aeldrum"];
+  let planetB = planets[getUrlParam('planetB')] || '';
   
   interactive = new Interactive("tree", {
     width: width,
@@ -247,7 +247,6 @@ function setupUI () {
     planet_names.forEach((name) => {
       distances[name] = {};
       const neighbors = getNeighbors(name);
-      if (name === 'harwel') { console.log(neighbors); }
       
       Object.keys(neighbors).forEach((neighborName) => {
         distances[name][neighborName] = {
@@ -293,7 +292,6 @@ function setupUI () {
       let neighbor_lines = getLeylines().filter((l) => {
         return l.planets.some((p) => p.name === planetName);
       });
-      if (planetName === 'harwel') console.log('neighbor lines', neighbor_lines)
       
       let neighbors = {};
       neighbor_lines.forEach((leyline) => {
@@ -337,9 +335,7 @@ function setupUI () {
     
     generatePlanetSelectors();
     
-    function generatePlanetSelectors () {
-      let planet1, planet2;
-      
+    function generatePlanetSelectors () {      
       let selector1 = $("#planet1-selector");
       let selector2 = $("#planet2-selector");
       
@@ -354,44 +350,38 @@ function setupUI () {
           selector1.append(option);
           selector2.append(option);
         });
-      selector1.val(startingPlanet.name);
+      selector1.val(planetA.name);
+      if (getUrlParam('planetB')) selector2.val(planets[getUrlParam('planetB')].name)
       
       selector1.change((event) => {
-        clearAll();
         planetA = planets[selector1.val()];
-        reset();
+        setUrlParams()
       });
       
       selector2.change((event) => {
-        clearAll();
         planetB = planets[selector2.val()];
-        reset();
+        setUrlParams();
       });
-      
-      selector1.change();
+
+      if (selector1.val() && selector2.val()) {
+        main(planetA, planetB);
+      }
     }
   }
-  
-  function clearAll () {
-    $("body").css("cursor", "wait !important");
-    Object.keys(planets).map((i) => planets[i]).forEach((p) => {
-      p.point && p.point.remove();
-      delete p.point
-      if (p.allPoints) {
-        Object.keys(p.allPoints).forEach((leylineName) => {
-          while (p.allPoints[leylineName].length > 0) {
-            p.allPoints[leylineName].pop().remove();
-          }
-        });
-      }
+
+  function getUrlParam (param) {
+    const params = new Proxy(new URLSearchParams(window.location.search), {
+      get: (searchParams, prop) => searchParams.get(prop),
     });
-    
-    notes_group.clear();
-    line_group.clear();
+
+    return params[param];
   }
-  
-  function reset () {
-    main(planetA, planetB, distance);
+
+  function setUrlParams () {
+    const params = new URLSearchParams(window.location.search)
+    params.set('planetA', $('#planet1-selector').val() || '')
+    params.set('planetB', $('#planet2-selector').val() || '')
+    window.location.search = params;
   }
 }
 
