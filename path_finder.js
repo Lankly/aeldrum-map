@@ -219,6 +219,8 @@ function setupUI () {
   yOrigin = height;
   let planetA = planets[getUrlParam('planetA')] || planets["aeldrum"];
   let planetB = planets[getUrlParam('planetB')] || '';
+
+  const defaultTimeframe = $('#timeframe-selector').val();
   
   interactive = new Interactive("tree", {
     width: width,
@@ -338,8 +340,11 @@ function setupUI () {
     function generatePlanetSelectors () {      
       let selector1 = $("#planet1-selector");
       let selector2 = $("#planet2-selector");
+      let timeframeSelector = $('#timeframe-selector');
       
       selector2.append(`<option value="">N/A</option>`);
+
+      if (getUrlParam('timeframe')) timeframeSelector.val(getUrlParam('timeframe'));
       
       getPlanets()
         .sort((a, b) => {
@@ -351,7 +356,9 @@ function setupUI () {
           selector2.append(option);
         });
       selector1.val(planetA.name);
-      if (getUrlParam('planetB')) selector2.val(planets[getUrlParam('planetB')].name)
+      if (getUrlParam('planetB') && planets[getUrlParam('planetB')]){
+        selector2.val(planets[getUrlParam('planetB')].name)
+      }
       
       selector1.change((event) => {
         planetA = planets[selector1.val()];
@@ -363,30 +370,29 @@ function setupUI () {
         setUrlParams();
       });
 
+      timeframeSelector.change(setUrlParams);
+
       if (selector1.val() && selector2.val()) {
         main(planetA, planetB);
       }
     }
   }
 
-  function getUrlParam (param) {
-    const params = new Proxy(new URLSearchParams(window.location.search), {
-      get: (searchParams, prop) => searchParams.get(prop),
-    });
-
-    return params[param];
-  }
-
   function setUrlParams () {
-    const params = new URLSearchParams(window.location.search)
-    params.set('planetA', $('#planet1-selector').val() || '')
-    params.set('planetB', $('#planet2-selector').val() || '')
+    const params = new URLSearchParams(window.location.search);
+    params.set('planetA', $('#planet1-selector').val() || '');
+    params.set('planetB', $('#planet2-selector').val() || '');
+
+    const timeframeSelector = $('#timeframe-selector');
+    params.set('timeframe', timeframeSelector.val());
+    if (defaultTimeframe == timeframeSelector.val()) params.delete('timeframe');
+
     window.location.search = params;
   }
 }
 
 function fetchData (callback) {
-  let timeframe = $('#timeframe-selector').val();
+  let timeframe = getUrlParam('timeframe') || $('#timeframe-selector').val();
 
   $.ajax(`planets\\${timeframe}.json`, {
     dataType: "json",
@@ -435,4 +441,12 @@ function getPlanets () {
   return Object.keys(planets)
     .map((i) => planets[i])
     .filter((p) => !p.skip);
+}
+
+function getUrlParam (param) {
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
+
+  return params[param];
 }
