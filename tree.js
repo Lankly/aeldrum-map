@@ -247,6 +247,7 @@ function setupUI () {
     planet_names.forEach((name) => {
       distances[name] = {};
       const neighbors = getNeighbors(name);
+      if (name === 'harwel') { console.log(neighbors); }
       
       Object.keys(neighbors).forEach((neighborName) => {
         distances[name][neighborName] = {
@@ -277,6 +278,8 @@ function setupUI () {
       planet_names.forEach((i) => {
         planet_names.forEach((j) => {
           if ([i, j].includes(k) || i === j) { return; }
+
+          if (k === 'harwel' && i === 'messidor') { console.log(); }
           
           if (distances[i][k].distance + distances[k][j].distance < distances[i][j].distance) {
             distances[i][j].distance = distances[i][k].distance + distances[k][j].distance;
@@ -290,13 +293,14 @@ function setupUI () {
       let neighbor_lines = getLeylines().filter((l) => {
         return l.planets.some((p) => p.name === planetName);
       });
+      if (planetName === 'harwel') console.log('neighbor lines', neighbor_lines)
       
       let neighbors = {};
       neighbor_lines.forEach((leyline) => {
-        let prev_planet = leyline.planets[leyline.planets.length - 1];
         leyline.planets.forEach((p, i) => {
           if (p.name !== planetName) { return; }
             
+          let prev_planet = leyline.planets[(i || leyline.planets.length) - 1];
           let next_planet = (
             i === (leyline.planets.length - 1)
               ? leyline.planets[0]
