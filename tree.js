@@ -20,41 +20,8 @@ var flags = {
 var planets;
 var leylines;
 var powers;
-$.ajax("planets.json", {
-  dataType: "json",
-  success: function (data) {
-    planets = data;
-    Object.keys(planets).forEach((name) => planets[name].name = name);
-    
-    $.ajax("leylines.json", {
-      dataType: "json",
-      success: function (data) {
-        leylines = data;
-        
-        $.ajax("powers.json", {
-          dataType: "json",
-          success: function (data) {
-            powers = data;
-            Object.keys(powers).forEach((name) => powers[name].name = name);
-        
-            setupUI();
-          },
-          error: function (xhr, status, err) {
-            alert("Failed to download powers information!");
-            console.log(err);
-          }
-        });
-      },
-      error: function (xhr, status, err) {
-        alert("Failed to download leyline information!");
-        console.log(err);
-      }
-    });
-  },
-  error: function (xhr, status, err) {
-    alert("Failed to download planet information!");
-    console.log(err);
-  }
+fetchData(() => {
+  setupUI();
 });
 
 function main (planetA, planetB, distance) {
@@ -299,10 +266,11 @@ function setupUI () {
     });
     
     // for(let k = 1; k <= n; k++){
-    // for(let i = 1; i <= n; i++){
+    //   for(let i = 1; i <= n; i++){
     //     for(let j = 1; j <= n; j++){
     //         dist[i][j] = min( dist[i][j], dist[i][k] + dist[k][j] );
     //     }
+    //   }
     // }
     
     planet_names.forEach((k) => {
@@ -452,6 +420,47 @@ function setupUI () {
   function reset () {
     main(planetA, planetB, distance);
   }
+}
+
+function fetchData (callback) {
+  let timeframe = $('#timeframe-selector').val();
+
+  $.ajax(`planets\\${timeframe}.json`, {
+    dataType: "json",
+    success: function (data) {
+      planets = data;
+      Object.keys(planets).forEach((name) => planets[name].name = name);
+      
+      $.ajax(`leylines\\${timeframe}.json`, {
+        dataType: "json",
+        success: function (data) {
+          leylines = data;
+          
+          $.ajax(`powers\\${timeframe}.json`, {
+            dataType: "json",
+            success: function (data) {
+              powers = data;
+              Object.keys(powers).forEach((name) => powers[name].name = name);
+
+              if (callback) callback.call();
+            },
+            error: function (xhr, status, err) {
+              alert("Failed to download powers information!");
+              console.log(err);
+            }
+          });
+        },
+        error: function (xhr, status, err) {
+          alert("Failed to download leyline information!");
+          console.log(err);
+        }
+      });
+    },
+    error: function (xhr, status, err) {
+      alert("Failed to download planet information!");
+      console.log(err);
+    }
+  });
 }
 
 function getLeylines () {
