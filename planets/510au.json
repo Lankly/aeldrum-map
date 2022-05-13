@@ -166,6 +166,10 @@
     "gates_of_corrobel": {
       "full_name": "Gates of Corrobel"
     },
+    "gates_of_matthias": {
+      "full_name": "Gates of Matthias",
+      "group": true
+    },
     "genova": {
       "full_name": "Genova"
     },

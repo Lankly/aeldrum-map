@@ -598,6 +598,25 @@
         { "name": "Fialta Freebooters", "length": 1 },
         { "name": "Independent Worlds", "length": 1 }
       ]
+    },
+    "20": {
+      "aeldman_name": "Underspace",
+      "mage_imperium_name": "",
+      "region": "conduit",
+      "color": "tomato",
+      "darker_color": "maroon",
+      "skip": true,
+      "planets": [
+        { "name": "gates_of_matthias", "distance": 2 },
+        { "name": "telrion", "distance": "?", "notes": ["Underside", "To Imperial Space"] },
+        { "name": "nss_exclusion_zone", "distance": "?", "notes": ["Imputed"] }
+      ],
+      "controllers": [
+        { "name": "Independent Worlds", "length": 4 },
+        { "name": "Unexplored", "length": "?" },
+        { "name": "Independent Worlds", "length": 3 },
+        { "name": "Unexplored", "length": "?" }
+      ]
     }
   }
   
