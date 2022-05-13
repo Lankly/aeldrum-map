@@ -14,7 +14,8 @@
       "theater": true
     },
     "alusian_conduit": {
-      "full_name": "Greater Alusian Conduit"
+      "full_name": "Greater Alusian Conduit",
+      "type": "tunnel"
     },
     "alusian_directorates": {
       "full_name": "Alusian Directorates",
@@ -91,7 +92,8 @@
     },
     "crosslanes": {
       "full_name": "The Crosslanes",
-      "theater": true
+      "theater": true,
+      "type": "tunnel"
     },
     "del_mar": {
       "full_name": "Del'Mar",
@@ -138,7 +140,8 @@
       "theater": true
     },
     "folds": {
-      "full_name": "The Folds"
+      "full_name": "The Folds",
+      "type": "tunnel"
     },
     "forgotten_world": {
       "full_name": "The Forgotten World"
@@ -222,16 +225,20 @@
       "theater": true
     },
     "lanetouch": {
-      "full_name": "Lanetouch"
+      "full_name": "Lanetouch",
+      "type": "tunnel"
     },
     "lane_wrap_a": {
-      "full_name": "Lane Wrap A"
+      "full_name": "Lane Wrap A",
+      "type": "tunnel"
     },
     "lane_wrap_b": {
-      "full_name": "Lane Wrap B"
+      "full_name": "Lane Wrap B",
+      "type": "tunnel"
     },
     "lane_wrap_c": {
-      "full_name": "Lane Wrap C"
+      "full_name": "Lane Wrap C",
+      "type": "tunnel"
     },
     "lechtus": {
       "full_name": "Lectus",
@@ -284,7 +291,8 @@
     },
     "nippon_gates": {
       "full_name": "Nippon Gates",
-      "theater": true
+      "theater": true,
+      "group": true
     },
     "nss_exclusion_zone": {
       "full_name": "NSS Exclusion Zone",
@@ -336,7 +344,8 @@
       "full_name": "Resal"
     },
     "restored_pin_jump_route": {
-      "full_name": "Restored Pin-Jump Route"
+      "full_name": "Restored Pin-Jump Route",
+      "type": "tunnel"
     },
     "saldan": {
       "full_name": "Saldan",
@@ -417,7 +426,8 @@
       "full_name": "Turrene's World"
     },
     "upper_nippon_gates": {
-      "full_name": "Upper Nippon Gates"
+      "full_name": "Upper Nippon Gates",
+      "group": true
     },
     "urbos": {
       "full_name": "Urbos"

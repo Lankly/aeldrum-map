@@ -893,9 +893,9 @@ function main (focusPlanet) {
       group.append(star);
     }
     else if (type) {
+      let group = $(planet_control_point.root);
       switch (type) {
         case "object":
-          let group = $(planet_control_point.root);
           let square = $(document.createElementNS(ns, "rect"));
           square.attr("x", "-3.5");
           square.attr("y", "-3.5");
@@ -905,6 +905,8 @@ function main (focusPlanet) {
           square.attr("id", `${ group.attr("id") }-square`);
           
           group.append(square);
+          break;
+        case "tunnel":
           break;
       }
     }

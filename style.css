@@ -55,6 +55,11 @@ path {
   fill: transparent;
   stroke: transparent;
 }
+.tunnel > circle:first-child {
+  fill: white;
+  stroke: #0366ee;
+  stroke-width: 2px;
+}
 
 #main-container {
   position: absolute;
