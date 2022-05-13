@@ -565,6 +565,39 @@
         { "name": "Independent Worlds", "length": 4 },
         { "name": "Fialta Imperium", "length": 1 }
       ]
+    },
+    "19": {
+      "aeldman_name": "Island Lanes",
+      "mage_imperium_name": "",
+      "region": "conduit",
+      "color": "tomato",
+      "darker_color": "maroon",
+      "skip": true,
+      "planets": [
+        { "name": "lane_wrap_a", "distance": 2 },
+        { "name": "outer_marivan", "distance": 6 },
+        { "name": "tanvaal", "distance": 1 },
+        { "name": "lane_wrap_a", "distance": 10 },
+        { "name": "lane_wrap_b", "distance": 4 },
+        { "name": "neptine_duchy", "distance": 3 },
+        { "name": "lane_wrap_b", "distance": 10 },
+        { "name": "lane_wrap_c", "distance": 4 },
+        { "name": "sheb", "distance": 3 },
+        { "name": "lane_wrap_c", "distance": 1 }
+      ],
+      "controllers": [
+        { "name": "Independent Worlds", "length": 1 },
+        { "name": "Fialta Imperium", "length": 3 },
+        { "name": "Apostate Dukes / Freelords", "length": 3 },
+        { "name": "Outremer Kirvan Kingdoms", "length": 2 },
+        { "name": "Independent Worlds", "length": 11 },
+        { "name": "Apostate Dukes / Freelords", "length": 2 },
+        { "name": "Fialta Imperium", "length": 4 },
+        { "name": "Independent Worlds", "length": 11 },
+        { "name": "Empire of Dar'Asmad", "length": 5 },
+        { "name": "Fialta Freebooters", "length": 1 },
+        { "name": "Independent Worlds", "length": 1 }
+      ]
     }
   }
   

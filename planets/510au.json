@@ -220,6 +220,15 @@
     "lanetouch": {
       "full_name": "Lanetouch"
     },
+    "lane_wrap_a": {
+      "full_name": "Lane Wrap A"
+    },
+    "lane_wrap_b": {
+      "full_name": "Lane Wrap B"
+    },
+    "lane_wrap_c": {
+      "full_name": "Lane Wrap C"
+    },
     "lechtus": {
       "full_name": "Lectus",
       "theater": true
@@ -256,6 +265,9 @@
     },
     "na_sau": {
       "full_name": "Na'Sau"
+    },
+    "neptine_duchy": {
+      "full_name": "Grand Neptine Duchy"
     },
     "new_reilla": {
       "full_name": "New Reilla"
@@ -338,6 +350,9 @@
     "sevalne": {
       "full_name": "Sevalne",
       "theater": true
+    },
+    "sheb": {
+      "full_name": "Sheb"
     },
     "sidenia": {
       "full_name": "Sidenia"

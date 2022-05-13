@@ -193,7 +193,7 @@ function main (focusPlanet) {
       
       const starting_leyline_names = startingLeyline.planets.map((p) => p.name);
       const min_radius = 80;
-      const too_close_min = radius * 0.8;
+      const too_close_min = radius * 0.7;
       let best;
       
       getLeylines().filter((l) => !l.circle).forEach((leyline) => {
