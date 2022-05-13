@@ -336,7 +336,6 @@ function setupUI () {
     const max_controls_height = $("#tree-controls").height();
     
     generatePlanetSelectors();
-    generateSlider();
     
     function generatePlanetSelectors () {
       let planet1, planet2;
@@ -370,36 +369,6 @@ function setupUI () {
       });
       
       selector1.change();
-    }
-    
-    function generateSlider () {
-      let sliderInteractive = new Interactive("distance-slider", {
-        width: max_controls_width,
-        height: max_controls_height,
-        originX: 0,
-        originY: 0
-      });
-      
-      let distance_slider = sliderInteractive.slider(10, 10, { min: 0, max: 2, step: 1, value: distance });
-      
-      let distance_slider_text = sliderInteractive.text(distance_slider.width + 25, 15);
-      distance_slider_text.update = () => {
-        distance_slider_text.contents = `${ Math.floor(distance_slider.value) }`;
-      };
-      distance_slider_text.update();
-      
-      distance_slider_text.addDependency(distance_slider);
-      
-      distance_slider.onchange = () => {
-        const value = Math.floor(distance_slider.value);
-        if (value === distance) { return; }
-        
-        clearAll();
-        distance = value;
-        reset();
-        
-        distance_slider.updateDependents();
-      };
     }
   }
   
