@@ -37,7 +37,7 @@
       "planets": [
         { "name": "aeldrum", "distance": 10 },
         { "name": "brumaire", "distance": 2 },
-        { "name": "highvedlt", "distance": 18 },
+        { "name": "highveldt", "distance": 18 },
         { "name": "bishant", "distance": 23 }
       ],
       "controllers": [
@@ -65,7 +65,7 @@
         { "name": "mexico", "distance": 7 },
         { "name": "nippon_gates", "distance": 5, "notes": [ "To Celestial Space" ] },
         { "name": "brumaire", "distance": 9 },
-        { "name": "telrion", "distance": 3, "notes": [ "Unexplored leyline?" ] },
+        { "name": "telrion", "distance": 3 },
         { "name": "esvard", "distance": 12 }
       ],
       "controllers": [
@@ -75,7 +75,7 @@
         { "name": "Enclave Protectorates", "length": 4 },
         { "name": "Empire of Alusia", "length": 9 },
         { "name": "Shantine Empire", "length": 12 },
-        { "name": "Adarnum Bastions", "length": 3 },
+        { "name": "Veiled Masters", "length": 3 },
         { "name": "Shantine Empire", "length": 5 },
         { "name": "Vassal Dwarf Clans", "length": 4 },
         { "name": "Shantine Protectorates", "length": 2 },
@@ -107,7 +107,7 @@
         { "name": "enclave_outlet", "distance": 6 },
         { "name": "witch_haven", "distance": 5 },
         { "name": "enclave_outlet", "distance": 5 },
-        { "name": "highvedlt", "distance": 4 },
+        { "name": "highveldt", "distance": 4 },
         { "name": "lidenia", "distance": 2 }
       ],
       "controllers": [
@@ -211,7 +211,7 @@
         { "name": "hybern", "distance": 3 },
         { "name": "del_mar", "distance": 8 },
         { "name": "zanevuela", "distance": 2 },
-        { "name": "marivan", "distance": 1, "conduits": ["line_10__brass_gates"] },
+        { "name": "marivan", "distance": 1, "conduits": ["line_10__brass_gates"], "notes": ["To Celestial Space"] },
         { "name": "korinth", "distance": 12 },
         { "name": "fialt", "distance": 3 },
         { "name": "marivan", "distance": 3 },
@@ -225,7 +225,7 @@
         { "name": "Fialta Imperium", "length": 2 },
         { "name": "Shantine Empire", "length": 1 },
         { "name": "Fialta Imperium", "length": 17 },
-        { "name": "Serene Duchy of Aeldrum", "length": 1 },
+        { "name": "Republic of Semal", "length": 1 },
         { "name": "Thalranese Marches", "length": 12 }
       ]
     },
@@ -236,7 +236,7 @@
       "color": "lightskyblue",
       "darker_color": "deepskyblue",
       "planets": [
-        { "name": "celestial_gates", "distance": 4 },
+        { "name": "celestial_gates", "distance": 4, "notes": ["To Celestial Space"] },
         { "name": "mir_thalran", "distance": 0 },
         { "name": "resal", "distance": 2 },
         { "name": "tar_thalran", "distance": 18 },
@@ -249,14 +249,14 @@
       ],
       "controllers": [
         { "name": "Grand Celestial Confederacy", "length": 1 },
-        { "name": "Thalranese Subjugates", "length": 10 },
+        { "name": "Thalranese Marches", "length": 10 },
         { "name": "Orcish Directorate", "length": 5 },
         { "name": "Directorate Liberation Worlds", "length": 4 },
         { "name": "Serene Duchy of Aeldrum", "length": 17 },
-        { "name": "Semalese Republic", "length": 7 },
-        { "name": "Thalranese Subjugates", "length": 5 },
-        { "name": "Saldanese Exclusion Zone", "length": 5 },
-        { "name": "Thalranese Subjugates", "length": 2 }
+        { "name": "Republic of Semal", "length": 7 },
+        { "name": "Thalranese Marches", "length": 5 },
+        { "name": "Saldan", "length": 5 },
+        { "name": "Thalranese Marches", "length": 2 }
       ]
     },
     "9": {
@@ -274,17 +274,16 @@
         { "name": "bishant", "distance": 16 }
       ],
       "controllers": [
-        { "name": "Saldanese Protectorates", "length": 5 },
-        { "name": "Aeldman Commonwealth Worlds", "length": 3 },
-        { "name": "Independent Worlds", "length": 5 },
-        { "name": "Serene Duchy of Aeldrum", "length": 14 },
+        { "name": "Saldan", "length": 5 },
+        { "name": "Aeldman Commonwealth Worlds", "length": 10 },
+        { "name": "Serene Duchy of Aeldrum", "length": 8 },
         { "name": "Sermayan Trade League", "length": 3 },
         { "name": "Republic of Sermaye", "length": 7 },
-        { "name": "Saldanese Exclusion Zone", "length": 3 },
+        { "name": "Saldan", "length": 3 },
         { "name": "Shantine Empire", "length": 11 },
         { "name": "Knights of Adarnum", "length": 2 },
         { "name": "Dwarf Kingdom of Druz", "length": 8 },
-        { "name": "Saldanese Protectorates", "length": 1 }
+        { "name": "Saldan", "length": 1 }
       ]
     },
     "10": {
@@ -301,18 +300,18 @@
         { "name": "siet_filiki", "distance": 10 },
         { "name": "brass_gates", "distance": 19, "conduits": ["fialta__marivan"] },
         { "name": "tarim", "distance": 0 },
-        { "name": "witolm", "distance": 6, "notes": ["DMZ"] },
+        { "name": "witolm", "distance": 6 },
         { "name": "stitch", "distance": 17 },
         { "name": "carceri_tribes", "distance": 4 }
       ],
       "controllers": [
         { "name": "Outer Alusia", "length": 10 },
         { "name": "Fialta Freebooters", "length": 1 },
-        { "name": "Valdosian Colonies", "length": 18 },
+        { "name": "Valdosian Free State", "length": 18 },
         { "name": "Brass Cities", "length": 20 },
         { "name": "Grand Celestial Confederacy", "length": 1 },
         { "name": "Brass Cities", "length": 2 },
-        { "name": "Ascendancy-BCs DMZ", "length": 2 },
+        { "name": "Independent Worlds", "length": 2 },
         { "name": "Marches of the Ascendancy", "length": 14 },
         { "name": "Outer Alusia", "length": 8 }
       ]
@@ -333,14 +332,15 @@
         { "name": "limei", "distance": 5 },
         { "name": "stitch", "distance": 14 },
         { "name": "celestial_gates", "local_name": "Upper Nippon Gates", "distance": 2 },
-        { "name": "nippon_gates", "local_name": "Lower Nippon Gates", "distance": 8, "status": "Lower" },
+        { "name": "nippon_gates", "local_name": "Lower Nippon Gates", "distance": 8 },
         { "name": "great_aksai", "distance": 9 }
       ],
       "controllers": [
         { "name": "Serene Duchy of Aeldrum", "length": 1 },
         { "name": "Grand Celestial Confederacy", "length": 18 },
         { "name": "Princely State of Limei", "length": 3 },
-        { "name": "Nippon States", "length": 23 },
+        { "name": "Veiled Masters", "length": 22 },
+        { "name": "Fialta Freebooters", "length": 1 },
         { "name": "Aksai Chin", "length": 13 }
       ]
     },
@@ -372,7 +372,7 @@
         { "name": "Aksai Chin", "length": 7 },
         { "name": "Princely State of Kolong", "length": 2 },
         { "name": "Triad Princes", "length": 8 },
-        { "name": "Nippon States", "length": 17 }
+        { "name": "Veiled Masters", "length": 17 }
       ]
     },
     "13": {
@@ -387,35 +387,34 @@
         { "name": "folds", "distance": 1 },
         { "name": "volunes_seat", "distance": 2 },
         { "name": "folds", "distance": 9 },
-        { "name": "limei", "distance": 4 },
-        { "name": "middle_kingdom", "distance": 10 },
+        { "name": "limei", "distance": 14 },
         { "name": "aeldman_celestial_command", "distance": 1 },
-        { "name": "kolong", "distance": 11, "conduits": ["line_15__pin_jump"] },
+        { "name": "kolong", "distance": 6, "conduits": ["line_15__pin_jump"] },
+        { "name": "sied_thalran", "distance": 5 },
         { "name": "yushan", "distance": 7 },
         { "name": "kolong", "distance": 2 },
         { "name": "triad_exclaves", "distance": 3 },
-        { "name": "na_sau", "distance": 1 },
+        { "name": "na_sau", "distance": 1, "conduits": ["line_18__outer_marivan"] },
         { "name": "fialta_deep_ether_bases", "distance": 5 },
         { "name": "urbos", "distance": 5 },
-        { "name": "free_worlds", "distance": 4 },
-        { "name": "alusian_directorates", "distance": 4 },
+        { "name": "free_worlds", "distance": 8 },
         { "name": "lanetouch", "distance": 2 }
       ],
       "controllers": [
-        { "name": "Outer Alusia", "length": 6 },
+        { "name": "Outer Alusia", "length": 7 },
         { "name": "Middle Kingdom", "length": 13 },
-        { "name": "Princely State of Limei", "length": 3 },
+        { "name": "Princely State of Limei", "length": 4 },
         { "name": "Middle Kingdom", "length": 12 },
         { "name": "Serene Duchy of Aeldrum", "length": 1 },
         { "name": "Middle Kingdom", "length": 6 },
         { "name": "Fialta Freebooters", "length": 1 },
         { "name": "Princely State of Yushan", "length": 9 },
-        { "name": "Princely State of Kolong", "length": 3 },
+        { "name": "Princely State of Kolong", "length": 4 },
         { "name": "Triad Princes", "length": 2 },
         { "name": "Fialta Imperium", "length": 5 },
-        { "name": "Valdosian Colonies", "length": 8 },
+        { "name": "Valdosian Free State", "length": 8 },
         { "name": "Independent Worlds", "length": 1 },
-        { "name": "Outer Alusia", "length": 9 }
+        { "name": "Alusian Directorates", "length": 8 }
       ]
     },
     "14": {
@@ -434,15 +433,16 @@
         { "name": "folds", "distance": 17 },
         { "name": "nippon_gates", "local_name": "Lower Nippon Gates", "distance": 8 },
         { "name": "urbos", "distance": 3 },
-        { "name": "black_pyramid_site", "distance": 28 },
+        { "name": "black_pyramid_site", "distance": 28, "notes": ["Defunct"] },
         { "name": "lanetouch", "distance": 12 }
       ],
       "controllers": [
-        { "name": "Independent Worlds", "length": 1 },
+        { "name": "Knights of Adarnum", "length": 1 },
         { "name": "Brass Cities", "length": 7 },
         { "name": "Middle Kingdom", "length": 13 },
         { "name": "Ashgarate of New Nippon", "length": 13 },
-        { "name": "Valdosian Colonies", "length": 6 },
+        { "name": "Kingdom of Attan", "length": 3 },
+        { "name": "Valdosian Free State", "length": 3 },
         { "name": "Fialta Imperium", "length": 4 },
         { "name": "Fialta Freebooters", "length": 3 },
         { "name": "Marches of the Ascendancy", "length": 12 },
@@ -461,16 +461,16 @@
       "planets": [
         { "name": "pin_jump", "distance": 8, "conduits": ["line_10__restored_pin_jump_route", "line_13__kolong"], "notes": [ "To Imperial Space", "To Celestial Space" ] },
         { "name": "forgotten_world", "distance": 16 },
-        { "name": "mouth_of_shavar", "distance": 11 },
-        { "name": "anathemas_domain", "distance": 4 },
-        { "name": "bier", "distance": 7 },
+        { "name": "mouth_of_shavar", "distance": 7 },
+        { "name": "smugglers_run", "distance": 8 },
+        { "name": "bier", "distance": 4 },
+        { "name": "smugglers_run", "distance": 3 },
         { "name": "perfect_prince_renegades", "distance": 2 },
         { "name": "towers_of_the_naga", "distance": 1 },
         { "name": "turrenes_world", "distance": 2 },
         { "name": "towers_of_the_naga", "distance": 3 },
         { "name": "dustworld", "distance": 4 },
-        { "name": "gates_of_corrobel", "distance": 1 },
-        { "name": "corrobel_exclusion_zone", "distance": 6 },
+        { "name": "gates_of_corrobel", "distance": 7 },
         { "name": "palace_of_the_rainbow_serpent", "distance": "?" }
       ],
       "controllers": [
@@ -478,10 +478,10 @@
         { "name": "New Orcish Directorate", "length": 4 },
         { "name": "Serene Duchy of Aeldrum", "length": 4 },
         { "name": "Perfect Princes", "length": 6 },
-        { "name": "Smuggler's Run", "length": 14 },
-        { "name": "Lawless", "length": 4 },
+        { "name": "Anathama's Domain", "length": 14 },
+        { "name": "Perfect Prince Renegades", "length": 4 },
         { "name": "Naga Remnants", "length": 11 },
-        { "name": "Lawless", "length": 8 },
+        { "name": "Anathama's Domain", "length": 8 },
         { "name": "Unexplored", "length": "?" }
       ]
     },
@@ -518,12 +518,14 @@
       "darker_color": "maroon",
       "skip": true,
       "planets": [
-        { "name": "outer_lane", "distance": 11, "conduits": ["galthad__outer_lane"] },
+        { "name": "outer_lane", "distance": 11 },
         { "name": "tanvaal", "distance": 7 },
         { "name": "orestes", "distance": "?" },
+        { "name": "dar_asmad", "distance": 4, "notes": ["Rumored Location"] },
+        { "name": "andramal", "distance": 4 },
         { "name": "orestes", "distance": 3 },
-        { "name": "crosslanes", "distance": 1 },
-        { "name": "free_worlds", "distance": 7 },
+        { "name": "conduit_crosslanes", "distance": 1 },
+        { "name": "free_worlds_1", "distance": 7 },
         { "name": "new_sierna", "distance": 4 },
         { "name": "free_worlds_2", "distance": 9 }
       ],
@@ -532,6 +534,7 @@
         { "name": "Outremer Kirvan Kingdoms", "length": 18 },
         { "name": "Labyrinthworlds", "length": 6 },
         { "name": "Unexplored", "length": "?" },
+        { "name": "Empire of Dar'Asmad", "length": 4 },
         { "name": "Outremer Kirvan Kingdoms", "length": 2 },
         { "name": "Independent Worlds", "length": 4 },
         { "name": "Outer Alusia", "length": 8 },
@@ -546,12 +549,12 @@
       "darker_color": "maroon",
       "skip": true,
       "planets": [
-        { "name": "outer_marivan", "distance": 9 },
+        { "name": "outer_marivan", "distance": 9, "conduits": ["line_13__na_sau"] },
         { "name": "religious_exile_colonies", "distance": 5 },
         { "name": "free_worlds_3", "distance": 15 },
         { "name": "alusian_allied_states", "distance": 6 },
         { "name": "alusian_merchant_protectorates", "distance": 4 },
-        { "name": "crosslanes", "distance": 4 },
+        { "name": "conduit_crosslanes", "distance": 4 },
         { "name": "free_worlds_4", "distance": 10 }
       ],
       "controllers": [
@@ -586,17 +589,17 @@
         { "name": "lane_wrap_c", "distance": 1 }
       ],
       "controllers": [
-        { "name": "Independent Worlds", "length": 1 },
+        { "name": "Empty Space", "length": 1 },
         { "name": "Fialta Imperium", "length": 3 },
         { "name": "Apostate Dukes / Freelords", "length": 3 },
         { "name": "Outremer Kirvan Kingdoms", "length": 2 },
-        { "name": "Independent Worlds", "length": 11 },
+        { "name": "Empty Space", "length": 11 },
         { "name": "Apostate Dukes / Freelords", "length": 2 },
         { "name": "Fialta Imperium", "length": 4 },
-        { "name": "Independent Worlds", "length": 11 },
+        { "name": "Empty Space", "length": 11 },
         { "name": "Empire of Dar'Asmad", "length": 5 },
         { "name": "Fialta Freebooters", "length": 1 },
-        { "name": "Independent Worlds", "length": 1 }
+        { "name": "Empty Space", "length": 1 }
       ]
     },
     "20": {
@@ -608,13 +611,12 @@
       "skip": true,
       "planets": [
         { "name": "gates_of_matthias", "distance": 2 },
-        { "name": "telrion", "distance": "?", "notes": ["Underside", "To Imperial Space"] },
-        { "name": "nss_exclusion_zone", "distance": "?", "notes": ["Imputed"] }
+        { "name": "telrion", "distance": "?", "notes": ["Underside", "To Imperial Space"] }
       ],
       "controllers": [
         { "name": "Independent Worlds", "length": 4 },
         { "name": "Unexplored", "length": "?" },
-        { "name": "Independent Worlds", "length": 3 },
+        { "name": "Hoards of the Unnamed", "length": 3 },
         { "name": "Unexplored", "length": "?" }
       ]
     }

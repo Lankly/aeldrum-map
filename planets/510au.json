@@ -39,6 +39,10 @@
     "anathemas_domain": {
       "full_name": "Anathema's Domain"
     },
+    "andramal": {
+      "full_name": "Cult Cities of Andramal",
+      "group": true
+    },
     "antenil": {
       "full_name": "Antenil"
     },
@@ -55,7 +59,7 @@
       "theater": true
     },
     "black_pyramid_site": {
-      "full_name": "Black Pryamid Site (defunct)",
+      "full_name": "Black Pryamid Site",
       "type": "object"
     },
     "brass_gates": {
@@ -94,6 +98,13 @@
       "full_name": "The Crosslanes",
       "theater": true,
       "type": "tunnel"
+    },
+    "conduit_crosslanes": {
+      "full_name": "The Conduit Crosslanes",
+      "type": "tunnel"
+    },
+    "dar_asmad": {
+      "full_name": "Dar'Asmad"
     },
     "del_mar": {
       "full_name": "Del'Mar",
@@ -187,14 +198,15 @@
       "full_name": "Great Aksai"
     },
     "gul_dan": {
-      "full_name": "Gul'Dan"
+      "full_name": "Gul'Dan",
+      "group": true
     },
     "harwel": {
       "full_name": "Harwel",
       "theater": true
     },
-    "highvedlt": {
-      "full_name": "Highvedlt",
+    "highveldt": {
+      "full_name": "Highveldt",
       "theater": true
     },
     "hilland": {
@@ -302,7 +314,8 @@
         "full_name": "Orestes"
     },
     "outer_marivan": {
-        "full_name": "Grand Duchy of Outer Marivan"
+        "full_name": "Grand Duchy of Outer Marivan",
+        "group": true
     },
     "outer_lane": {
         "full_name": "The Outer Lane"
@@ -378,11 +391,18 @@
       "full_name": "Siet'Filiki",
       "theater": true
     },
+    "sied_thalran": {
+      "full_name": "Sied'Thalran"
+    },
     "sigvalds_court": {
       "full_name": "Sigvald's Court"
     },
     "sivella": {
       "full_name": "Sivella"
+    },
+    "smugglers_run": {
+      "full_name": "Smuggler's Run",
+      "type": "tunnel"
     },
     "station": {
       "full_name": "The Station",

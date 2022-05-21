@@ -67,6 +67,13 @@
         "great_aksai"
       ]
     },
+    "Alusian Directorates": {
+      "color": "#6aa84f",
+      "darker_color": "darkgreen",
+      "parent": "Outer Alusia",
+      "owned_planets": [
+      ]
+    },
     "Alusian Subjugates": {
       "color": "#6aa84f",
       "darker_color": "darkgreen",
@@ -75,19 +82,18 @@
         "alusian_subjugates"
       ]
     },
+    "Anathama's Domain": {
+      "color": "darkviolet",
+      "darker_color": "indigo"
+    },
     "Apostate Dukes / Freelords": {
       "color": "cornflowerblue",
       "darker_color": "darkslateblue"
     },
-    "Ascendancy-BCs DMZ": {
-      "color": "gray",
-      "darker_color": "dimgray",
-      "owned_planets": [
-      ]
-    },
     "Ashgarate of New Nippon": {
       "color": "#7f6000",
       "darker_color": "black",
+      "parent": "Veiled Masters",
       "owned_planets": [
       ]
     },
@@ -201,10 +207,21 @@
       "color": "gray",
       "darker_color": "darkgray"
     },
+    "Hoards of the Unnamed": {
+      "color": "darkorchid",
+      "darker_color": "darkmagenta"
+    },
     "Istomir": {
       "color": "palevioletred",
       "darker_color": "violetred",
       "minor": true
+    },
+    "Kingdom of Attan": {
+      "color": "cadetblue",
+      "darker_color": "darkcyan",
+      "minor": true,
+      "owned_planets": [
+      ]
     },
     "Kingdom of Bec": {
       "color": "magenta",
@@ -272,14 +289,6 @@
       "color": "darkgrey",
       "darker_color": "black",
       "owned_planets": [
-      ]
-    },
-    "Nippon States": {
-      "color": "#f4b083",
-      "darker_color": "brown",
-      "owned_planets": [
-        "bastions",
-        "nippon_gates"
       ]
     },
     "Orcish Directorate": {
@@ -367,6 +376,13 @@
         "chelonia"
       ]
     },
+    "Republic of Semal": {
+      "color": "maroon",
+      "darker_color": "black",
+      "secondary": true,
+      "owned_planets": [
+      ]
+    },
     "Republic of Sermaye": {
       "color": "#5b9bd5",
       "darker_color": "darkblue",
@@ -383,7 +399,7 @@
         "telrion"
       ]
     },
-    "Saldanese Exclusion Zone": {
+    "Saldan": {
       "color": "#e69138",
       "darker_color": "orange",
       "owned_planets": [
@@ -394,7 +410,7 @@
     "Saldanese Protectorates": {
       "color": "peru",
       "darker_color": "orange",
-      "parent": "Saldanese Exclusion Zone",
+      "parent": "Saldan",
       "owned_planets": [
         "saldan"
       ]
@@ -501,7 +517,7 @@
       "color": "#ed7d31",
       "darker_color": "brown"
     },
-    "Valdosian Colonies": {
+    "Valdosian Free State": {
       "color": "red",
       "darker_color": "brown",
       "minor": true
@@ -511,6 +527,14 @@
       "darker_color": "indigo",
       "parent": "Shantine Protectorates",
       "minor": true
+    },
+    "Veiled Masters": {
+      "color": "#f4b083",
+      "darker_color": "brown",
+      "owned_planets": [
+        "bastions",
+        "nippon_gates"
+      ]
     }
   }
   
