@@ -1,5 +1,5 @@
 'use strict'
-import Interactive from "https://vectorjs.org/interactive.js";
+import Interactive from "https://rawcdn.githack.com/vector-js/vector/be81706841301b8697994b3af08f3e02954f3483/dist/interactive.js";
 
 // Set in setupUI
 var interactive, arc_group, circle_group, text_group, notes_group;
